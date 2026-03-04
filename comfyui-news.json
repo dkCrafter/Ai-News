@@ -615,6 +615,17 @@
       "subcats": []
     },
     {
+      "id": "Inpaint",
+      "name": "Inpaint",
+      "color": "#0891b2",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Video",
+        "LoRA"
+      ]
+    },
+    {
       "id": "모델",
       "name": "모델",
       "color": "#4f46e5",
@@ -634,17 +645,6 @@
       "color": "#c026d3",
       "builtin": true,
       "subcats": []
-    },
-    {
-      "id": "Inpaint",
-      "name": "Inpaint",
-      "color": "#0891b2",
-      "builtin": true,
-      "subcats": [
-        "Image",
-        "Video",
-        "LoRA"
-      ]
     },
     {
       "id": "Tracking",
