@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "Just Dub it",
+      "desc": "JUST-DUB-IT (Tel Aviv University, Lightrick): Video Dubbing via Joint Audio-Visual Diffusion\n경량 LoRA를 통해 기초 오디오-비디오 확산 모델을 영상-영상 더빙에 적용하는 단일 모델 접근법을 제안. 단일 클립 내에서 언어 전환이 포함된 다국어 영상을 생성한 후, 각 반쪽의 얼굴과 오디오를 상대 반쪽의 언어에 맞춰 보정. Heygen 등 기존 더빙 대비 향상된 시각적 충실도, 입술 동기화 및 견고성을 갖춘 고품질 더빙 영상을 생성함. 코드 공개 예정. \nJUST-DUB-IT: Video Dubbing via Joint Audio-Visual Diffusion (2601, Tel Aviv University, Lightrick)\npaper: https://arxiv.org/abs/2601.22143\nproject: https://justdubit.github.io/\ncode : https://github.com/justdubit/just-dub-it (soon)",
+      "cat": "모델",
+      "subcat": "Audio",
+      "date": "2026-03-04",
+      "link": "https://justdubit.github.io/?fbclid=IwY2xjawQU911leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHop-daGRdakpXv2BKEVeWjsbiC0s6hdH-0WEsbYqG8Xb6VDkmxKFmYkolXhq_aem_VASdAIw05dFLoxerdJKvrg",
+      "thumb": "",
+      "id": 1772623978579,
+      "liked": false
+    },
+    {
       "title": "Simpleseg (segments to roto point)",
       "desc": "SimpleSeg (MoonshotAI Kimi Team), Pixel-Level VLM Perception via Simple Points Prediction \n다중 모달 대규모 언어 모델(MLLM)에 본질적인 픽셀 수준 인지 능력을 부여하는 놀라울 정도로 단순하면서도 매우 효과적인 접근법 제안. 공간 내에서 직접 객체 경계를 묘사하는 점 시퀀스(텍스트 좌표)를 예측. 텍스트 지시를 통한 Complex Object Segmentation, Detail Recognition, Image Domain Generalization, Box region Segmentain 등이 가능(아래 첨부 예제 참고). \n세그멘테이션(segmentaion) 벤치마크에서 복잡한 작업 특화 설계에 의존하는 방법들과 비교해 동등하거나 종종 더 우수한 성능 달성. 정밀한 공간 이해가 단순한 점 예측에서 도출될 수 있음을 제시하며, 강력한 VLM(Vision Language Model)의 길을 열어줌. SimpleSeg-Kimi-VL 및 SimpleSeg-Qwen2.5-VL 오픈소스(mit license) 공개. \nSimpleSeg: Towards Pixel-Level VLM Perception via Simple Points Prediction (2601, Moonshot AI Kimi Team, Nanjing University)\nproject: https://simpleseg.github.io/\npaper: https://arxiv.org/abs/2601.19228\nmodel: https://huggingface.co/collections/sthui/simpleseg\ncode : https://github.com/songtianhui/SimpleSeg",
       "cat": "Roto",
