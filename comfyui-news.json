@@ -504,9 +504,10 @@
       "title": "ATI (Any Trajectory Instruction) — 드로잉으로 모션 지시",
       "desc": "영상 위에 경로를 그리면 객체가 해당 궤적대로 움직이는 모션 제어 모델. Wan 2.1 기반. 멀티 스플라인으로 여러 객체 동시 제어 가능. VFX 프리비즈·오브젝트 애니메이션에 유용.",
       "cat": "Tracking",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "link": "https://anytraj.github.io/",
       "date": "2025-09-01",
-      "liked": false
+      "liked": false,
+      "thumb": ""
     },
     {
       "id": 55,
