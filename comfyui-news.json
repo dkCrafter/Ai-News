@@ -1,0 +1,762 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "ComfyUI v0.15.0 정식 릴리즈",
+      "desc": "BBox 위젯, GLSL 셰이더 노드, ElevenLabs TTS API 노드 등 다수 신규 노드 추가. Gemma3·Qwen3 네이티브 텍스트 생성 지원.",
+      "cat": "업데이트",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 2,
+      "title": "GLSL 셰이더 노드 추가",
+      "desc": "PyOpenGL 기반 GLSL 셰이더를 ComfyUI 워크플로우에서 직접 사용 가능.",
+      "cat": "AOV",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false,
+      "subcat": "Relight"
+    },
+    {
+      "id": 3,
+      "title": "Seedream 5.0 Lite — ComfyUI 공식 지원",
+      "desc": "ByteDance의 Seedream 5.0 Lite 이미지 생성 모델이 ComfyUI에 정식 통합됐어요.",
+      "cat": "모델",
+      "subcat": "Image",
+      "link": "https://www.comfy.org",
+      "date": "2026-02-25",
+      "liked": false,
+      "thumb": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=225&fit=crop"
+    },
+    {
+      "id": 4,
+      "title": "Recraft V4 노드 추가",
+      "desc": "디자인·일러스트 특화 Recraft V4 API 노드가 ComfyUI에 추가됐습니다.",
+      "cat": "모델",
+      "subcat": "Image",
+      "link": "https://www.comfy.org",
+      "date": "2026-02-18",
+      "liked": false
+    },
+    {
+      "id": 5,
+      "title": "Rodin Gen-2 (이미지→3D) 지원",
+      "desc": "이미지에서 고품질 3D 에셋을 생성하는 Rodin Gen-2 노드 추가.",
+      "cat": "모델",
+      "subcat": "3D",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 6,
+      "title": "Topaz 비디오 향상 API 노드",
+      "desc": "Topaz Labs 비디오 업스케일·향상 API를 ComfyUI에서 직접 사용 가능.",
+      "cat": "Upscale",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false,
+      "thumb": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=225&fit=crop",
+      "subcat": "Video"
+    },
+    {
+      "id": 7,
+      "title": "Kling v2.1 비디오 생성 노드",
+      "desc": "Kling AI v2.1 비디오 생성 노드 추가. 모션 품질과 일관성이 크게 향상됐어요.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 8,
+      "title": "NAG (Noise-Aware Guidance) 전 모델 적용",
+      "desc": "Flux 코드 기반 NAG가 전체 모델로 확장됐어요.",
+      "cat": "업데이트",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 9,
+      "title": "LoRA 로딩 개선 — Qwen / Lycoris / Omnigen2",
+      "desc": "Qwen Image 모델 LoRA 로딩 및 머징 개선. Lycoris LoRA 호환성 확장.",
+      "cat": "LoRA",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 10,
+      "title": "AMD ROCm 7.1.1 네이티브 통합",
+      "desc": "AMD GPU 사용자를 위한 ROCm 7.1.1 공식 지원.",
+      "cat": "업데이트",
+      "link": "https://blog.comfy.org/p/official-amd-rocm-support-arrives",
+      "date": "2026-02-20",
+      "liked": false
+    },
+    {
+      "id": 11,
+      "title": "Moment Factory — 3D 프로젝션 매핑 케이스 스터디",
+      "desc": "Moment Factory가 ComfyUI로 대규모 건축물 프로젝션 매핑 워크플로우를 재구성한 사례 공개.",
+      "cat": "CleanPlate",
+      "link": "https://blog.comfy.org/p/case-study-how-moment-factory-reimagined",
+      "date": "2026-02-26",
+      "liked": false,
+      "subcat": "Video"
+    },
+    {
+      "id": 12,
+      "title": "LTX Video 2.0 fp8 체크포인트 지원",
+      "desc": "LTX Video 2.0 fp8 체크포인트 로딩 이슈 수정 및 안정 지원.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 13,
+      "title": "KlingAvatar — 얼굴 일관성 비디오 생성",
+      "desc": "인물 사진에서 일관된 얼굴 정체성을 유지하며 애니메이션 생성 가능.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 14,
+      "title": "ElevenLabs TTS API 노드",
+      "desc": "ElevenLabs 텍스트-음성 변환 API가 ComfyUI 노드로 통합됐어요.",
+      "cat": "모델",
+      "subcat": "Audio",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 15,
+      "title": "Kling 3.0 ComfyUI 파트너 노드 출시",
+      "desc": "멀티샷 한 번에 생성, 15초 영상, 다국어 대화, 온스크린 텍스트 렌더링 등 Kling 3.0 전 기능을 ComfyUI 워크플로우에서 바로 사용 가능.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://blog.comfy.org/p/kling-30-models-are-now-available",
+      "date": "2026-02-10",
+      "liked": false
+    },
+    {
+      "id": 16,
+      "title": "Wan 2.2 오픈소스 공개 — ComfyUI 네이티브 지원",
+      "desc": "Alibaba의 Wan 2.2가 MoE 아키텍처 기반으로 출시. 고품질 영상 생성, 영화급 미학 제어, 복잡한 모션 생성 지원. ComfyUI에 네이티브 통합되어 템플릿 제공.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://comfyui-wiki.com/en/tutorial/advanced/video/wan2.2/wan2-2",
+      "date": "2026-02-13",
+      "liked": false
+    },
+    {
+      "id": 17,
+      "title": "Series Entertainment — Netflix 타이틀 제작에 ComfyUI 활용",
+      "desc": "Series Entertainment가 ComfyUI로 여러 Netflix 타이틀에서 10만+ 에셋을 제작한 사례 공개. 감정적 스토리텔링을 대규모로 확장하는 워크플로우 소개.",
+      "cat": "CleanPlate",
+      "link": "https://www.comfy.org/",
+      "date": "2026-02-20",
+      "liked": false,
+      "subcat": "Video"
+    },
+    {
+      "id": 18,
+      "title": "NVIDIA RTX × ComfyUI — 4K AI 영상 생성 최적화",
+      "desc": "NVIDIA가 ComfyUI와 협력해 RTX GPU 성능을 40% 향상. NVFP4 포맷으로 VRAM 60% 절감, 속도 3배 향상. RTX Video 노드로 4K 업스케일 지원.",
+      "cat": "업데이트",
+      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/",
+      "date": "2026-01-06",
+      "liked": false
+    },
+    {
+      "id": 19,
+      "title": "ComfyUI v0.8.0 — LTX Video 2.0 & NVFP4 지원",
+      "desc": "LTX Video 2.0(LTXV 2) 모델 추가, NVFP4 체크포인트 지원(fp4 행렬 연산), Sage Attention 3, Kling Omni 720p, WAN2.6 ReferenceToVideo API 노드 추가.",
+      "cat": "업데이트",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2026-01-07",
+      "liked": false
+    },
+    {
+      "id": 20,
+      "title": "ComfyUI v0.8.1 — Gemma 12B & LTXAV 개선",
+      "desc": "Gemma 12B 양자화 모델 지원 추가. LTXAV 텍스트 인코더 VRAM 사용량 절감, FP8MM 오프로딩 성능 수정, PyTorch cu130 업그레이드 권장.",
+      "cat": "업데이트",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2026-01-08",
+      "liked": false
+    },
+    {
+      "id": 21,
+      "title": "Wan 2.2 Animate — 캐릭터 애니메이션 프레임워크",
+      "desc": "Alibaba Tongyi Lab의 Wan-Animate 출시. Wan2.2 기반 통합 캐릭터 애니메이션 프레임워크로 캐릭터 애니메이션 생성 및 영상 속 캐릭터 교체 지원. 모델 가중치·코드 오픈소스.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://comfyui-wiki.com/en/news",
+      "date": "2026-02-18",
+      "liked": false
+    },
+    {
+      "id": 22,
+      "title": "ACE Step 1.5 — 텍스트→음악 생성 ComfyUI 지원",
+      "desc": "ACE Step 1.5 텍스트-뮤직 생성 모델 ComfyUI 통합. 터보 AIO 체크포인트 제공, min_p 샘플링, LLM 샘플링 옵션, 레퍼런스 오디오 지원.",
+      "cat": "모델",
+      "subcat": "Audio",
+      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
+      "date": "2026-02-26",
+      "liked": false
+    },
+    {
+      "id": 23,
+      "title": "ComfyUI v0.14.1 — Recraft V4 & ViduQ3 Turbo",
+      "desc": "Recraft V4 창작 워크플로우 노드 추가, ViduQ3 Turbo 모델 지원. Gemini/Nano Banana API 노드 빈 이미지 반환 버그 수정.",
+      "cat": "업데이트",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2026-02-17",
+      "liked": false
+    },
+    {
+      "id": 24,
+      "title": "Stable Video Infinity 2.0 Pro — Wan 2.2 기반 무한 길이 영상",
+      "desc": "SVI 2.0 Pro 출시. Wan 2.2 기반으로 ComfyUI에서 무한 길이 영상 생성 가능. HIGH/LOW 버전 LoRA 제공, 장면 전환 및 일관성 대폭 개선.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://comfyui-wiki.com/en/news/2025-12-27-svi-2-0-pro-wan-2-2-release",
+      "date": "2026-01-29",
+      "liked": false
+    },
+    {
+      "id": 25,
+      "title": "Wan 2.2 S2V — 사진+오디오→영상 생성",
+      "desc": "Wan2.2-S2V 모델 출시. 정지 이미지와 오디오 파일 한 장으로 대화·노래·퍼포먼스 영상 생성 지원. 립싱크 정확도 대폭 향상.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://comfyui-wiki.com/en/news",
+      "date": "2026-02-15",
+      "liked": false
+    },
+    {
+      "id": 26,
+      "title": "Nano Banana 2 — ComfyUI 파트너 노드 추가",
+      "desc": "Nano Banana 2가 ComfyUI 파트너 노드로 출시. 향상된 처리 능력으로 이미지·영상 생성 워크플로우 확장.",
+      "cat": "업데이트",
+      "link": "https://blog.comfy.org/",
+      "date": "2026-02-22",
+      "liked": false
+    },
+    {
+      "id": 27,
+      "title": "Flux 2 + NVFP4/FP8 — VRAM 대폭 절감",
+      "desc": "Black Forest Labs Flux 2 모델에 NVFP4 체크포인트 지원 추가. RTX 50 시리즈에서 VRAM 60% 절감·속도 3배 향상. FP8 포맷으로도 30~40% VRAM 절감 가능.",
+      "cat": "모델",
+      "subcat": "Image",
+      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/",
+      "date": "2026-01-06",
+      "liked": false
+    },
+    {
+      "id": 28,
+      "title": "Wan 2.6 — 멀티샷 스토리텔링 & 오디오 동기화",
+      "desc": "Wan 2.6 API 노드 ComfyUI 통합. 캐릭터 주연, 멀티샷 스토리텔링, 오디오 싱크 영상 생성, 멀티 이미지 컨트롤 지원.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://blog.comfy.org/p/new-template-library-and-partner",
+      "date": "2025-12-19",
+      "liked": false
+    },
+    {
+      "id": 29,
+      "title": "ComfyUI Nodes 2.0 퍼블릭 베타 & 서브그래프",
+      "desc": "v0.3.76 업데이트로 Nodes 2.0 UI 퍼블릭 베타 공개. 리니어 모드 베타, 서브그래프 개선, 새 워크플로우 진행 패널, 에셋 사이드바 추가.",
+      "cat": "업데이트",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2025-12-02",
+      "liked": false
+    },
+    {
+      "id": 30,
+      "title": "Z-Image (Alibaba PAI) — ComfyUI 통합",
+      "desc": "Alibaba PAI 팀의 Z-Image 시리즈 ComfyUI 통합. NVFP4 체크포인트, ControlNet Union, LoRA 학습 지원. 이미지 생성 품질 대폭 향상.",
+      "cat": "모델",
+      "subcat": "Image",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2025-11-26",
+      "liked": false
+    },
+    {
+      "id": 31,
+      "title": "ComfyUI v0.15.0 릴리즈",
+      "desc": "BBox 위젯, 3밴드 EQ 노드, Gemma3/Qwen3 텍스트 생성, GLSL 셰이더, ElevenLabs TTS API 노드, SplitImageToTileList 노드 등 대규모 기능 추가.",
+      "cat": "업데이트",
+      "subcat": "",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 32,
+      "title": "Kling 3.0 ComfyUI 파트너 노드 출시",
+      "desc": "멀티샷 한 번에 생성, 샷별 길이 지정, 15초 영상, 한/영/일/중/스페인어 다국어 대화 지원. 스토리보드 수준의 영상 제작 가능.",
+      "cat": "모델",
+      "subcat": "",
+      "link": "https://blog.comfy.org/p/kling-30-models-are-now-available",
+      "date": "2026-02-10",
+      "liked": false
+    },
+    {
+      "id": 33,
+      "title": "Seedream 5.0 Lite — ComfyUI 공식 지원",
+      "desc": "ByteDance Seedream 5.0 Lite 모델이 ComfyUI에 추가됨. API 노드로 바로 사용 가능. 이미지 생성 품질 크게 향상.",
+      "cat": "모델",
+      "subcat": "Image",
+      "link": "https://www.comfy.org/",
+      "date": "2026-02-25",
+      "liked": false
+    },
+    {
+      "id": 34,
+      "title": "Nano Banana 2 — ComfyUI 통합",
+      "desc": "Nano Banana 2 모델이 ComfyUI 파트너 노드로 추가됨. 기존 Gemini/Nano Banana API 노드의 빈 이미지 반환 버그도 동시 수정.",
+      "cat": "업데이트",
+      "subcat": "",
+      "link": "https://www.comfy.org/",
+      "date": "2026-02-28",
+      "liked": false
+    },
+    {
+      "id": 35,
+      "title": "Subgraph 기능 공식 출시",
+      "desc": "복잡한 노드 조합을 하나의 재사용 가능한 서브그래프 노드로 패키징. 노드 라이브러리에 퍼블리시해서 커스텀 노드처럼 사용 가능. 워크플로우 모듈화 대폭 향상.",
+      "cat": "업데이트",
+      "subcat": "",
+      "link": "https://docs.comfy.org/interface/features/subgraph",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 36,
+      "title": "ComfyUI 첫 번째 위클리 챌린지 시작",
+      "desc": "ComfyUI Wiki가 첫 위클리 챌린지 개최. 제공된 뎁스맵으로 고양이 인간 캐릭터 턴어라운드 영상 제작. 상금 $100.",
+      "cat": "기타",
+      "subcat": "",
+      "link": "https://comfyui-wiki.com/en/news",
+      "date": "2026-03-01",
+      "liked": false
+    },
+    {
+      "id": 37,
+      "title": "Wan 2.2 5B Fun Control/Inpaint 지원",
+      "desc": "Wan2.2 5B Fun Control 모델과 Fun Inpaint 모델이 ComfyUI에 통합. 영상 생성의 고급 크리에이티브 컨트롤 가능.",
+      "cat": "모델",
+      "subcat": "Video",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2026-02-24",
+      "liked": false
+    },
+    {
+      "id": 38,
+      "title": "Qwen-Image 20B 네이티브 지원",
+      "desc": "Alibaba의 20B 파라미터 MMDiT 이미지 모델 Qwen-Image가 ComfyUI에 네이티브 지원. 복잡한 텍스트 렌더링과 정밀 편집에 특화. FP8 체크포인트 지원.",
+      "cat": "모델",
+      "subcat": "Image",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2026-02-01",
+      "liked": false
+    },
+    {
+      "id": 39,
+      "title": "InfiniteTalk — 무제한 길이 립싱크 영상",
+      "desc": "MeiGen-AI의 InfiniteTalk 모델이 ComfyUI WanVideo Wrapper에 통합. 사진 1장 + 오디오로 무제한 길이의 자연스러운 립싱크 영상 생성. Apache 2.0.",
+      "cat": "모델",
+      "subcat": "",
+      "link": "https://comfyui-wiki.com/en/news/2025-08-20-infinitetalk-audio-driven-video-generation",
+      "date": "2026-02-15",
+      "liked": false
+    },
+    {
+      "id": 40,
+      "title": "FLUX.1 Fill (Dev) — 공식 Inpaint 모델 출시",
+      "desc": "Black Forest Labs의 FLUX.1 Tools 중 하나. 텍스트 프롬프트 + 바이너리 마스크로 이미지 자연스럽게 채우기/확장. Ideogram 2.0 벤치마크 성능 초월. ComfyUI 네이티브 지원.",
+      "cat": "Inpaint",
+      "subcat": "Image",
+      "link": "https://bfl.ai/flux-1-tools/",
+      "date": "2025-07-01",
+      "liked": false
+    },
+    {
+      "id": 41,
+      "title": "LanPaint — 학습 없이 모든 모델에 Inpaint",
+      "desc": "Flux, HiDream, SD 3.5, SDXL, Wan2.2, Qwen Image 등 어떤 모델이든 추가 학습 없이 고품질 인페인팅/아웃페인팅 가능. ComfyUI KSampler처럼 사용. Apache 2.0.",
+      "cat": "Inpaint",
+      "subcat": "Image",
+      "link": "https://github.com/scraed/LanPaint",
+      "date": "2025-08-01",
+      "liked": false
+    },
+    {
+      "id": 42,
+      "title": "DiffuEraser — 영상 객체 제거 Inpaint 모델",
+      "desc": "Alibaba Tongyi Lab의 비디오 인페인팅 확산 모델. 삭제된 영역을 자연스러운 콘텐츠로 복원하고 프레임 간 시간적 일관성 유지. SAM2 자동 마스크 생성 지원. Apache 2.0.",
+      "cat": "Inpaint",
+      "subcat": "Video",
+      "link": "https://github.com/lixiaowen-xw/DiffuEraser",
+      "date": "2025-07-10",
+      "liked": false
+    },
+    {
+      "id": 43,
+      "title": "HiDream E1.1 — 이미지 편집/Inpaint 모델 업데이트",
+      "desc": "HiDream-ai의 지시 기반 이미지 편집 모델 E1.1 오픈소스 공개. 마스크 없이 텍스트 프롬프트만으로 이미지 수정. MIT 라이선스. ComfyUI 공식 지원.",
+      "cat": "Inpaint",
+      "subcat": "Image",
+      "link": "https://huggingface.co/HiDream-ai/HiDream-I1-Full",
+      "date": "2025-07-16",
+      "liked": false
+    },
+    {
+      "id": 44,
+      "title": "Wan 2.2 5B Fun Inpaint — 영상 인페인팅 모델",
+      "desc": "Alibaba Wan 팀의 Wan2.2 5B Fun Inpaint 모델. 영상 특정 영역 마스킹 후 프롬프트로 교체. 객체 제거·추가·배경 변경 가능. ComfyUI v0.3.76+ 네이티브 지원.",
+      "cat": "Inpaint",
+      "subcat": "Video",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2025-10-01",
+      "liked": false
+    },
+    {
+      "id": 45,
+      "title": "FloED — 광학 흐름 기반 영상 인페인팅",
+      "desc": "홍콩과기대 + Alibaba DAMO Academy 공동 연구. 광학 흐름으로 시간적 일관성 향상 + 추론 속도 가속. 기존 방식 대비 플리커링 대폭 감소. 코드·가중치 오픈소스.",
+      "cat": "Inpaint",
+      "subcat": "Video",
+      "link": "https://comfyui-wiki.com/en/news/2025-04-13-floed-video-inpainting",
+      "date": "2025-08-13",
+      "liked": false
+    },
+    {
+      "id": 47,
+      "title": "Object Removal LoRA v2 — Flux Fill 기반 객체 제거",
+      "desc": "Flux Fill Dev 모델에 파인튜닝된 객체 제거 전용 LoRA. 마스크 영역의 불필요한 객체를 자연스럽게 지우고 배경으로 채움. RORD 데이터셋으로 학습, 비상업용 무료. HuggingFace 공개.",
+      "cat": "Inpaint",
+      "subcat": "LoRA",
+      "link": "https://huggingface.co/lrzjason/ObjectRemovalFluxFill",
+      "date": "2025-03-24",
+      "liked": false
+    },
+    {
+      "id": 48,
+      "title": "FLUX.2 Klein 4B Object Remove LoRA — fal.ai",
+      "desc": "fal.ai가 공개한 FLUX.2 Klein 4B 기반 객체 제거 전문 LoRA. \"Remove the highlighted object from the scene\" 프롬프트로 사용. ComfyUI 호환 safetensors 제공. Apache 2.0 라이선스.",
+      "cat": "Inpaint",
+      "subcat": "LoRA",
+      "link": "https://huggingface.co/fal/flux-2-klein-4B-object-remove-lora",
+      "date": "2025-10-01",
+      "liked": false
+    },
+    {
+      "id": 49,
+      "title": "F.2 Klein 9B Uncrop/Inpaint LoRA — 컨텍스트 인페인트",
+      "desc": "Flux.2 Klein 9B 기반 언크롭·인페인트·아웃페인트 통합 LoRA. \"Remove the white parts\" 프롬프트로 객체 제거 및 배경 확장. 컨텍스트 이미지 참조 지원. Civitai 무료 공개.",
+      "cat": "Inpaint",
+      "subcat": "LoRA",
+      "link": "https://civitai.com/models/2106308/uncropinpaintoutpaint-with-context-image-for-f2-klein-9b-qwen-image-edit-lora",
+      "date": "2025-11-06",
+      "liked": false
+    },
+    {
+      "id": 46,
+      "title": "Qwen Image Edit 2509 — 20B 이미지 편집/Inpaint",
+      "desc": "Alibaba Qwen의 20B MMDiT 이미지 편집 특화 모델. 마스크 영역 외 변경 없이 객체 삽입·교체 가능. ComfyUI 네이티브 지원 + LanPaint 연동으로 인페인팅/아웃페인팅도 지원.",
+      "cat": "Inpaint",
+      "subcat": "Image",
+      "link": "https://docs.comfy.org/changelog",
+      "date": "2025-09-09",
+      "liked": false
+    },
+    {
+      "id": 50,
+      "title": "SAM2 (Segment Anything Model 2) — Meta AI 영상 로토 자동화",
+      "desc": "Meta AI의 오픈소스 영상 세그먼테이션 모델. 첫 프레임에 점/박스 하나만 찍으면 전체 영상에서 마스크를 자동 추적. 44FPS 실시간 처리, ComfyUI Kijai 노드로 통합. 로토스코핑·클린플레이트·인페인팅 파이프라인에 직접 활용 가능.",
+      "cat": "Roto",
+      "subcat": "Video",
+      "link": "https://github.com/kijai/ComfyUI-segment-anything-2",
+      "date": "2024-08-01",
+      "liked": false
+    },
+    {
+      "id": 51,
+      "title": "SAM 3 Lite — 영상 세그먼트 차세대 업그레이드",
+      "desc": "SAM2 대비 모호한 경계·투명 객체·오클루전 처리 대폭 개선. 영상에서 프레임 간 마스크 일관성 향상. ComfyUI Manager에서 바로 설치. 스틸 이미지는 SAM2로도 충분하나, 영상 로토는 SAM3 권장.",
+      "cat": "Roto",
+      "subcat": "Video",
+      "link": "https://apatero.com/blog/comfyui-sam3-open-source-alternative-guide-2025",
+      "date": "2025-09-01",
+      "liked": false
+    },
+    {
+      "id": 52,
+      "title": "Wan 2.2 AI CharacterSwap — 자동 로토+트래킹 VFX 워크플로",
+      "desc": "Wan 2.2 Animate 기반 얼굴·캐릭터 교체 프로덕션 워크플로. SAM3 자동 로토 + 포즈 트래킹 + 페이스 락킹 → Wan 2.2로 합성. 디에이징·의상 교체에도 활용 가능. 실제 VFX 파이프라인용 오픈소스.",
+      "cat": "Roto",
+      "subcat": "Video",
+      "link": "https://github.com/rik-python/AI-CharacterSwap-Workflow",
+      "date": "2025-08-01",
+      "liked": false
+    },
+    {
+      "id": 53,
+      "title": "CoTracker3 — 점/객체 고정밀 영상 트래킹",
+      "desc": "Meta Research의 포인트·객체 트래킹 모델. 영상 내 임의의 점을 지정하면 전체 프레임에 걸쳐 추적. SAM2·VACE와 함께 VFX 파이프라인에 통합. ComfyUI + AInVFX 워크플로 예제 공개.",
+      "cat": "Tracking",
+      "subcat": "Video",
+      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "date": "2025-07-01",
+      "liked": false
+    },
+    {
+      "id": 54,
+      "title": "ATI (Any Trajectory Instruction) — 드로잉으로 모션 지시",
+      "desc": "영상 위에 경로를 그리면 객체가 해당 궤적대로 움직이는 모션 제어 모델. Wan 2.1 기반. 멀티 스플라인으로 여러 객체 동시 제어 가능. VFX 프리비즈·오브젝트 애니메이션에 유용.",
+      "cat": "Tracking",
+      "subcat": "Video",
+      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "date": "2025-09-01",
+      "liked": false
+    },
+    {
+      "id": 55,
+      "title": "SeedVR2 — ByteDance 1-step 영상·이미지 업스케일",
+      "desc": "ByteDance의 16B 파라미터 디퓨전 기반 영상 업스케일러. 기존 ESRGAN 대비 시간 일관성 획기적 향상, 540p → 4K 1단계 처리. Apache 2.0 오픈소스, ComfyUI 4-노드 통합. 8GB VRAM에서도 GGUF Q4로 구동 가능.",
+      "cat": "Upscale",
+      "subcat": "Video",
+      "link": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
+      "date": "2025-10-01",
+      "liked": false
+    },
+    {
+      "id": 56,
+      "title": "Real-ESRGAN / ESRGAN — 이미지 업스케일 ComfyUI 표준",
+      "desc": "AI 이미지 업스케일의 표준. 4x 고해상도 변환. ComfyUI 내장 지원. SeedVR2 등장 전까지 VFX 클린플레이트·텍스처 업스케일에 가장 널리 쓰인 모델. 정적 이미지에는 여전히 빠르고 실용적.",
+      "cat": "Upscale",
+      "subcat": "Image",
+      "link": "https://comfyui-wiki.com/en/workflows/inpaint",
+      "date": "2023-01-01",
+      "liked": false
+    },
+    {
+      "id": 57,
+      "title": "IC-Light v2 — ComfyUI 조명 재합성 모델",
+      "desc": "배경/전경 이미지를 받아 물리적으로 일관된 새 조명 환경 생성. 노말맵·깊이맵과 연동하여 PBR 스타일 릴라이팅 가능. Flux 기반 v2 버전. VFX 합성·제품 촬영 후보정에 활용.",
+      "cat": "AOV",
+      "subcat": "Relight",
+      "link": "https://github.com/lllyasviel/IC-Light",
+      "date": "2025-06-01",
+      "liked": false
+    },
+    {
+      "id": 58,
+      "title": "Depth Pro / Marigold — 단일 이미지 깊이맵 추출",
+      "desc": "Apple Depth Pro & Marigold: 단일 이미지에서 절대 깊이(미터 단위) 추정. VFX 합성 시 AOV 레이어 대체, 카메라 매칭·세트 익스텐션에 활용. ComfyUI 커스텀 노드 지원.",
+      "cat": "AOV",
+      "subcat": "Depth",
+      "link": "https://github.com/apple/ml-depth-pro",
+      "date": "2025-04-01",
+      "liked": false
+    },
+    {
+      "id": 59,
+      "title": "VACE — Wan 기반 영상 클린플레이트·로컬 편집",
+      "desc": "Wan 계열 영상 인페인팅 프레임워크. 50% 그레이 마스크로 지정 영역 교체, 참조 이미지로 VFX 이펙트 생성. SAM2와 연동해 자동 마스크 → 클린플레이트 파이프라인 구성 가능.",
+      "cat": "CleanPlate",
+      "subcat": "Video",
+      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "date": "2025-07-01",
+      "liked": false
+    },
+    {
+      "id": 60,
+      "title": "big-lama / LaMA — 전통 클린플레이트 인페인팅",
+      "desc": "구조 기반 대형 마스크 인페인팅. 도로·하늘·배경 클린플레이트 생성에 최적. AI 디퓨전 모델 전처리 단계로 병행 사용 권장. ComfyUI Fooocus 인페인팅 모드에 내장.",
+      "cat": "CleanPlate",
+      "subcat": "Image",
+      "link": "https://github.com/advimman/lama",
+      "date": "2022-01-01",
+      "liked": false
+    },
+    {
+      "id": 61,
+      "title": "RotoAI — 프롬프트 기반 영상 세그멘테이션 스튜디오",
+      "desc": "SAM2 + Grounding DINO 기반 오픈소스 로토스코핑 도구. 자연어 프롬프트로 객체 선택(예: \"빨간 셔츠 입은 사람\"). Google Colab GPU 백엔드 + 로컬 React 프론트엔드 하이브리드 아키텍처. 스마트 청킹(5초 단위)으로 긴 영상도 OOM 없이 처리. Neon Glow·크로마키·보케 블러 등 효과 지원. 라이선스: AGPL-3.0.",
+      "cat": "Roto",
+      "subcat": "Video",
+      "link": "https://github.com/sPappalard/RotoAI",
+      "date": "2025-06-01",
+      "liked": false
+    },
+    {
+      "id": 62,
+      "title": "Cutie-Roto — AI 영상 로토스코핑 무료 대안",
+      "desc": "Cutie 모델 기반 AI 로토스코핑 도구. Adobe Roto Brush·DaVinci Resolve Magic Mask 무료 대안. 첫 프레임 마스크 지정 후 영상 전체 자동 추적. GUI 기반으로 별도 ComfyUI 불필요, Windows 원클릭 실행. 수동 로토 대비 정확도는 낮지만 빠른 초안·임시 키 작업에 적합.",
+      "cat": "Roto",
+      "subcat": "Video",
+      "link": "https://github.com/Zarxrax/Cutie-Roto",
+      "date": "2024-12-01",
+      "liked": false
+    },
+    {
+      "id": 63,
+      "title": "FlashVSR — 실시간 디퓨전 기반 영상 초해상도 (CVPR 2026)",
+      "desc": "단일 스텝 디퓨전으로 A100 단일 GPU에서 768×1408 해상도 ~17FPS 달성. 기존 원스텝 VSR 대비 최대 12배 속도 향상. 핵심 기술: 3단계 증류 파이프라인 + 지역 제약 희소 어텐션 + 경량 조건부 디코더. v1.1에서 안정성·충실도 개선. ComfyUI 커스텀 노드 다수 배포(smthemex, 1038lab, naxci1). fal.ai 클라우드 추론 지원. 학습 데이터셋 VSR-120K(12만 영상) 공개.",
+      "cat": "Upscale",
+      "subcat": "Video",
+      "link": "https://github.com/OpenImagingLab/FlashVSR",
+      "date": "2025-10-01",
+      "liked": false
+    },
+    {
+      "id": 64,
+      "title": "NVIDIA RTX Video Node — ComfyUI 4K 실시간 업스케일 (CES 2026)",
+      "desc": "CES 2026에서 NVIDIA 발표. RTX GPU Tensor Core 기반으로 720p AI 생성 영상을 수 초 안에 4K로 업스케일. 엣지 선명화·압축 아티팩트 제거 실시간 처리. ComfyUI 2026년 2월 출시 예정. LTX-2 + RTX Video 파이프라인으로 4K AI 영상 로컬 생성 가능. NVFP4 포맷으로 VRAM 60% 절감, 성능 3배 향상(RTX 50 시리즈).",
+      "cat": "Upscale",
+      "subcat": "Video",
+      "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/",
+      "date": "2026-01-06",
+      "liked": false
+    },
+    {
+      "id": 65,
+      "title": "Video Depth Anything — 초장편 영상 일관 깊이 추정",
+      "desc": "Depth Anything V2 팀의 영상 전용 확장 모델(2025-01-22 출시). 5분 이상 초장편 영상에서도 프레임간 깊이 일관성 유지. Small(28.4M, Apache 2.0) / Large(381.8M, CC BY-NC 4.0) 두 가지 모델. EXR·NPZ·그레이스케일 출력 지원 → Nuke·Resolve 컴포지팅에 직결. ComfyUI 비공식 구현: ComfyUI-Video-Depth-Anything(yuvraj108c). VFX 활용: 세트 익스텐션·카메라 매칭·AOV 레이어 교체.",
+      "cat": "AOV",
+      "subcat": "Depth",
+      "link": "https://github.com/yuvraj108c/ComfyUI-Video-Depth-Anything",
+      "date": "2025-01-22",
+      "liked": false
+    },
+    {
+      "id": 66,
+      "title": "ProPainter — 광학 흐름 기반 영상 오브젝트 제거 (ComfyUI)",
+      "desc": "NTU S-Lab의 영상 인페인팅 프레임워크. 흐름 기반 전파(Recurrent Flow Completion) + 시공간 트랜스포머로 자연스러운 클린플레이트 생성. 오브젝트 제거·워터마크 제거·영상 아웃페인팅 지원. SAM2/Cutie와 연동하면 자동 마스크 → 클린플레이트 완전 자동화 파이프라인 구성 가능. ComfyUI 노드: ComfyUI_ProPainter_Nodes(daniabib). 라이선스: 비상업 NTU S-Lab License.",
+      "cat": "CleanPlate",
+      "subcat": "Video",
+      "link": "https://github.com/sczhou/ProPainter",
+      "date": "2023-09-01",
+      "liked": false
+    }
+  ],
+  "cats": [
+    {
+      "id": "모델",
+      "name": "모델",
+      "color": "#4f46e5",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Image Edit",
+        "Video",
+        "3D",
+        "Audio",
+        "Other"
+      ]
+    },
+    {
+      "id": "LoRA",
+      "name": "LoRA",
+      "color": "#c026d3",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "VFX",
+      "name": "VFX",
+      "color": "#16a34a",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "Inpaint",
+      "name": "Inpaint",
+      "color": "#0891b2",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Video",
+        "LoRA"
+      ]
+    },
+    {
+      "id": "Roto",
+      "name": "Roto",
+      "color": "#10b981",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Video"
+      ]
+    },
+    {
+      "id": "Tracking",
+      "name": "Tracking",
+      "color": "#f59e0b",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Video"
+      ]
+    },
+    {
+      "id": "Upscale",
+      "name": "Upscale",
+      "color": "#8b5cf6",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Video"
+      ]
+    },
+    {
+      "id": "AOV",
+      "name": "AOV",
+      "color": "#6366f1",
+      "builtin": true,
+      "subcats": [
+        "Depth",
+        "Relight",
+        "Normal"
+      ]
+    },
+    {
+      "id": "CleanPlate",
+      "name": "Clean Plate",
+      "color": "#14b8a6",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Video"
+      ]
+    },
+    {
+      "id": "업데이트",
+      "name": "업데이트",
+      "color": "#ea580c",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "기타",
+      "name": "기타",
+      "color": "#94a3b8",
+      "builtin": true,
+      "subcats": []
+    }
+  ]
+}
