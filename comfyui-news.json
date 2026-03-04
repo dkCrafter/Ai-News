@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "flux2_klein_lora_for_360_panoramas_comfyui",
+      "desc": "",
+      "cat": "LoRA",
+      "date": "2026-03-04",
+      "link": "https://www.reddit.com/r/comfyui/comments/1rip661/flux2_klein_lora_for_360_panoramas_comfyui/",
+      "thumb": "",
+      "id": 1772621895105,
+      "liked": false
+    },
+    {
       "title": "z-image-turbo-flow-dpo · Hugging Face",
       "desc": "z image turbo 컬러 보정",
       "cat": "LoRA",
