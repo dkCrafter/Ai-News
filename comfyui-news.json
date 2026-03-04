@@ -168,16 +168,6 @@
       "liked": false
     },
     {
-      "id": 17,
-      "title": "Series Entertainment — Netflix 타이틀 제작에 ComfyUI 활용",
-      "desc": "Series Entertainment가 ComfyUI로 여러 Netflix 타이틀에서 10만+ 에셋을 제작한 사례 공개. 감정적 스토리텔링을 대규모로 확장하는 워크플로우 소개.",
-      "cat": "CleanPlate",
-      "link": "https://www.comfy.org/",
-      "date": "2026-02-20",
-      "liked": false,
-      "subcat": "Video"
-    },
-    {
       "id": 18,
       "title": "NVIDIA RTX × ComfyUI — 4K AI 영상 생성 최적화",
       "desc": "NVIDIA가 ComfyUI와 협력해 RTX GPU 성능을 40% 향상. NVFP4 포맷으로 VRAM 60% 절감, 속도 3배 향상. RTX Video 노드로 4K 업스케일 지원.",
