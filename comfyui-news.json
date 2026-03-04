@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "CoWTracker: Tracking by Warping instead of Correlation",
+      "desc": "",
+      "cat": "Tracking",
+      "subcat": "Video",
+      "date": "2026-02-06",
+      "link": "https://cowtracker.github.io/#visuals",
+      "thumb": "",
+      "id": 1772608080567,
+      "liked": false
+    },
+    {
       "title": "ViTMatte",
       "desc": "",
       "cat": "Roto",
