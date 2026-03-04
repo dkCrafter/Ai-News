@@ -653,10 +653,8 @@ async function syncToGitHub(silent) {
   const cfg = getGHConfig(); if (!cfg) return;
   setSyncStatus('syncing', '동기화 중...');
   try {
-    // SHA 모를 경우 먼저 파일 조회
-    if (!_ghSha) {
-      try { const ex = await ghRequest('GET', cfg); _ghSha = ex.sha; } catch(e) {}
-    }
+    // 항상 최신 SHA 먼저 가져오기 (수동 복구 등으로 SHA가 달라진 경우 대비)
+    try { const ex = await ghRequest('GET', cfg); _ghSha = ex.sha; } catch(e) { _ghSha = null; }
     const body = {
       message: `Update ComfyUI news (${news.length} items)`,
       content: encodeGHData({ news, cats }),
