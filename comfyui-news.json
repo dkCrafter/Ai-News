@@ -633,6 +633,24 @@
       "subcats": []
     },
     {
+      "id": "Upscale",
+      "name": "Upscale",
+      "color": "#8b5cf6",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "AOV",
+      "name": "AOV",
+      "color": "#6366f1",
+      "builtin": true,
+      "subcats": [
+        "Depth",
+        "Relight",
+        "Normal"
+      ]
+    },
+    {
       "id": "모델",
       "name": "모델",
       "color": "#4f46e5",
@@ -652,24 +670,6 @@
       "color": "#c026d3",
       "builtin": true,
       "subcats": []
-    },
-    {
-      "id": "Upscale",
-      "name": "Upscale",
-      "color": "#8b5cf6",
-      "builtin": true,
-      "subcats": []
-    },
-    {
-      "id": "AOV",
-      "name": "AOV",
-      "color": "#6366f1",
-      "builtin": true,
-      "subcats": [
-        "Depth",
-        "Relight",
-        "Normal"
-      ]
     },
     {
       "id": "VFX",
