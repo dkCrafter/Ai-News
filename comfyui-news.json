@@ -1,6 +1,267 @@
 {
   "news": [
     {
+      "title": "「AI 특유의 인공적인 느낌」을 없애는 화질 프롬프트",
+      "desc": "「AI 특유의 인공적인 느낌」을 없애는 화질 프롬프트 (source: X TomaAIbijo)\n프롬프트는 맞는데 AI 냄새가 난다 그것은 실패가 아닙니다. “화질 레이어”가 빠졌을 뿐입니다. \nAI 이미지는 '캐릭터 × 의상 × 구도 × 화질'로 비로소 완성됩니다. 아래는 실제로 차이가 나는 화질·질감 전용 프롬프트 모음입니다. \n*특정 프롬프트가 모든 AI 모델과 모든 상황에 맞을 수는 없지만, 참고는 될수 있을 것 같으니 참고하세요.  \nAI 이미지의 완성도는 사실 '마지막 한 줄'로 결정됩니다.\n이번에는 ✔ 실사 ✔ 스마트폰 ✔ 필름 ✔ 로우파이\n**모두 '추가 가능한 화질 프롬프트'**를 정리했습니다👇\n캐릭터 × 의상 × 구도까지 완성했다면, 마지막에 추가해 보세요.\n① 초고해상도·실사 느낌(상업용·그라비아용)\nultra high resolution, photorealistic, extremely sharp focus,\nfine skin texture, visible pores, natural eyelashes,\nrealistic light reflection on skin, high dynamic range,\ncinematic lighting, professional DSLR photo quality.\nno plastic skin, no AI artifacts\n② 스마트폰 실사감 (자연·일상·타인 촬영용)\nrealistic smartphone photo, casual snapshot,\nslight motion blur, imperfect framing,\nnatural exposure, mild noise,\nunpolished everyday realism, no studio lighting\n③ 2014–2016년 스마트폰 로파이(향수를 중시)\n2014–2016 smartphone photo style,\nnoticeable grain, soft focus,\nslightly overexposed highlights,\nlow dynamic range, nostalgic lo-fi feeling,\nimperfect white balance\n④ 필름 사진(35mm·체키·기록 사진용)\n35mm film photo look,\nvisible film grain, soft contrast,\nslight color fading, gentle halation,\nanalog texture, scanned film realism\n⑤ 감시 카메라·몰래 촬영 풍(의도적으로 화질을 낮춤)\nlow resolution security camera footage style,\ndigital noise, compression artifacts,\nflat lighting, awkward angle,\nunintentional framing, surveillance realism\n⑥ AI 특유의 느낌을 없애기 위한 '억제형' 프롬프트 (매우 중요)\navoid over-sharpening,\navoid perfect symmetry,\navoid artificial smooth skin,\nnatural imperfections, human realism\n⑦ 만능 믹스 (고민되면 이것)\nrealistic photo quality,\nbalanced sharpness,\nnatural grain,\nsoft but clear focus,\nauthentic human skin texture,\nno AI-generated look\nAI 냄새를 없애는 지름길은 화질을 '언어화'하는 것이다.",
+      "cat": "Prompt",
+      "date": "2026-03-04",
+      "link": "",
+      "thumb": "",
+      "id": 1772624447210,
+      "liked": false
+    },
+    {
+      "title": "Qwen-Image-2512-Turbo-LoRA-2-Steps,",
+      "desc": "Qwen-Image-2512-Turbo-LoRA-2-Steps, 50steps to just 2steps! (source: X ModelScope2022)\nThis is a 2-step turbo LoRA for Qwen Image 2512 trained by Wuli Team, representing an advancement over our 4-step turbo LoRA.\n50단계에서 단 2단계로. Wuli 팀이 방금 Qwen-Image-2512-Turbo-LoRA-2-Steps를 오픈소스화하며 확산 증류 분야의 SOTA를 끌어올렸습니다. 산업용 등급의 질감을 희생하지 않으면서 Qwen-Image의 속도를 40배 향상시켰습니다. \n성능:\n- 지연 시간: 기본 모델 대비 40배 가속화. \n- 처리량: Wuli 플랫폼에서 약 5초 만에 4개의 2K 해상도 이미지를 생성합니다.\n2단계 생성의 기술 스택:\n- 궤적 증류(Trajectory Distillation)를 뛰어넘는 기술: 기존 방식은 종종 흐릿한 결과를 낳습니다. 이 버전은 역 KL 증류(Reverse-KL Distillation)를 사용하여 확률 공간의 격차를 최소화하고 \"불법\" 샘플에 대해 큰 페널티를 부과합니다.\n- PCM을 통한 웜 스타트(Warm Start): 초저 단계에서 모드 붕괴 및 과포화를 방지하기 위해 단계적 일관성 모델(PCM)을 초기화에 사용했습니다. \n- 적대적 사전 분포(GAN): DINO 기반 특징 추출기를 갖춘 GAN 설정을 통해 실제 데이터 사전 분포를 주입하여 털이나 이끼 같은 미세한 질감을 보정했습니다.\n가중치가 실시간으로 업데이트됩니다. 생성 파이프라인을 업그레이드할 때입니다.\nModel:  https://huggingface.co/.../Qwen-Image-2512-Turbo-LoRA-2...",
+      "cat": "LoRA",
+      "date": "2026-03-04",
+      "link": "https://huggingface.co/Wuli-art/Qwen-Image-2512-Turbo-LoRA-2-Steps?fbclid=IwY2xjawQU-QVleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqg1qiXtPnmGXqvQNS-0bzywUBlteCNdjcsJyHISE1RIvA4JlfVNtWZND_iv_aem_sox3X1DhjIM5JlWI_T8pVw",
+      "thumb": "",
+      "id": 1772624340690,
+      "liked": false
+    },
+    {
+      "title": "TeleStyle (China Telecom): Style Transfer in Images and Videos",
+      "desc": "TeleStyle (China Telecom): Style Transfer in Images and Videos \n이미지 및 영상 스타일링 모두에 적용 가능한 가볍고 효과적인 모델. Qwen-Image-Edit를 기반으로 구축된 TeleStyle은 기본 모델의 강력한 콘텐츠 보존 및 스타일 맞춤화 기능을 활용이미지 및 영상 스타일링 모두에 적용 가능. 오프소스로 공개(Apache-2.0 license). \n효과적인 훈련을 위해 고품질의 독특한 특정 스타일 데이터셋을 선별하고, 수천 개의 다양한 실제 스타일 범주를 활용해 삼중 데이터를 추가 합성했습니다. TeleStyle을 깨끗한(선별된) 삼중 데이터와 노이즈가 있는(합성된) 삼중 데이터로 구성된 이 하이브리드 데이터셋에서 훈련시키기 위해 커리큘럼 지속 학습 프레임워크를 합니다. \nTeleStyle: Content-Preserving Style Transfer in Images and Videos (2601, China Telecom(TeleAI))\nproject: https://tele-ai.github.io/TeleStyle/\npaper: https://arxiv.org/pdf/2601.20175\ncode: https://github.com/Tele-AI/TeleStyle  \nmodel : https://huggingface.co/Tele-AI/TeleStyle",
+      "cat": "모델",
+      "subcat": "Video",
+      "date": "2026-03-04",
+      "link": "https://tele-ai.github.io/TeleStyle/?fbclid=IwY2xjawQU-L1leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
+      "thumb": "",
+      "id": 1772624285234,
+      "liked": false
+    },
+    {
+      "title": "Z-Image-Turbo-Art",
+      "desc": "Z-Image-Turbo-Art : fine-tuned fusion model of Z-Image(base) and Z-Image-Turbo \n이 모델은 Z-Image와 Z-Image-Turbo를 정밀 조정하여 융합한 것입니다. Z-Image 기본 모델의 스타일화 기능 일부를 추출한 후 Z-Image-Turbo와 계층적 융합을 수행하고 신속한 미세 조정을 거쳤습니다. 이는 현재 Z-Image 기본 모델을 최대한 활용하려는 시도입니다. \n공식 모델과 비교 시, 본 모델은 이미지가 더 선명하고 스타일화 능력이 강하지만, 인물 사진에서 섬세함이 감소했으며 특히 피부 표현이 약해졌습니다. 반면 텍스트 렌더링 능력은 대체로 유지됩니다. 본 모델은 사용이 간편하며, 매개변수 적응성과 LoRA 호환성이 우수합니다. 예술적 스타일의 이미지 생성 및 창작, 광고 장식 등에 적합합니다. \n[사용 방법]\nworkflow: Z-Image-Turbo official workflow\ninference cfg: 1.0；\ninference steps: 8 -12；\nsampler / scheduler: ddim / simple ，or any other。\nmodel: https://huggingface.co/wikeeyang/Z-Image-Turbo-Art\n*modelscope 중국 사이트를 소개하는 겨우 많으나 huggingface에도 있으니 여기 이용하세요.",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://huggingface.co/wikeeyang/Z-Image-Turbo-Art",
+      "thumb": "https://huggingface.co/wikeeyang/Z-Image-Turbo-Art/resolve/main/Sample.jpg",
+      "id": 1772624205947,
+      "liked": false
+    },
+    {
+      "title": "LTX-2 I2V synced to an MP3",
+      "desc": "LTX-2 I2V synced to an MP3 - Ver3 Workflow with new i2v lora and an API version - full 3 min music video. Music: Dido's \"Life For Rent\"\n(source: Reddit Dohwar42)\nLTX-2 Audio Sync Image2Video Workflow. 이 LTX-2 워크플로우에서는 오디오와 이미지를 입력하여 입모양 싱크된 영상을 만들 수 있습니다. \n이 워크플로우에 대한 이전 레딧 게시물에서는 캐릭터의 움직임이 전혀 없는 '정지된' 영상 문제를 해결하기 위해 공식 '정적 카메라' 로라를 사용했습니다. 이번에는 해당 게시물의 새로운 로라를 사용합니다. 이 로라는 카메라 움직임을 통해 보다 '동적인' 영상을 구현합니다. 이전 워크플로우는 사실상 정적인 클로즈업 샷만 가능했습니다.\n이 2차 버전은 https://console .ltx .video/ 에 접속하여 무료 API 키를 발급받아야 합니다. 시스템 자원을 엄청나게 절약해주고 더 긴 동영상이나 더 높은 해상도의 동영상을 만들 수 있으니 꼭 해보시길 강력히 추천합니다. LTX와 프롬프트 및 데이터를 공유하게 된다는 점은 알고 있지만, 프롬프트 수집이 더 나은 모델 개발에 도움이 된다면 전 찬성합니다.\n버전 3 노트 2026년 1월 31일:\n타일드 VAE 디코드를 🅛🅣🅧 LTXV 타일드 VAE 디코드로 교체\n정적 카메라 로라를 LTX-2-Image2Vid-Adapter.safetensors 로라로 교체\n모델 로딩 및 로라를 상단으로 재배치. 다운로드 또는 입력해야 하는 모든 영역을 빨간색 그룹으로 색상 구분\n워크플로우에 API 키 버전 추가\n이 워크플로로 항상 완벽한 결과를 얻었나요? 아니요. 이 영상에는 가장 잘 나온 결과물만 선별했습니다. 좋은 결과를 얻으려면 여러번 시도해야 했고 프롬프트 조정도 필요했습니다. 배경, 얼굴, 손이 왜곡된 결과물도 꽤 많이 나왔습니다.\n좋은 결과와 품질을 얻으려면 직접 계속 실험해 봐야 합니다! \n다음은 ComfyUI 버전과 시스템 사양의 스크린샷입니다(RTX 4090(24GB), System RAM 64GB). API 키 버전의 이 워크플로에서 20단계로 30초 길이의 720p에 가까운 동영상을 생성하는 데 8~10분이 소요됩니다.\nreddit : https://www.reddit.com/.../ltx2_i2v_synced_to_an_mp3.../\nworkflow : https://github.com/.../LTX-2-Audio-Sync-Image2Video...",
+      "cat": "모델",
+      "subcat": "Audio",
+      "date": "2026-03-04",
+      "link": "https://www.reddit.com/r/StableDiffusion/comments/1qs5l5e/ltx2_i2v_synced_to_an_mp3_ver3_workflow_with_new/",
+      "thumb": "",
+      "id": 1772624071443,
+      "liked": false
+    },
+    {
+      "title": "Just Dub it",
+      "desc": "JUST-DUB-IT (Tel Aviv University, Lightrick): Video Dubbing via Joint Audio-Visual Diffusion\n경량 LoRA를 통해 기초 오디오-비디오 확산 모델을 영상-영상 더빙에 적용하는 단일 모델 접근법을 제안. 단일 클립 내에서 언어 전환이 포함된 다국어 영상을 생성한 후, 각 반쪽의 얼굴과 오디오를 상대 반쪽의 언어에 맞춰 보정. Heygen 등 기존 더빙 대비 향상된 시각적 충실도, 입술 동기화 및 견고성을 갖춘 고품질 더빙 영상을 생성함. 코드 공개 예정. \nJUST-DUB-IT: Video Dubbing via Joint Audio-Visual Diffusion (2601, Tel Aviv University, Lightrick)\npaper: https://arxiv.org/abs/2601.22143\nproject: https://justdubit.github.io/\ncode : https://github.com/justdubit/just-dub-it (soon)",
+      "cat": "모델",
+      "subcat": "Audio",
+      "date": "2026-03-04",
+      "link": "https://justdubit.github.io/?fbclid=IwY2xjawQU911leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHop-daGRdakpXv2BKEVeWjsbiC0s6hdH-0WEsbYqG8Xb6VDkmxKFmYkolXhq_aem_VASdAIw05dFLoxerdJKvrg",
+      "thumb": "",
+      "id": 1772623978579,
+      "liked": false
+    },
+    {
+      "title": "Simpleseg (segments to roto point)",
+      "desc": "SimpleSeg (MoonshotAI Kimi Team), Pixel-Level VLM Perception via Simple Points Prediction \n다중 모달 대규모 언어 모델(MLLM)에 본질적인 픽셀 수준 인지 능력을 부여하는 놀라울 정도로 단순하면서도 매우 효과적인 접근법 제안. 공간 내에서 직접 객체 경계를 묘사하는 점 시퀀스(텍스트 좌표)를 예측. 텍스트 지시를 통한 Complex Object Segmentation, Detail Recognition, Image Domain Generalization, Box region Segmentain 등이 가능(아래 첨부 예제 참고). \n세그멘테이션(segmentaion) 벤치마크에서 복잡한 작업 특화 설계에 의존하는 방법들과 비교해 동등하거나 종종 더 우수한 성능 달성. 정밀한 공간 이해가 단순한 점 예측에서 도출될 수 있음을 제시하며, 강력한 VLM(Vision Language Model)의 길을 열어줌. SimpleSeg-Kimi-VL 및 SimpleSeg-Qwen2.5-VL 오픈소스(mit license) 공개. \nSimpleSeg: Towards Pixel-Level VLM Perception via Simple Points Prediction (2601, Moonshot AI Kimi Team, Nanjing University)\nproject: https://simpleseg.github.io/\npaper: https://arxiv.org/abs/2601.19228\nmodel: https://huggingface.co/collections/sthui/simpleseg\ncode : https://github.com/songtianhui/SimpleSeg",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://simpleseg.github.io/?fbclid=IwY2xjawQU9uFleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
+      "thumb": "",
+      "id": 1772623856572,
+      "liked": false
+    },
+    {
+      "title": "ComfyUI-CacheDiT",
+      "desc": "ComfyUI-CacheDiT, Z-Image 및 LTX-2 성능을 1.3배에서 최대 2배까지 향상 \nresidual caching을 통해 속도 향상을 제공합니다:\n- Z-Image 및 LTX-2 뿐만아니라 Wan2.2 및 Qwen-Image에서도 작동.\n- 품질 영향 최소화. (quality impact is minimal)\n- 메모리 효율적. (Saves 50% memory for cached tensors) \nhttps://github.com/Jasonzzt/ComfyUI-CacheDiT",
+      "cat": "Custom Nodes",
+      "date": "2026-03-04",
+      "link": "https://github.com/Jasonzzt/ComfyUI-CacheDiT?fbclid=IwY2xjawQU9o9leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHizBCjgy1TU1tKonkUG9KzQiU9NOVWG-urv44bIStx6BoYAbl-I7Vcsp12ZE_aem_tQMyAwv-XL5rbD_DpXN_OA",
+      "thumb": "",
+      "id": 1772623722204,
+      "liked": false
+    },
+    {
+      "title": "BFS-Best-Face-Swap-Video, LTX-2 Video Face Swap LoRA",
+      "desc": "BFS-Best-Face-Swap-Video, LTX-2 Video Face Swap LoRA \n첫 번째 프레임에서 제공된 정체성을 유지하면서 가이드 영상의 움직임을 따릅니다.\nDataset : 300 high-quality head swap video pairs.\nTrain : Trained for 60+ hours on NVIDIA RTX PRO 6000 Blackwell GPUs, iterating through over 300GB of experimental files.\n이 모델은 첫 번째 프레임을 활용하여 전체 생성을 조건화하도록 특별히 훈련되었습니다.\n-초기 스왑: 100% 정확도와 유사도를 위해 추론을 실행하기 전에 프레임 0에서 고품질 헤드 스왑을 수행하는 것이 필수적입니다.\n-컷아웃: 첫 번째 프레임의 얼굴 위에 사진을 단순히 붙여넣어도 모델이 작동할 수 있지만, 모든 경우에 100% 효과적이지는 않을 것입니다.\n-팁: 최상의 결과를 위해 제 이전 BFS 이미지 모델을 활용하여 고품질 프레임 0 스왑을 준비하세요.",
+      "cat": "Inpaint",
+      "subcat": "Video",
+      "date": "2026-03-04",
+      "link": "https://huggingface.co/Alissonerdx/BFS-Best-Face-Swap-Video?fbclid=IwY2xjawQU9ipleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHizBCjgy1TU1tKonkUG9KzQiU9NOVWG-urv44bIStx6BoYAbl-I7Vcsp12ZE_aem_tQMyAwv-XL5rbD_DpXN_OA",
+      "thumb": "https://huggingface.co/Alissonerdx/BFS-Best-Face-Swap-Video/resolve/main/examples/4.mp4",
+      "id": 1772623638876,
+      "liked": false
+    },
+    {
+      "title": "Alibaba-pai, Z-Image-Fun-Lora-Distill 2602 update Release!",
+      "desc": "Alibaba-pai, Z-Image-Fun-Lora-Distill 2602 update Release! \n고효율 Distill LoRA로 단 4~8단계만으로 Z-Image (base)에 대한 고충실도 생성이 가능합니다. 2602 업데이트로 이전 버전 대비 우수한 피부 질감 및 색상 일관성 제공. 4단계 및 8단계 지원; CFG 없는 추론(CFG=1.0). Native ComfyUI weights available. \n[모델 특징]\n-이 모델은 Z-Image용 Distill LoRA로, 단계(Steps)와 제어문(CFG)을 모두 증류합니다. Z-Image-Turbo 관련 가중치를 전혀 사용하지 않으며 처음부터 새로 훈련되었습니다. 다른 Z-Image LoRA 및 제어문과 호환됩니다.\n-이 모델은 출력 품질을 약간 저하시키고 모델의 출력 구성을 변경합니다. 구체적인 비교는 결과 섹션을 참조하십시오.\n-본 모델의 목적은 Z-Image 파생 모델에 대한 빠른 생성 호환성을 제공하는 것이지, Z-Image-Turbo를 대체하기 위한 것이 아닙니다.",
+      "cat": "모델",
+      "subcat": "Image",
+      "date": "2026-03-04",
+      "link": "https://huggingface.co/alibaba-pai/Z-Image-Fun-Lora-Distill?fbclid=IwY2xjawQU9PpleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqg1qiXtPnmGXqvQNS-0bzywUBlteCNdjcsJyHISE1RIvA4JlfVNtWZND_iv_aem_sox3X1DhjIM5JlWI_T8pVw",
+      "thumb": "",
+      "id": 1772623306173,
+      "liked": false
+    },
+    {
+      "title": "Z-image base: simple workflow for high quality realism + info & tips (source: reddit nsfwVariant)",
+      "desc": "Z-image base는 정말, 정말 사실적인 이미지를 아주 쉽게 만들어 줍니다. 가능한 최고의 품질로 정말 창의적이고 유연한 샷을 원한다면 사용해 볼 가치가 있습니다. 특히 기본적으로 고해상도 생성이 가능하다는 점이 큰 장점입니다.\n이 글은 편의를 위해 샘플러/스케줄러 설정과 해상도를 미리 설정해 둔 간단한 시작 워크플로를 공유하기 위한 것입니다. 아래에는 Z-image base 사용 팁과 유용한 일반 정보도 포함되어 있습니다.\n샘플러 설정은 선명도와 명료도에 중점을 두었으나, 프롬프트를 통해 그레인이나 기타 결함을 도입할 수 있습니다.\n워크플로는 위의 Civitai 링크 또는 여기에서 다운로드 가능합니다: https://civitai.com/models/2376532?modelVersionId=2672614\nNodes & Models\nInfo & Tips\n-Sampler Settings\n-Resolutions\n-Realism Negative Prompt\n-Prompt Structure\n-Upscaling\n-ClownShark sampler\n-Effect of CFG on outputs\n좋은 정보가 많은 것 같아 한글 번역해서 정리해 보았습니다. 아래에서 상세 내용 및 워크플로우 확인.\n[Nodes & Models]\nCustom Nodes:\nRES4LYF - 매우 인기 있는 샘플러 및 스케줄러 세트와 유용한 노드들입니다. 제 생각에는 최상의 Z-이미지 기본 출력을 얻기 위해 필요합니다.\nRGTHREE - (선택 사항) 인기 있는 보조 노드 세트입니다. 원하지 않는다면 시드 생성기 및 로라 스태커 노드를 삭제하고 기본 컴피 로라 노드를 대신 사용하면 됩니다. RES4LYF에도 시드 생성기 노드가 포함되어 있지만, 개인적으로 RGTHREE의 노드를 더 선호합니다.\nComfyUI GGUF - (선택 사항) GGUF 모델을 로드할 수 있게 해줍니다. 어떤 이유에서인지 ComfyUI는 아직 기본적으로 GGUF 모델을 지원하지 않습니다. GGUF 모델이 아닌 다른 모델을 사용하려면 이 노드를 건너뛰고, UNET 로더 노드를 삭제한 후 일반적인 '확산 모델 로드' 노드로 대체하면 됩니다.\nModels:\nMain model: Z-imafe base GGUFs(https://huggingface.co/unsloth/Z-Image-GGUF/tree/main) - 16GB 이상 VRAM 보유 시 BF16 권장. Q8은 숙련된 사용자가 처리할 경우 8GB VRAM에 간신히 적용 가능(쉬운 작업 아님). Q6_k는 8GB에 쉽게 적용됨. FP8 사용은 피하고, Q8 gguf가 더 우수함.\nText Encoder: Normal(https://huggingface.co/.../main/split_files/text_encoders) | gguf Qwen 3 4B (https://huggingface.co/Qwen/Qwen3-4B-GGUF/tree/main) - VRAM에 맞는 최대 크기를 선택하세요. 10GB 이상 VRAM이면 풀 사이즈 일반 버전, 그 외에는 Q8 GGUF를 사용하세요. 일부는 텍스트 인코더 품질이 중요하지 않다고 하며 작은 크기를 쓰라고 하지만, 절대 중요하며 품질에 극적인 영향을 미칩니다. 동일한 이유로, 테스트를 통해 출력 품질이 저하되지 않음을 확인하지 않은 경우 abliterated 텍스트 인코더를 사용하지 마십시오.\nGGUF 텍스트 인코더를 사용하는 경우, \"Load CLIP\" 노드를 \"ClipLoader (GGUF)\" 노드로 교체하십시오.\nVAE: Flux 1.0 AE (https://huggingface.co/.../z_image/tree/main/split_files/vae)\nInfo & Tips\n[Sampler Settings]\n두 단계 샘플러 설정이 z-image base에 매우 좋은 결과를 낸다는 것을 발견했습니다. 첫 번째 단계가 작업의 95%를 수행하고, 두 번째 단계는 저잡음 스케줄러로 미세한 디테일을 살리기 위한 최종 마무리 작업을 합니다. 매우 선명하고 사실적인 이미지를 생성하며 특히 인체 피부를 잘 표현합니다.\nCFG 4가 대부분의 경우 효과적이지만, 다른 결과를 얻기 위해 CFG 7까지 높일 수 있습니다.\n이 모든 설정은 shift 1을 기준으로 합니다. shift가 무엇인지 모르더라도 걱정하지 마세요. 기본값입니다!\nStage 1:\nSampler - res_2s\nScheduler - beta\nSteps - 22\nDenoise: 1.00\nStage 2:\nSampler - res_2s\nScheduler - normal\nSteps - 3\nDenoise: 0.15\n[Resolutions]\nHigh res generation\nZ-Image의 가장 큰 장점 중 하나는 다른 모델에 비해 매우 높은 해상도를 손쉽게 처리할 수 있다는 점입니다. 고해상도로 생성한 후 추가 후처리 없이 바로 업스케일러를 사용할 수 있습니다. (업스케일러 정보 및 추천 링크는 아래 참조)\nNote: 고해상도 생성에는 오랜 시간이 소요됩니다. RTX 5090 기준으로 1280x1920 샷은 약 95초, 1680x1680 샷은 약 110초가 걸립니다.\nDifferent sizes & aspect ratios change the output\n다양한 해상도와 화면비율은 종종 이미지의 구도를 크게 바꿀 수 있습니다. 특정 프롬프트에 이상적인 결과를 얻기 어려울 경우, 더 높거나 낮은 해상도를 사용하거나 화면비율을 변경해 보세요.\n이는 이미지의 각 영역별 디테일 양을 변화시키고, 주제별로 창의성을 더하거나 줄이며, 조명과 기타 미묘한 특징들도 종종 바꿉니다.\n컨셉 작업을 할 때는 항상 한 가지 큰 해상도와 한 가지 중간 해상도로 생성해 보시길 권합니다. 이렇게 하면 특정 크기가 더 잘 어울리는지 확인할 수 있습니다.\nGood resolutions\n워크플로에는 매우 잘 작동하는 다양한 사전 설정 해상도가 있습니다. 이들은 화면비율별로 그룹화되어 있으며 모두 16의 배수입니다. Z-Image base(대부분의 이미지 모델과 마찬가지로)는 크기가 16의 배수일 때 가장 잘 작동하며, 일부 모델은 이를 요구하거나 그렇지 않으면 가장자리가 망가집니다.\n한 변의 길이를 1920 이상으로 설정할 수도 있지만, 제가 많이 시도해보지 않아 보장할 수는 없습니다. 해상도를 높일수록 결과가 다소 이상해지는 경향이 있지만, 가능은 합니다.\n저는 대부분의 생성을 한 변 1920으로 진행합니다. 단, 정사각형 이미지는 1680x1680으로 만듭니다. 결과물이 더 마음에 들면 낮은 해상도를 사용할 때도 있습니다(예: 쥐 사진은 1680x1120).\n[Realism Negative Prompt]\nz-image base에서는 Negative Prompt가 매우 중요합니다. 일관되게 사실감 있는 사진을 얻기 위해 저는 다음과 같이 사용합니다:\n3D, ai generated, semi realistic, illustrated, drawing, comic, digital painting, 3D model, blender, video game screenshot, screenshot, render, high-fidelity, smooth textures, CGI, masterpiece, text, writing, subtitle, watermark, logo, blurry, low quality, jpeg, artifacts, grainy\n[Prompt Structure]\n기본적으로 원하는 장면을 명확하고 간결하게 설명하는 것이 핵심입니다. 첫 문장은 촬영 대상과 스타일에 대한 기본 소개로 시작하세요. 이후 대상의 주요 특징, 장면 내 다른 사물의 주요 특징, 배경을 차례로 기술합니다. 마지막으로 구도 정보, 조명 및 촬영에 관한 기타 메타 정보를 추가하면 됩니다.\n주요 부분을 구분하기 위해 줄바꿈을 사용하면 프롬프트를 읽고 구성하기가 더 쉬워집니다. 모델은 줄바꿈을 신경 쓰지 않으니, 이는 오로지 여러분을 위한 것입니다.\n중요하지 않은 요소는 포함하지 마세요. 조명은 중요하지 않다면 명시할 필요 없고, 인물 포즈도 정확히 기술할 필요 없습니다. 본인에게 중요한 내용만 작성하고 필요에 따라 점차 세부사항을 추가해 프롬프트를 완성하세요.\n부정 프롬프트로 암시되는 부분은 포함하지 않아도 됩니다. 앞서 언급한 리얼리즘 부정 프롬프트를 사용할 경우, 사진이라는 점을 별도로 명시할 필요가 없습니다.\n프롬프트 구조는 다음과 같은 형태가 될 수 있습니다(예시일 뿐이며 유연하게 구성하세요):\nA <style> shot of a <subject + basic description> doing <something>. The <subject> has <more detail>. The subject is <more info>. There is a <something else important> in <location>. The <something else> is <more detail>.\nThe background is a <location>. The scene is <lit in some way>. The composition frames <something> and <something> from <an angle or photography term or whatever>.\n해당 구조에 따라, 이 게시물에 첨부된 이미지들에 대한 프롬프트 몇 가지를 소개합니다. \nThe ballet woman\nA shot of a woman performing a ballet routine. She's wearing a ballet outfit and has a serious expression. She's in a dynamic pose.\nThe scene is set in a concert hall. The composition is a close up that frames her head down to her knees. The scene is lit dramatically, with dark shadows and a single shaft of light illuminating the woman from above.\nThe rat on the fence post\nA close up shot of a large, brown rat eating a berry. The rat is on a rickety wooden fence post. The background is an open farm field.\nThe woman in the water\nA surreal shot of a beautiful woman suspended half in water and half in air. She has a dynamic pose, her eyes are closed, and the shot is full body. The shot is split diagonally down the middle, with the lower-left being under water and the upper-right being in air. The air side is bright and cloudy, while the water side is dark and menacing.\nThe space capsule\nA woman is floating in a space capsule. She's wearing a white singlet and white panties. She's off-center, with the camera focused on a window with an external view of earth from space. The interior of the space capsule is dark.\n[Upscaling]\nZ-image는 매우 선명한 이미지를 생성하므로, 이를 직접 업스케일링하는 것이 매우 쉽습니다. 기존 업스케일 모델들은 선명하고 깨끗한 이미지에 의존하여 디테일을 추가하므로, 선명한 이미지를 생성하지 못하는 모델에서는 안정적으로 사용할 수 없습니다.\n나체 인물이나 얼굴 클로즈업에 제가 가장 선호하는 업스케일러는 4xFaceUp(https://huggingface.co/Phips/4xFaceUpDAT)입니다. 피부 디테일 표현이 놀라울 정도로 뛰어나지만, 다른 부분은 다소 실처럼 가늘어 보이게 만드는 경향이 있습니다(더 나은 표현이 없어서요). 피부를 많이 드러낸 인물이 촬영의 주요 초점일 때 사용하세요.\n일반적인 업스케일링에는 4xNomos2(https://openmodeldb.info/models/4x-Nomos2-hq-dat2) 같은 도구를 사용할 수 있습니다.\n또는 SeedVR2(https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler)를 사용할 수도 있습니다. 이 도구는 흐릿한 이미지에도 효과적이라는 장점이 있습니다(z-image에는 문제가 없지만요). 4xFaceUp만큼 피부 표현이 뛰어나진 않지만, 그 외 모든 부분에서는 더 우수합니다. 또한 매우 안정적이며 거의 항상 작동합니다. \n[ClownShark sampler - what is it?]\nRES4LYF 팩의 노드입니다. 일반 샘플러와 동일하게 작동하지만 두 가지 차이점이 있습니다:\n1 \"ETA\". 이 설정은 기본적으로 정교한 수학적 처리를 통해 샘플링 과정에서 추가 노이즈를 발생시키며, 일반적으로 생성물에서 조금 더 많은 디테일을 끌어내는 데 도움이 됩니다. 0.5 정도의 값이 보통 적당하지만, 특정 모델(예: Klein 9B)의 경우 0.7까지도 괜찮은 결과를 보인 사례를 본 적이 있습니다.\n2 \"bongmath\". 이 설정은 bongmath를 활성화합니다. 이는 단점 없이 샘플링 결과를 개선하는 일종의 마법 같은 기술입니다. 일부 모델에서는 큰 차이를 보이지만, 다른 모델에서는 그다지 효과가 없습니다. z-image 출력에는 확실히 개선 효과가 있다고 생각합니다. \n원하지 않는다면 이 샘플러를 사용할 필요는 없습니다. RES4LYF가 설치되어 있다면 일반 ksampler 노드와 함께 res_2s/beta 샘플러/스케줄러를 사용할 수 있습니다. 하지만 어차피 RES4LYF에 clownshark 샘플러가 포함되어 있으니 그냥 사용하는 게 좋겠습니다.\n[Effect of CFG on outputs]\nCFG 값이 4보다 낮으면 좋지 않습니다. 그 외에는 값을 높일수록 z-image base 출력에 상당히 크고 예측 불가능한 영향을 미칩니다. 일반적으로 4에서 7 사이로 설정해도 이미지를 망가뜨리지 않습니다. 프롬프트 준수에는 큰 영향을 주지 않는 것 같습니다.\n4보다 높게 설정하면 이미지의 조명, 구도, 스타일이 다소 예측 불가능하게 변하므로, 특정 컨셉의 다양한 변형을 보고 싶을 때 유용할 수 있습니다. 5, 6, 7에서 더 잘 어울리는 요소들이 있다는 걸 알게 될 거예요. 실험해 보되, 그냥 장난삼아 할 때는 4를 유지하세요.\n4보다 높게 설정하면 모델이 사실성을 유지하는 데 도움이 될 때도 있습니다. 현실적인 엘프 같은 것을 그리는 등 사실성에 가까운 작업을 할 때 유용하죠.",
+      "cat": "모델",
+      "subcat": "Image",
+      "date": "2026-03-04",
+      "link": "https://civitai.com/models/2376532?modelVersionId=2672614&fbclid=IwY2xjawQU9KVleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHizBCjgy1TU1tKonkUG9KzQiU9NOVWG-urv44bIStx6BoYAbl-I7Vcsp12ZE_aem_tQMyAwv-XL5rbD_DpXN_OA",
+      "thumb": "",
+      "id": 1772623246373,
+      "liked": false
+    },
+    {
+      "title": "ArcFlow",
+      "desc": "ArcFlow (Fudan Univ., Microsoft Asia), New distillation method, only 2NFE and 40x speed \n비선형 흐름 궤적(Non-Linear Flow)을 명시적으로 활용하는 소수 단계 증류 프레임워크인 ArcFlow 제안. 대규모 모델(Qwen-Image-20B 및 FLUX.1-dev)을 기반으로 구축된 ArcFlow는 원본 매개변수의 5% 미만으로만 미세 조정되며, 2steps(NFE)를 통해 원본 다단계 교사 모델 대비 40배의 가속화를 달성하면서도 품질 저하가 거의 없음. 오픈소스 공개(Apache-2.0 license)\narcflow-flux-2steps\narcflow-qwen-2steps\nArcFlow: Unleashing 2-Step Text-to-Image Generation via High-Precision Non-Linear Flow Distillation (2602, Fudan University, Microsoft Research Asia)\npaper: https://arxiv.org/abs/2602.09014\ncode: https://github.com/pnotp/ArcFlow\nmodel : https://huggingface.co/ymyy307/ArcFlow/",
+      "cat": "모델",
+      "subcat": "Image",
+      "date": "2026-03-04",
+      "link": "https://github.com/pnotp/ArcFlow?fbclid=IwY2xjawQU9E5leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHm9zFIghLqTqL8gHUpns1-13soHhNjiJKVKxf4_IgLAnY4aGTlkyuDiqEUNJ_aem_-IeTq7Hkdmhf7RXIjBwbSw",
+      "thumb": "",
+      "id": 1772623173133,
+      "liked": false
+    },
+    {
+      "title": "ComfyUI-Yedp-Action-Director: An intuitive controlnet 3D node pass generator from Mixamo FBX Animation files",
+      "desc": "ComfyUI Yedp Action Director node, Interactive 3D viewport for ControlNet \nYedp Action Director는 ComfyUI용 커스텀 노드로, 완전히 상호작용 가능한 3D 뷰포트를 워크플로우에 직접 통합합니다. FBX 또는 GLB 애니메이션을 로드하고 실시간으로 미리 볼 수 있으며, ControlNet 생성을 위한 핵심 패스(OpenPose, Depth, Canny, Normal)를 일괄 렌더링할 수 있습니다.\n정적 이미지 로더와 달리, 이 노드는 Three.js를 사용하여 클라이언트 측(브라우저 내)에서 렌더링을 수행하고 픽셀 데이터를 ComfyUI로 다시 전송하여 처리합니다.\n✨ 주요 기능\n-인터랙티브 3D 뷰포트: 크기 조절 가능, 궤도 제어, 실시간 재생.\n-멀티패스 렌더링: 한 번에 4가지 별도 배치 생성:\n🔴 Pose: OpenPose용 무조명 평면 컬러.\n⚫ Depth: 수동 근거리/원거리 조절이 가능한 고품질 깊이 맵.\n⚪ Canny: 완벽한 에지 감지를 위한 절차적 림 라이트(매트캡).\n🔵 Normal: 지오메트리 디테일을 위한 표준 RGB 노멀 맵.\n-포맷 지원: 표준 .fbx 및 .glb 애니메이션 파일 지원.\n-스마트 리타게팅: 뼈대 이름 자동 감지 및 정규화(Mixamo 호환).\n-무한 확장: 노드 UI가 수직 및 수평으로 제한 없이 확장됩니다.\nhttps://github.com/yedp123/ComfyUI-Yedp-Action-Director",
+      "cat": "Custom Nodes",
+      "date": "2026-03-04",
+      "link": "https://github.com/yedp123/ComfyUI-Yedp-Action-Director?fbclid=IwY2xjawQU84FleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
+      "thumb": "https://private-user-images.githubusercontent.com/71874235/555294322-0ee6fd2f-4167-48a9-ba3f-bd0a10c82ffc.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI2MjMxOTgsIm5iZiI6MTc3MjYyMjg5OCwicGF0aCI6Ii83MTg3NDIzNS81NTUyOTQzMjItMGVlNmZkMmYtNDE2Ny00OGE5LWJhM2YtYmQwYTEwYzgyZmZjLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzA0VDExMTQ1OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ5NjMyNmYzYmMxMzNmYmI1MjM0YTIxYjA4M2FjNDFmYmZmMzBhOWNiY2M0YjY5MmI3ZDc0ZjdjZTc4MTE1OTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.TeMWuJdR7yuPYTTLykzysuqvDPTowxPFroneWY8_-UU",
+      "id": 1772622949390,
+      "liked": false
+    },
+    {
+      "title": "SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models",
+      "desc": "확산(Diffusion) 모델의 순차적인 노이즈 제거 과정으로 인해 추론 속도가 느린 점을 개선하기 위해, 스펙트럼 진화 인식(Spectral Evolution Aware)를 활용하여 콘텐츠를 전달하는 저주파 성분을 고주파 노이즈로부터 분리하는 훈련이 필요 없는 가속화 방법 SeaCache 제안. 최첨단(최고) 지연-품질 절충점을 달성함. \n-기존 TeaCache/TaylorSeer 방식보다 우수\n-FLUX.1-dev ~50%, HunyuanVideo 3x 가속 \n-Wan 등과도 가능\nSeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models (2602, Sungkyunkwan University, NAVER)\nproject : https://jiwoogit.github.io/SeaCache/\npaper: https://arxiv.org/abs/2602.18993\ncode: https://github.com/jiwoogit/SeaCache (soon)",
+      "cat": "기타",
+      "date": "2026-03-04",
+      "link": "https://jiwoogit.github.io/SeaCache/?fbclid=IwY2xjawQU8RtleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
+      "thumb": "",
+      "id": 1772622442424,
+      "liked": false
+    },
+    {
+      "title": "FlowRVS: [ICLR 2026] Deforming Videos to Masks: Flow Matching for Referring Video Segmentation (FlowRVS)",
+      "desc": "FlowRVS는 참조 영상 객체 분할(RVOS) 모델로, 계단식 ‘위치 지정 후 분할(locate-then-segment)’ 패러다임(A)을 통합된 종단간 흐름(B)으로 대체, 정보 병목 현상을 방지하여 복잡한 언어와 동적 영상(C)을 탁월하게 처리하고 최첨단 성능(D)을 달성합니다. 오픈소스 (MIT). \n✨ 주요 특징:\n-RVOS(Referring Video Object Segmentation)를 연속적인 텍스트 조건부 흐름 학습으로 재구성하여 영상의 시공간 표현을 목표 마스크로 변형합니다.\n-체계적인 기법들을 제안함으로써 강력한 텍스트-영상 생성 모델을 이 RVOS 작업에 성공적으로 이전합니다.\n-주요 벤치마크에서 새로운 최첨단(SOTA) 결과를 달성합니다.\nFlowRVS, Deforming Videos to Masks: Flow Matching for Referring Video Segmentation(2510, Many Universitys, Baidu) \npaper: https://arxiv.org/abs/2510.06139\nsource: https://github.com/xmz111/FlowRVS (26.2 relaese)\n*comfyui : https://huggingface.co/.../WanVideo_comfy/tree/main/FlowRVS",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://github.com/xmz111/FlowRVS",
+      "thumb": "https://private-user-images.githubusercontent.com/97635113/549410295-1d3bd1f3-ded9-4b50-8c43-689b2aac3e90.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI2MjI0NzMsIm5iZiI6MTc3MjYyMjE3MywicGF0aCI6Ii85NzYzNTExMy81NDk0MTAyOTUtMWQzYmQxZjMtZGVkOS00YjUwLThjNDMtNjg5YjJhYWMzZTkwLm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzA0VDExMDI1M1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTc5NDMwZWYxYWE2Njk5YWRiMTQ0M2ZlYTA3NGZjNDUyYTg4YWUzNjI4NDZlNjA4NzM5NGY3NzIxZTNkNGUyNzAmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.zRF5gsUl8bzBNDIJOFrvUhdUwsNqji0wFTYnzf_oMj0",
+      "id": 1772622238760,
+      "liked": false
+    },
+    {
+      "title": "flux2_klein_lora_for_360_panoramas_comfyui",
+      "desc": "",
+      "cat": "LoRA",
+      "date": "2026-03-04",
+      "link": "https://www.reddit.com/r/comfyui/comments/1rip661/flux2_klein_lora_for_360_panoramas_comfyui/",
+      "thumb": "https://packaged-media.redd.it/4gwrig4fxlmg1/pb/m2-res_1080p.mp4?m=DASHPlaylist.mpd&v=1&e=1772636400&s=f3e492726d04967fa99502a427326c6acf7ff523",
+      "id": 1772621895105,
+      "liked": false
+    },
+    {
+      "title": "z-image-turbo-flow-dpo · Hugging Face",
+      "desc": "z image turbo 컬러 보정",
+      "cat": "LoRA",
+      "date": "2026-03-04",
+      "link": "https://huggingface.co/F16/z-image-turbo-flow-dpo?fbclid=IwY2xjawQU7o1leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqTUer6uFOTMu12mq0gbiLwUpOmkYL6y57amYrsJrXOY6xcRNbLccBUU9D7i_aem_ymhApskrGLt_ExwGO_EShA",
+      "thumb": "https://cdn-uploads.huggingface.co/production/uploads/646e4203407c402498b7aa7a/R0uyX6vrhvyNRBnW8BTTf.jpeg",
+      "id": 1772621688226,
+      "liked": false
+    },
+    {
+      "title": "FireRed-Image-Edit_v0.1",
+      "desc": "qwen",
+      "cat": "모델",
+      "subcat": "Image Edit",
+      "date": "2026-03-04",
+      "link": "https://github.com/FireRedTeam/FireRed-Image-Edit",
+      "thumb": "",
+      "id": 1772614595671,
+      "liked": false
+    },
+    {
+      "title": "Depth Anything 3: Recovering the Visual Space from Any Views",
+      "desc": "depth anything 3",
+      "cat": "AOV",
+      "subcat": "Depth",
+      "date": "2026-03-01",
+      "link": "https://depth-anything-3.github.io/",
+      "thumb": "https://depth-anything-3.github.io/assets/paoku_compressed.mp4",
+      "id": 1772614419022,
+      "liked": false
+    },
+    {
+      "title": "NormalCrafter",
+      "desc": "Nomal",
+      "cat": "AOV",
+      "subcat": "Normal",
+      "date": "2026-03-01",
+      "link": "https://normalcrafter.github.io/",
+      "thumb": "https://normalcrafter.github.io/video/sora/robot_video_game.mp4",
+      "id": 1772614289472,
+      "liked": false
+    },
+    {
+      "title": "OmnimatteZero: Nodes to run native weights of LTX’s OmnimatteZero in ComfyUI",
+      "desc": "",
+      "cat": "Inpaint",
+      "subcat": "Video",
+      "date": "2026-03-04",
+      "link": "https://github.com/tpc2233/ComfyUI-TP-OmnimatteZero",
+      "thumb": "https://private-user-images.githubusercontent.com/107653069/546674566-428a987b-df3d-42b8-9952-2938092c42df.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI2MDMxODYsIm5iZiI6MTc3MjYwMjg4NiwicGF0aCI6Ii8xMDc2NTMwNjkvNTQ2Njc0NTY2LTQyOGE5ODdiLWRmM2QtNDJiOC05OTUyLTI5MzgwOTJjNDJkZi5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMwNFQwNTQxMjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZGY3YjQ4Y2RjZDgxZjRkYzc3M2NmZjU0NWQwNjdmNDQxMzYyN2ZiNTBiMjM0Y2RjOGVmMjNiZTBkZjc3OGE2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Lye_zE2r913rgaz2s9z3dKX0zyUvGCUWC9dW6PgmAQc",
+      "id": 1772609886351,
+      "liked": false
+    },
+    {
+      "title": "CoWTracker: Tracking by Warping instead of Correlation",
+      "desc": "",
+      "cat": "Tracking",
+      "date": "2026-03-04",
+      "link": "https://cowtracker.github.io/#visuals",
+      "thumb": "https://cowtracker.github.io/videos/track_longboard.mp4",
+      "id": 1772608080567,
+      "liked": true
+    },
+    {
+      "title": "ViTMatte",
+      "desc": "",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://github.com/hustvl/ViTMatte",
+      "thumb": "https://github.com/hustvl/ViTMatte/raw/main/figs/vitmatte.png",
+      "id": 1772607837217,
+      "liked": false
+    },
+    {
+      "title": "CorridorKey",
+      "desc": "그린, 블루스크린 위의 모션블러, 유리같은 투명도에 최적화",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://github.com/nikopueringer/CorridorKey",
+      "thumb": "https://private-user-images.githubusercontent.com/52174106/555872440-1fb27ea8-bc91-4ebc-818f-5a3b5585af08.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI2MjIwNDQsIm5iZiI6MTc3MjYyMTc0NCwicGF0aCI6Ii81MjE3NDEwNi81NTU4NzI0NDAtMWZiMjdlYTgtYmM5MS00ZWJjLTgxOGYtNWEzYjU1ODVhZjA4Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzA0VDEwNTU0NFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTAxMTZhN2E3NzM2OTgzYTUzMjJiOGU3ZDhkMWY2OTAwYzY3NDE2MDYwYTk1YWY3ZWQzNDA3ZDBkN2E3NTA3NjYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.KjQqXIwHlGFMQDXYv3stCzUP5AvXlUSVwGAtVYlzILI",
+      "id": 1772606889557,
+      "liked": true
+    },
+    {
+      "title": "VideoMaMa",
+      "desc": "https://cvlab-kaist.github.io/VideoMaMa/",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://github.com/cvlab-kaist/VideoMaMa",
+      "thumb": "https://img.youtube.com/vi/FLIJaIeY8DU/hqdefault.jpg",
+      "id": 1772606745030,
+      "liked": false
+    },
+    {
       "id": 1,
       "title": "ComfyUI v0.15.0 정식 릴리즈",
       "desc": "BBox 위젯, GLSL 셰이더 노드, ElevenLabs TTS API 노드 등 다수 신규 노드 추가. Gemma3·Qwen3 네이티브 텍스트 생성 지원.",
@@ -14,21 +275,10 @@
       "title": "GLSL 셰이더 노드 추가",
       "desc": "PyOpenGL 기반 GLSL 셰이더를 ComfyUI 워크플로우에서 직접 사용 가능.",
       "cat": "AOV",
-      "subcat": "Relight",
       "link": "https://github.com/Comfy-Org/ComfyUI/releases",
       "date": "2026-02-24",
-      "liked": false
-    },
-    {
-      "id": 3,
-      "title": "Seedream 5.0 Lite — ComfyUI 공식 지원",
-      "desc": "ByteDance의 Seedream 5.0 Lite 이미지 생성 모델이 ComfyUI에 정식 통합됐어요.",
-      "cat": "모델",
-      "subcat": "Image",
-      "link": "https://www.comfy.org",
-      "date": "2026-02-25",
       "liked": false,
-      "thumb": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=225&fit=crop"
+      "subcat": "Relight"
     },
     {
       "id": 4,
@@ -55,21 +305,10 @@
       "title": "Topaz 비디오 향상 API 노드",
       "desc": "Topaz Labs 비디오 업스케일·향상 API를 ComfyUI에서 직접 사용 가능.",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://github.com/Comfy-Org/ComfyUI/releases",
       "date": "2026-02-24",
       "liked": false,
       "thumb": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=225&fit=crop"
-    },
-    {
-      "id": 7,
-      "title": "Kling v2.1 비디오 생성 노드",
-      "desc": "Kling AI v2.1 비디오 생성 노드 추가. 모션 품질과 일관성이 크게 향상됐어요.",
-      "cat": "모델",
-      "subcat": "Video",
-      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
-      "date": "2026-02-24",
-      "liked": false
     },
     {
       "id": 8,
@@ -102,26 +341,16 @@
       "id": 11,
       "title": "Moment Factory — 3D 프로젝션 매핑 케이스 스터디",
       "desc": "Moment Factory가 ComfyUI로 대규모 건축물 프로젝션 매핑 워크플로우를 재구성한 사례 공개.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
+      "cat": "VFX",
       "link": "https://blog.comfy.org/p/case-study-how-moment-factory-reimagined",
       "date": "2026-02-26",
-      "liked": false
+      "liked": false,
+      "thumb": ""
     },
     {
       "id": 12,
       "title": "LTX Video 2.0 fp8 체크포인트 지원",
       "desc": "LTX Video 2.0 fp8 체크포인트 로딩 이슈 수정 및 안정 지원.",
-      "cat": "모델",
-      "subcat": "Video",
-      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
-      "date": "2026-02-24",
-      "liked": false
-    },
-    {
-      "id": 13,
-      "title": "KlingAvatar — 얼굴 일관성 비디오 생성",
-      "desc": "인물 사진에서 일관된 얼굴 정체성을 유지하며 애니메이션 생성 가능.",
       "cat": "모델",
       "subcat": "Video",
       "link": "https://github.com/Comfy-Org/ComfyUI/releases",
@@ -156,16 +385,6 @@
       "subcat": "Video",
       "link": "https://comfyui-wiki.com/en/tutorial/advanced/video/wan2.2/wan2-2",
       "date": "2026-02-13",
-      "liked": false
-    },
-    {
-      "id": 17,
-      "title": "Series Entertainment — Netflix 타이틀 제작에 ComfyUI 활용",
-      "desc": "Series Entertainment가 ComfyUI로 여러 Netflix 타이틀에서 10만+ 에셋을 제작한 사례 공개. 감정적 스토리텔링을 대규모로 확장하는 워크플로우 소개.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://www.comfy.org/",
-      "date": "2026-02-20",
       "liked": false
     },
     {
@@ -313,26 +532,6 @@
       "liked": false
     },
     {
-      "id": 33,
-      "title": "Seedream 5.0 Lite — ComfyUI 공식 지원",
-      "desc": "ByteDance Seedream 5.0 Lite 모델이 ComfyUI에 추가됨. API 노드로 바로 사용 가능. 이미지 생성 품질 크게 향상.",
-      "cat": "모델",
-      "subcat": "Image",
-      "link": "https://www.comfy.org/",
-      "date": "2026-02-25",
-      "liked": false
-    },
-    {
-      "id": 34,
-      "title": "Nano Banana 2 — ComfyUI 통합",
-      "desc": "Nano Banana 2 모델이 ComfyUI 파트너 노드로 추가됨. 기존 Gemini/Nano Banana API 노드의 빈 이미지 반환 버그도 동시 수정.",
-      "cat": "업데이트",
-      "subcat": "",
-      "link": "https://www.comfy.org/",
-      "date": "2026-02-28",
-      "liked": false
-    },
-    {
       "id": 35,
       "title": "Subgraph 기능 공식 출시",
       "desc": "복잡한 노드 조합을 하나의 재사용 가능한 서브그래프 노드로 패키징. 노드 라이브러리에 퍼블리시해서 커스텀 노드처럼 사용 가능. 워크플로우 모듈화 대폭 향상.",
@@ -340,16 +539,6 @@
       "subcat": "",
       "link": "https://docs.comfy.org/interface/features/subgraph",
       "date": "2026-02-24",
-      "liked": false
-    },
-    {
-      "id": 36,
-      "title": "ComfyUI 첫 번째 위클리 챌린지 시작",
-      "desc": "ComfyUI Wiki가 첫 위클리 챌린지 개최. 제공된 뎁스맵으로 고양이 인간 캐릭터 턴어라운드 영상 제작. 상금 $100.",
-      "cat": "기타",
-      "subcat": "",
-      "link": "https://comfyui-wiki.com/en/news",
-      "date": "2026-03-01",
       "liked": false
     },
     {
@@ -483,21 +672,10 @@
       "liked": false
     },
     {
-      "id": 50,
-      "title": "SAM2 (Segment Anything Model 2) — Meta AI 영상 로토 자동화",
-      "desc": "Meta AI의 오픈소스 영상 세그먼테이션 모델. 첫 프레임에 점/박스 하나만 찍으면 전체 영상에서 마스크를 자동 추적. 44FPS 실시간 처리, ComfyUI Kijai 노드로 통합. 로토스코핑·클린플레이트·인페인팅 파이프라인에 직접 활용 가능.",
-      "cat": "Roto",
-      "subcat": "Video",
-      "link": "https://github.com/kijai/ComfyUI-segment-anything-2",
-      "date": "2024-08-01",
-      "liked": false
-    },
-    {
       "id": 51,
       "title": "SAM 3 Lite — 영상 세그먼트 차세대 업그레이드",
       "desc": "SAM2 대비 모호한 경계·투명 객체·오클루전 처리 대폭 개선. 영상에서 프레임 간 마스크 일관성 향상. ComfyUI Manager에서 바로 설치. 스틸 이미지는 SAM2로도 충분하나, 영상 로토는 SAM3 권장.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://apatero.com/blog/comfyui-sam3-open-source-alternative-guide-2025",
       "date": "2025-09-01",
       "liked": false
@@ -507,7 +685,6 @@
       "title": "Wan 2.2 AI CharacterSwap — 자동 로토+트래킹 VFX 워크플로",
       "desc": "Wan 2.2 Animate 기반 얼굴·캐릭터 교체 프로덕션 워크플로. SAM3 자동 로토 + 포즈 트래킹 + 페이스 락킹 → Wan 2.2로 합성. 디에이징·의상 교체에도 활용 가능. 실제 VFX 파이프라인용 오픈소스.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/rik-python/AI-CharacterSwap-Workflow",
       "date": "2025-08-01",
       "liked": false
@@ -517,27 +694,26 @@
       "title": "CoTracker3 — 점/객체 고정밀 영상 트래킹",
       "desc": "Meta Research의 포인트·객체 트래킹 모델. 영상 내 임의의 점을 지정하면 전체 프레임에 걸쳐 추적. SAM2·VACE와 함께 VFX 파이프라인에 통합. ComfyUI + AInVFX 워크플로 예제 공개.",
       "cat": "Tracking",
-      "subcat": "Video",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "link": "https://cotracker3.github.io/",
       "date": "2025-07-01",
-      "liked": false
+      "liked": false,
+      "thumb": "https://cotracker3.github.io/videos/teaser2/bmx_bumps_cotracker.mp4"
     },
     {
       "id": 54,
       "title": "ATI (Any Trajectory Instruction) — 드로잉으로 모션 지시",
       "desc": "영상 위에 경로를 그리면 객체가 해당 궤적대로 움직이는 모션 제어 모델. Wan 2.1 기반. 멀티 스플라인으로 여러 객체 동시 제어 가능. VFX 프리비즈·오브젝트 애니메이션에 유용.",
       "cat": "Tracking",
-      "subcat": "Video",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "link": "https://anytraj.github.io/",
       "date": "2025-09-01",
-      "liked": false
+      "liked": false,
+      "thumb": "https://anytraj.github.io/ATI%20_%20ByteDance%20Intelligent%20Creation_files/Teaser.mp4"
     },
     {
       "id": 55,
       "title": "SeedVR2 — ByteDance 1-step 영상·이미지 업스케일",
       "desc": "ByteDance의 16B 파라미터 디퓨전 기반 영상 업스케일러. 기존 ESRGAN 대비 시간 일관성 획기적 향상, 540p → 4K 1단계 처리. Apache 2.0 오픈소스, ComfyUI 4-노드 통합. 8GB VRAM에서도 GGUF Q4로 구동 가능.",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
       "date": "2025-10-01",
       "liked": false
@@ -547,7 +723,6 @@
       "title": "Real-ESRGAN / ESRGAN — 이미지 업스케일 ComfyUI 표준",
       "desc": "AI 이미지 업스케일의 표준. 4x 고해상도 변환. ComfyUI 내장 지원. SeedVR2 등장 전까지 VFX 클린플레이트·텍스처 업스케일에 가장 널리 쓰인 모델. 정적 이미지에는 여전히 빠르고 실용적.",
       "cat": "Upscale",
-      "subcat": "Image",
       "link": "https://comfyui-wiki.com/en/workflows/inpaint",
       "date": "2023-01-01",
       "liked": false
@@ -573,51 +748,10 @@
       "liked": false
     },
     {
-      "id": 59,
-      "title": "VACE — Wan 기반 영상 클린플레이트·로컬 편집",
-      "desc": "Wan 계열 영상 인페인팅 프레임워크. 50% 그레이 마스크로 지정 영역 교체, 참조 이미지로 VFX 이펙트 생성. SAM2와 연동해 자동 마스크 → 클린플레이트 파이프라인 구성 가능.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
-      "date": "2025-07-01",
-      "liked": false
-    },
-    {
-      "id": 60,
-      "title": "big-lama / LaMA — 전통 클린플레이트 인페인팅",
-      "desc": "구조 기반 대형 마스크 인페인팅. 도로·하늘·배경 클린플레이트 생성에 최적. AI 디퓨전 모델 전처리 단계로 병행 사용 권장. ComfyUI Fooocus 인페인팅 모드에 내장.",
-      "cat": "CleanPlate",
-      "subcat": "Image",
-      "link": "https://github.com/advimman/lama",
-      "date": "2022-01-01",
-      "liked": false
-    },
-    {
-      "id": 61,
-      "title": "RotoAI — 프롬프트 기반 영상 세그멘테이션 스튜디오",
-      "desc": "SAM2 + Grounding DINO 기반 오픈소스 로토스코핑 도구. 자연어 프롬프트로 객체 선택(예: \"빨간 셔츠 입은 사람\"). Google Colab GPU 백엔드 + 로컬 React 프론트엔드 하이브리드 아키텍처. 스마트 청킹(5초 단위)으로 긴 영상도 OOM 없이 처리. Neon Glow·크로마키·보케 블러 등 효과 지원. 라이선스: AGPL-3.0.",
-      "cat": "Roto",
-      "subcat": "Video",
-      "link": "https://github.com/sPappalard/RotoAI",
-      "date": "2025-06-01",
-      "liked": false
-    },
-    {
-      "id": 62,
-      "title": "Cutie-Roto — AI 영상 로토스코핑 무료 대안",
-      "desc": "Cutie 모델 기반 AI 로토스코핑 도구. Adobe Roto Brush·DaVinci Resolve Magic Mask 무료 대안. 첫 프레임 마스크 지정 후 영상 전체 자동 추적. GUI 기반으로 별도 ComfyUI 불필요, Windows 원클릭 실행. 수동 로토 대비 정확도는 낮지만 빠른 초안·임시 키 작업에 적합.",
-      "cat": "Roto",
-      "subcat": "Video",
-      "link": "https://github.com/Zarxrax/Cutie-Roto",
-      "date": "2024-12-01",
-      "liked": false
-    },
-    {
       "id": 63,
       "title": "FlashVSR — 실시간 디퓨전 기반 영상 초해상도 (CVPR 2026)",
       "desc": "단일 스텝 디퓨전으로 A100 단일 GPU에서 768×1408 해상도 ~17FPS 달성. 기존 원스텝 VSR 대비 최대 12배 속도 향상. 핵심 기술: 3단계 증류 파이프라인 + 지역 제약 희소 어텐션 + 경량 조건부 디코더. v1.1에서 안정성·충실도 개선. ComfyUI 커스텀 노드 다수 배포(smthemex, 1038lab, naxci1). fal.ai 클라우드 추론 지원. 학습 데이터셋 VSR-120K(12만 영상) 공개.",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://github.com/OpenImagingLab/FlashVSR",
       "date": "2025-10-01",
       "liked": false
@@ -627,7 +761,6 @@
       "title": "NVIDIA RTX Video Node — ComfyUI 4K 실시간 업스케일 (CES 2026)",
       "desc": "CES 2026에서 NVIDIA 발표. RTX GPU Tensor Core 기반으로 720p AI 생성 영상을 수 초 안에 4K로 업스케일. 엣지 선명화·압축 아티팩트 제거 실시간 처리. ComfyUI 2026년 2월 출시 예정. LTX-2 + RTX Video 파이프라인으로 4K AI 영상 로컬 생성 가능. NVFP4 포맷으로 VRAM 60% 절감, 성능 3배 향상(RTX 50 시리즈).",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/",
       "date": "2026-01-06",
       "liked": false
@@ -641,19 +774,66 @@
       "link": "https://github.com/yuvraj108c/ComfyUI-Video-Depth-Anything",
       "date": "2025-01-22",
       "liked": false
-    },
-    {
-      "id": 66,
-      "title": "ProPainter — 광학 흐름 기반 영상 오브젝트 제거 (ComfyUI)",
-      "desc": "NTU S-Lab의 영상 인페인팅 프레임워크. 흐름 기반 전파(Recurrent Flow Completion) + 시공간 트랜스포머로 자연스러운 클린플레이트 생성. 오브젝트 제거·워터마크 제거·영상 아웃페인팅 지원. SAM2/Cutie와 연동하면 자동 마스크 → 클린플레이트 완전 자동화 파이프라인 구성 가능. ComfyUI 노드: ComfyUI_ProPainter_Nodes(daniabib). 라이선스: 비상업 NTU S-Lab License.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://github.com/sczhou/ProPainter",
-      "date": "2023-09-01",
-      "liked": false
     }
   ],
   "cats": [
+    {
+      "id": "Roto",
+      "name": "Roto",
+      "color": "#10b981",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "Inpaint",
+      "name": "Inpaint",
+      "color": "#0891b2",
+      "builtin": true,
+      "subcats": [
+        "Image",
+        "Video",
+        "LoRA"
+      ]
+    },
+    {
+      "id": "Tracking",
+      "name": "Tracking",
+      "color": "#f59e0b",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "Upscale",
+      "name": "Upscale",
+      "color": "#8b5cf6",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "AOV",
+      "name": "AOV",
+      "color": "#6366f1",
+      "builtin": true,
+      "subcats": [
+        "Depth",
+        "Relight",
+        "Normal"
+      ]
+    },
+    {
+      "id": "-----------------",
+      "name": "-----------------",
+      "color": "#4f46e5",
+      "builtin": false,
+      "subcats": []
+    },
+    {
+      "id": "Custom Nodes",
+      "name": "Custom Nodes",
+      "color": "#4f46e5",
+      "builtin": false,
+      "subcats": []
+    },
     {
       "id": "모델",
       "name": "모델",
@@ -676,66 +856,11 @@
       "subcats": []
     },
     {
-      "id": "Roto",
-      "name": "Roto",
-      "color": "#10b981",
+      "id": "VFX",
+      "name": "VFX",
+      "color": "#16a34a",
       "builtin": true,
-      "subcats": [
-        "Image",
-        "Video"
-      ]
-    },
-    {
-      "id": "Tracking",
-      "name": "Tracking",
-      "color": "#f59e0b",
-      "builtin": true,
-      "subcats": [
-        "Image",
-        "Video"
-      ]
-    },
-    {
-      "id": "Inpaint",
-      "name": "Inpaint",
-      "color": "#0891b2",
-      "builtin": true,
-      "subcats": [
-        "Image",
-        "Video",
-        "LoRA"
-      ]
-    },
-    {
-      "id": "Upscale",
-      "name": "Upscale",
-      "color": "#8b5cf6",
-      "builtin": true,
-      "subcats": [
-        "Image",
-        "Video"
-      ]
-    },
-    {
-      "id": "AOV",
-      "name": "AOV",
-      "color": "#6366f1",
-      "builtin": true,
-      "subcats": [
-        "Depth",
-        "Relight",
-        "Normal"
-      ]
-    },
-    {
-      "id": "CleanPlate",
-      "name": "Clean Plate",
-      "color": "#14b8a6",
-      "builtin": true,
-      "subcats": [
-        "Image",
-        "Video"
-      ]
+      "subcats": []
     },
     {
       "id": "업데이트",
@@ -749,6 +874,13 @@
       "name": "기타",
       "color": "#94a3b8",
       "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "Prompt",
+      "name": "Prompt",
+      "color": "#4f46e5",
+      "builtin": false,
       "subcats": []
     }
   ]
