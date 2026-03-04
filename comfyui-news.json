@@ -558,16 +558,6 @@
       "liked": false
     },
     {
-      "id": 60,
-      "title": "big-lama / LaMA — 전통 클린플레이트 인페인팅",
-      "desc": "구조 기반 대형 마스크 인페인팅. 도로·하늘·배경 클린플레이트 생성에 최적. AI 디퓨전 모델 전처리 단계로 병행 사용 권장. ComfyUI Fooocus 인페인팅 모드에 내장.",
-      "cat": "CleanPlate",
-      "subcat": "Image",
-      "link": "https://github.com/advimman/lama",
-      "date": "2022-01-01",
-      "liked": false
-    },
-    {
       "id": 61,
       "title": "RotoAI — 프롬프트 기반 영상 세그멘테이션 스튜디오",
       "desc": "SAM2 + Grounding DINO 기반 오픈소스 로토스코핑 도구. 자연어 프롬프트로 객체 선택(예: \"빨간 셔츠 입은 사람\"). Google Colab GPU 백엔드 + 로컬 React 프론트엔드 하이브리드 아키텍처. 스마트 청킹(5초 단위)으로 긴 영상도 OOM 없이 처리. Neon Glow·크로마키·보케 블러 등 효과 지원. 라이선스: AGPL-3.0.",
