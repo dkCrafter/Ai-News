@@ -558,16 +558,6 @@
       "liked": false
     },
     {
-      "id": 59,
-      "title": "VACE — Wan 기반 영상 클린플레이트·로컬 편집",
-      "desc": "Wan 계열 영상 인페인팅 프레임워크. 50% 그레이 마스크로 지정 영역 교체, 참조 이미지로 VFX 이펙트 생성. SAM2와 연동해 자동 마스크 → 클린플레이트 파이프라인 구성 가능.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
-      "date": "2025-07-01",
-      "liked": false
-    },
-    {
       "id": 60,
       "title": "big-lama / LaMA — 전통 클린플레이트 인페인팅",
       "desc": "구조 기반 대형 마스크 인페인팅. 도로·하늘·배경 클린플레이트 생성에 최적. AI 디퓨전 모델 전처리 단계로 병행 사용 권장. ComfyUI Fooocus 인페인팅 모드에 내장.",
