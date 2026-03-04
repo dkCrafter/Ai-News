@@ -614,16 +614,6 @@
       "link": "https://github.com/yuvraj108c/ComfyUI-Video-Depth-Anything",
       "date": "2025-01-22",
       "liked": false
-    },
-    {
-      "id": 66,
-      "title": "ProPainter — 광학 흐름 기반 영상 오브젝트 제거 (ComfyUI)",
-      "desc": "NTU S-Lab의 영상 인페인팅 프레임워크. 흐름 기반 전파(Recurrent Flow Completion) + 시공간 트랜스포머로 자연스러운 클린플레이트 생성. 오브젝트 제거·워터마크 제거·영상 아웃페인팅 지원. SAM2/Cutie와 연동하면 자동 마스크 → 클린플레이트 완전 자동화 파이프라인 구성 가능. ComfyUI 노드: ComfyUI_ProPainter_Nodes(daniabib). 라이선스: 비상업 NTU S-Lab License.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://github.com/sczhou/ProPainter",
-      "date": "2023-09-01",
-      "liked": false
     }
   ],
   "cats": [
