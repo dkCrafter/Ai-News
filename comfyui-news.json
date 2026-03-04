@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models",
+      "desc": "확산(Diffusion) 모델의 순차적인 노이즈 제거 과정으로 인해 추론 속도가 느린 점을 개선하기 위해, 스펙트럼 진화 인식(Spectral Evolution Aware)를 활용하여 콘텐츠를 전달하는 저주파 성분을 고주파 노이즈로부터 분리하는 훈련이 필요 없는 가속화 방법 SeaCache 제안. 최첨단(최고) 지연-품질 절충점을 달성함. \n-기존 TeaCache/TaylorSeer 방식보다 우수\n-FLUX.1-dev ~50%, HunyuanVideo 3x 가속 \n-Wan 등과도 가능\nSeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models (2602, Sungkyunkwan University, NAVER)\nproject : https://jiwoogit.github.io/SeaCache/\npaper: https://arxiv.org/abs/2602.18993\ncode: https://github.com/jiwoogit/SeaCache (soon)",
+      "cat": "기타",
+      "date": "2026-03-04",
+      "link": "https://jiwoogit.github.io/SeaCache/?fbclid=IwY2xjawQU8RtleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
+      "thumb": "",
+      "id": 1772622442424,
+      "liked": false
+    },
+    {
       "title": "FlowRVS: [ICLR 2026] Deforming Videos to Masks: Flow Matching for Referring Video Segmentation (FlowRVS)",
       "desc": "FlowRVS는 참조 영상 객체 분할(RVOS) 모델로, 계단식 ‘위치 지정 후 분할(locate-then-segment)’ 패러다임(A)을 통합된 종단간 흐름(B)으로 대체, 정보 병목 현상을 방지하여 복잡한 언어와 동적 영상(C)을 탁월하게 처리하고 최첨단 성능(D)을 달성합니다. 오픈소스 (MIT). \n✨ 주요 특징:\n-RVOS(Referring Video Object Segmentation)를 연속적인 텍스트 조건부 흐름 학습으로 재구성하여 영상의 시공간 표현을 목표 마스크로 변형합니다.\n-체계적인 기법들을 제안함으로써 강력한 텍스트-영상 생성 모델을 이 RVOS 작업에 성공적으로 이전합니다.\n-주요 벤치마크에서 새로운 최첨단(SOTA) 결과를 달성합니다.\nFlowRVS, Deforming Videos to Masks: Flow Matching for Referring Video Segmentation(2510, Many Universitys, Baidu) \npaper: https://arxiv.org/abs/2510.06139\nsource: https://github.com/xmz111/FlowRVS (26.2 relaese)\n*comfyui : https://huggingface.co/.../WanVideo_comfy/tree/main/FlowRVS",
       "cat": "Roto",
