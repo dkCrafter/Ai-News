@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "ComfyUI-CacheDiT",
+      "desc": "ComfyUI-CacheDiT, Z-Image 및 LTX-2 성능을 1.3배에서 최대 2배까지 향상 \nresidual caching을 통해 속도 향상을 제공합니다:\n- Z-Image 및 LTX-2 뿐만아니라 Wan2.2 및 Qwen-Image에서도 작동.\n- 품질 영향 최소화. (quality impact is minimal)\n- 메모리 효율적. (Saves 50% memory for cached tensors) \nhttps://github.com/Jasonzzt/ComfyUI-CacheDiT",
+      "cat": "Custom Nodes",
+      "date": "2026-03-04",
+      "link": "https://github.com/Jasonzzt/ComfyUI-CacheDiT?fbclid=IwY2xjawQU9o9leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHizBCjgy1TU1tKonkUG9KzQiU9NOVWG-urv44bIStx6BoYAbl-I7Vcsp12ZE_aem_tQMyAwv-XL5rbD_DpXN_OA",
+      "thumb": "",
+      "id": 1772623722204,
+      "liked": false
+    },
+    {
       "title": "BFS-Best-Face-Swap-Video, LTX-2 Video Face Swap LoRA",
       "desc": "BFS-Best-Face-Swap-Video, LTX-2 Video Face Swap LoRA \n첫 번째 프레임에서 제공된 정체성을 유지하면서 가이드 영상의 움직임을 따릅니다.\nDataset : 300 high-quality head swap video pairs.\nTrain : Trained for 60+ hours on NVIDIA RTX PRO 6000 Blackwell GPUs, iterating through over 300GB of experimental files.\n이 모델은 첫 번째 프레임을 활용하여 전체 생성을 조건화하도록 특별히 훈련되었습니다.\n-초기 스왑: 100% 정확도와 유사도를 위해 추론을 실행하기 전에 프레임 0에서 고품질 헤드 스왑을 수행하는 것이 필수적입니다.\n-컷아웃: 첫 번째 프레임의 얼굴 위에 사진을 단순히 붙여넣어도 모델이 작동할 수 있지만, 모든 경우에 100% 효과적이지는 않을 것입니다.\n-팁: 최상의 결과를 위해 제 이전 BFS 이미지 모델을 활용하여 고품질 프레임 0 스왑을 준비하세요.",
       "cat": "Inpaint",
