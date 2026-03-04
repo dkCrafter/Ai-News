@@ -4,7 +4,6 @@
       "title": "CoWTracker: Tracking by Warping instead of Correlation",
       "desc": "",
       "cat": "Tracking",
-      "subcat": "Video",
       "date": "2026-02-06",
       "link": "https://cowtracker.github.io/#visuals",
       "thumb": "",
@@ -546,7 +545,6 @@
       "title": "CoTracker3 — 점/객체 고정밀 영상 트래킹",
       "desc": "Meta Research의 포인트·객체 트래킹 모델. 영상 내 임의의 점을 지정하면 전체 프레임에 걸쳐 추적. SAM2·VACE와 함께 VFX 파이프라인에 통합. ComfyUI + AInVFX 워크플로 예제 공개.",
       "cat": "Tracking",
-      "subcat": "Video",
       "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
       "date": "2025-07-01",
       "liked": false
@@ -556,7 +554,6 @@
       "title": "ATI (Any Trajectory Instruction) — 드로잉으로 모션 지시",
       "desc": "영상 위에 경로를 그리면 객체가 해당 궤적대로 움직이는 모션 제어 모델. Wan 2.1 기반. 멀티 스플라인으로 여러 객체 동시 제어 가능. VFX 프리비즈·오브젝트 애니메이션에 유용.",
       "cat": "Tracking",
-      "subcat": "Video",
       "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
       "date": "2025-09-01",
       "liked": false
@@ -732,9 +729,7 @@
       "name": "Tracking",
       "color": "#f59e0b",
       "builtin": true,
-      "subcats": [
-        "Video"
-      ]
+      "subcats": []
     },
     {
       "id": "Upscale",
