@@ -323,16 +323,6 @@
       "liked": false
     },
     {
-      "id": 34,
-      "title": "Nano Banana 2 — ComfyUI 통합",
-      "desc": "Nano Banana 2 모델이 ComfyUI 파트너 노드로 추가됨. 기존 Gemini/Nano Banana API 노드의 빈 이미지 반환 버그도 동시 수정.",
-      "cat": "업데이트",
-      "subcat": "",
-      "link": "https://www.comfy.org/",
-      "date": "2026-02-28",
-      "liked": false
-    },
-    {
       "id": 35,
       "title": "Subgraph 기능 공식 출시",
       "desc": "복잡한 노드 조합을 하나의 재사용 가능한 서브그래프 노드로 패키징. 노드 라이브러리에 퍼블리시해서 커스텀 노드처럼 사용 가능. 워크플로우 모듈화 대폭 향상.",
