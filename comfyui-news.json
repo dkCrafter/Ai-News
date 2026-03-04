@@ -691,6 +691,13 @@
       "color": "#94a3b8",
       "builtin": true,
       "subcats": []
+    },
+    {
+      "id": "-----------------",
+      "name": "-----------------",
+      "color": "#4f46e5",
+      "builtin": false,
+      "subcats": []
     }
   ]
 }
