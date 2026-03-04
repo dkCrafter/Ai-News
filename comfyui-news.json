@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "OmnimatteZero: Nodes to run native weights of LTX’s OmnimatteZero in ComfyUI",
+      "desc": "",
+      "cat": "모델",
+      "subcat": "Image",
+      "date": "2026-03-04",
+      "link": "https://github.com/tpc2233/ComfyUI-TP-OmnimatteZero",
+      "thumb": "",
+      "id": 1772609886351,
+      "liked": false
+    },
+    {
       "title": "CoWTracker: Tracking by Warping instead of Correlation",
       "desc": "",
       "cat": "Tracking",
