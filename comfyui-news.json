@@ -138,16 +138,6 @@
       "liked": false
     },
     {
-      "id": 13,
-      "title": "KlingAvatar — 얼굴 일관성 비디오 생성",
-      "desc": "인물 사진에서 일관된 얼굴 정체성을 유지하며 애니메이션 생성 가능.",
-      "cat": "모델",
-      "subcat": "Video",
-      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
-      "date": "2026-02-24",
-      "liked": false
-    },
-    {
       "id": 14,
       "title": "ElevenLabs TTS API 노드",
       "desc": "ElevenLabs 텍스트-음성 변환 API가 ComfyUI 노드로 통합됐어요.",
