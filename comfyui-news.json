@@ -608,6 +608,13 @@
   ],
   "cats": [
     {
+      "id": "Roto",
+      "name": "Roto",
+      "color": "#10b981",
+      "builtin": true,
+      "subcats": []
+    },
+    {
       "id": "모델",
       "name": "모델",
       "color": "#4f46e5",
@@ -638,13 +645,6 @@
         "Video",
         "LoRA"
       ]
-    },
-    {
-      "id": "Roto",
-      "name": "Roto",
-      "color": "#10b981",
-      "builtin": true,
-      "subcats": []
     },
     {
       "id": "Tracking",
