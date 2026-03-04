@@ -121,11 +121,11 @@
       "id": 11,
       "title": "Moment Factory — 3D 프로젝션 매핑 케이스 스터디",
       "desc": "Moment Factory가 ComfyUI로 대규모 건축물 프로젝션 매핑 워크플로우를 재구성한 사례 공개.",
-      "cat": "CleanPlate",
+      "cat": "VFX",
       "link": "https://blog.comfy.org/p/case-study-how-moment-factory-reimagined",
       "date": "2026-02-26",
       "liked": false,
-      "subcat": "Video"
+      "thumb": ""
     },
     {
       "id": 12,
