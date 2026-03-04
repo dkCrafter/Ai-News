@@ -513,15 +513,6 @@
       "liked": false
     },
     {
-      "id": 50,
-      "title": "SAM2 (Segment Anything Model 2) — Meta AI 영상 로토 자동화",
-      "desc": "Meta AI의 오픈소스 영상 세그먼테이션 모델. 첫 프레임에 점/박스 하나만 찍으면 전체 영상에서 마스크를 자동 추적. 44FPS 실시간 처리, ComfyUI Kijai 노드로 통합. 로토스코핑·클린플레이트·인페인팅 파이프라인에 직접 활용 가능.",
-      "cat": "Roto",
-      "link": "https://github.com/kijai/ComfyUI-segment-anything-2",
-      "date": "2024-08-01",
-      "liked": false
-    },
-    {
       "id": 51,
       "title": "SAM 3 Lite — 영상 세그먼트 차세대 업그레이드",
       "desc": "SAM2 대비 모호한 경계·투명 객체·오클루전 처리 대폭 개선. 영상에서 프레임 간 마스크 일관성 향상. ComfyUI Manager에서 바로 설치. 스틸 이미지는 SAM2로도 충분하나, 영상 로토는 SAM3 권장.",
