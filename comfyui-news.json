@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "NormalCrafter",
+      "desc": "Nomal",
+      "cat": "모델",
+      "subcat": "Image",
+      "date": "2026-03-01",
+      "link": "https://normalcrafter.github.io/",
+      "thumb": "",
+      "id": 1772614289472,
+      "liked": false
+    },
+    {
       "title": "OmnimatteZero: Nodes to run native weights of LTX’s OmnimatteZero in ComfyUI",
       "desc": "",
       "cat": "Inpaint",
