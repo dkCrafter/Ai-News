@@ -731,6 +731,13 @@
       "color": "#94a3b8",
       "builtin": true,
       "subcats": []
+    },
+    {
+      "id": "Custom Nodes",
+      "name": "Custom Nodes",
+      "color": "#4f46e5",
+      "builtin": false,
+      "subcats": []
     }
   ]
 }
