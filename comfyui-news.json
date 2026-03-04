@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "ComfyUI-Yedp-Action-Director: An intuitive controlnet 3D node pass generator from Mixamo FBX Animation files",
+      "desc": "ComfyUI Yedp Action Director node, Interactive 3D viewport for ControlNet \nYedp Action Director는 ComfyUI용 커스텀 노드로, 완전히 상호작용 가능한 3D 뷰포트를 워크플로우에 직접 통합합니다. FBX 또는 GLB 애니메이션을 로드하고 실시간으로 미리 볼 수 있으며, ControlNet 생성을 위한 핵심 패스(OpenPose, Depth, Canny, Normal)를 일괄 렌더링할 수 있습니다.\n정적 이미지 로더와 달리, 이 노드는 Three.js를 사용하여 클라이언트 측(브라우저 내)에서 렌더링을 수행하고 픽셀 데이터를 ComfyUI로 다시 전송하여 처리합니다.\n✨ 주요 기능\n-인터랙티브 3D 뷰포트: 크기 조절 가능, 궤도 제어, 실시간 재생.\n-멀티패스 렌더링: 한 번에 4가지 별도 배치 생성:\n🔴 Pose: OpenPose용 무조명 평면 컬러.\n⚫ Depth: 수동 근거리/원거리 조절이 가능한 고품질 깊이 맵.\n⚪ Canny: 완벽한 에지 감지를 위한 절차적 림 라이트(매트캡).\n🔵 Normal: 지오메트리 디테일을 위한 표준 RGB 노멀 맵.\n-포맷 지원: 표준 .fbx 및 .glb 애니메이션 파일 지원.\n-스마트 리타게팅: 뼈대 이름 자동 감지 및 정규화(Mixamo 호환).\n-무한 확장: 노드 UI가 수직 및 수평으로 제한 없이 확장됩니다.\nhttps://github.com/yedp123/ComfyUI-Yedp-Action-Director",
+      "cat": "Custom Nodes",
+      "date": "2026-03-04",
+      "link": "https://github.com/yedp123/ComfyUI-Yedp-Action-Director?fbclid=IwY2xjawQU84FleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
+      "thumb": "",
+      "id": 1772622949390,
+      "liked": false
+    },
+    {
       "title": "SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models",
       "desc": "확산(Diffusion) 모델의 순차적인 노이즈 제거 과정으로 인해 추론 속도가 느린 점을 개선하기 위해, 스펙트럼 진화 인식(Spectral Evolution Aware)를 활용하여 콘텐츠를 전달하는 저주파 성분을 고주파 노이즈로부터 분리하는 훈련이 필요 없는 가속화 방법 SeaCache 제안. 최첨단(최고) 지연-품질 절충점을 달성함. \n-기존 TeaCache/TaylorSeer 방식보다 우수\n-FLUX.1-dev ~50%, HunyuanVideo 3x 가속 \n-Wan 등과도 가능\nSeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models (2602, Sungkyunkwan University, NAVER)\nproject : https://jiwoogit.github.io/SeaCache/\npaper: https://arxiv.org/abs/2602.18993\ncode: https://github.com/jiwoogit/SeaCache (soon)",
       "cat": "기타",
