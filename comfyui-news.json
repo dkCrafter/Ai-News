@@ -669,9 +669,7 @@
       "name": "Clean Plate",
       "color": "#14b8a6",
       "builtin": true,
-      "subcats": [
-        "Image"
-      ]
+      "subcats": []
     },
     {
       "id": "VFX",
