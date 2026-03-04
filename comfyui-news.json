@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "Qwen-Image-2512-Turbo-LoRA-2-Steps,",
+      "desc": "Qwen-Image-2512-Turbo-LoRA-2-Steps, 50steps to just 2steps! (source: X ModelScope2022)\nThis is a 2-step turbo LoRA for Qwen Image 2512 trained by Wuli Team, representing an advancement over our 4-step turbo LoRA.\n50단계에서 단 2단계로. Wuli 팀이 방금 Qwen-Image-2512-Turbo-LoRA-2-Steps를 오픈소스화하며 확산 증류 분야의 SOTA를 끌어올렸습니다. 산업용 등급의 질감을 희생하지 않으면서 Qwen-Image의 속도를 40배 향상시켰습니다. \n성능:\n- 지연 시간: 기본 모델 대비 40배 가속화. \n- 처리량: Wuli 플랫폼에서 약 5초 만에 4개의 2K 해상도 이미지를 생성합니다.\n2단계 생성의 기술 스택:\n- 궤적 증류(Trajectory Distillation)를 뛰어넘는 기술: 기존 방식은 종종 흐릿한 결과를 낳습니다. 이 버전은 역 KL 증류(Reverse-KL Distillation)를 사용하여 확률 공간의 격차를 최소화하고 \"불법\" 샘플에 대해 큰 페널티를 부과합니다.\n- PCM을 통한 웜 스타트(Warm Start): 초저 단계에서 모드 붕괴 및 과포화를 방지하기 위해 단계적 일관성 모델(PCM)을 초기화에 사용했습니다. \n- 적대적 사전 분포(GAN): DINO 기반 특징 추출기를 갖춘 GAN 설정을 통해 실제 데이터 사전 분포를 주입하여 털이나 이끼 같은 미세한 질감을 보정했습니다.\n가중치가 실시간으로 업데이트됩니다. 생성 파이프라인을 업그레이드할 때입니다.\nModel:  https://huggingface.co/.../Qwen-Image-2512-Turbo-LoRA-2...",
+      "cat": "LoRA",
+      "date": "2026-03-04",
+      "link": "https://huggingface.co/Wuli-art/Qwen-Image-2512-Turbo-LoRA-2-Steps?fbclid=IwY2xjawQU-QVleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqg1qiXtPnmGXqvQNS-0bzywUBlteCNdjcsJyHISE1RIvA4JlfVNtWZND_iv_aem_sox3X1DhjIM5JlWI_T8pVw",
+      "thumb": "",
+      "id": 1772624340690,
+      "liked": false
+    },
+    {
       "title": "TeleStyle (China Telecom): Style Transfer in Images and Videos",
       "desc": "TeleStyle (China Telecom): Style Transfer in Images and Videos \n이미지 및 영상 스타일링 모두에 적용 가능한 가볍고 효과적인 모델. Qwen-Image-Edit를 기반으로 구축된 TeleStyle은 기본 모델의 강력한 콘텐츠 보존 및 스타일 맞춤화 기능을 활용이미지 및 영상 스타일링 모두에 적용 가능. 오프소스로 공개(Apache-2.0 license). \n효과적인 훈련을 위해 고품질의 독특한 특정 스타일 데이터셋을 선별하고, 수천 개의 다양한 실제 스타일 범주를 활용해 삼중 데이터를 추가 합성했습니다. TeleStyle을 깨끗한(선별된) 삼중 데이터와 노이즈가 있는(합성된) 삼중 데이터로 구성된 이 하이브리드 데이터셋에서 훈련시키기 위해 커리큘럼 지속 학습 프레임워크를 합니다. \nTeleStyle: Content-Preserving Style Transfer in Images and Videos (2601, China Telecom(TeleAI))\nproject: https://tele-ai.github.io/TeleStyle/\npaper: https://arxiv.org/pdf/2601.20175\ncode: https://github.com/Tele-AI/TeleStyle  \nmodel : https://huggingface.co/Tele-AI/TeleStyle",
       "cat": "모델",
