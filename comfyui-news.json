@@ -513,7 +513,6 @@
       "title": "Real-ESRGAN / ESRGAN — 이미지 업스케일 ComfyUI 표준",
       "desc": "AI 이미지 업스케일의 표준. 4x 고해상도 변환. ComfyUI 내장 지원. SeedVR2 등장 전까지 VFX 클린플레이트·텍스처 업스케일에 가장 널리 쓰인 모델. 정적 이미지에는 여전히 빠르고 실용적.",
       "cat": "Upscale",
-      "subcat": "Image",
       "link": "https://comfyui-wiki.com/en/workflows/inpaint",
       "date": "2023-01-01",
       "liked": false
@@ -637,9 +636,7 @@
       "name": "Upscale",
       "color": "#8b5cf6",
       "builtin": true,
-      "subcats": [
-        "Image"
-      ]
+      "subcats": []
     },
     {
       "id": "AOV",
