@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "Depth Anything 3: Recovering the Visual Space from Any Views",
+      "desc": "depth anything 3",
+      "cat": "AOV",
+      "subcat": "Depth",
+      "date": "2026-03-04",
+      "link": "https://depth-anything-3.github.io/",
+      "thumb": "https://depth-anything-3.github.io/assets/paoku_compressed.mp4",
+      "id": 1772614419022,
+      "liked": false
+    },
+    {
       "title": "NormalCrafter",
       "desc": "Nomal",
       "cat": "AOV",
