@@ -343,16 +343,6 @@
       "liked": false
     },
     {
-      "id": 36,
-      "title": "ComfyUI 첫 번째 위클리 챌린지 시작",
-      "desc": "ComfyUI Wiki가 첫 위클리 챌린지 개최. 제공된 뎁스맵으로 고양이 인간 캐릭터 턴어라운드 영상 제작. 상금 $100.",
-      "cat": "기타",
-      "subcat": "",
-      "link": "https://comfyui-wiki.com/en/news",
-      "date": "2026-03-01",
-      "liked": false
-    },
-    {
       "id": 37,
       "title": "Wan 2.2 5B Fun Control/Inpaint 지원",
       "desc": "Wan2.2 5B Fun Control 모델과 Fun Inpaint 모델이 ComfyUI에 통합. 영상 생성의 고급 크리에이티브 컨트롤 가능.",
