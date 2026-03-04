@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "VideoMaMa",
+      "desc": "",
+      "cat": "Roto",
+      "subcat": "Video",
+      "date": "2026-03-04",
+      "link": "",
+      "thumb": "https://github.com/cvlab-kaist/VideoMaMa",
+      "id": 1772606745030,
+      "liked": false
+    },
+    {
       "id": 1,
       "title": "ComfyUI v0.15.0 정식 릴리즈",
       "desc": "BBox 위젯, GLSL 셰이더 노드, ElevenLabs TTS API 노드 등 다수 신규 노드 추가. Gemma3·Qwen3 네이티브 텍스트 생성 지원.",
