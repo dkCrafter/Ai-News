@@ -689,15 +689,47 @@ async function syncFromGitHub() {
       try { localStorage.setItem(CAT_KEY, JSON.stringify(cats)); } catch(e) {}
     }
     setSyncStatus('ok', '연결됨');
-    _appReady = true; // GitHub 로드 완료 후 save() 동기화 허용
+    _appReady = true;
+    hideGHLoading();
     renderSidebar(); render();
     toast('✓ GitHub에서 불러오기 완료! (' + news.length + '건)');
   } catch(e) {
-    _appReady = true; // 실패해도 허용 (연결 안 된 상태로 사용)
-    setSyncStatus('error', '오류');
-    toast('❌ 불러오기 실패: ' + e.message);
+    _appReady = true;
+    setSyncStatus('error', '오류: ' + e.message);
+    hideGHLoading();
+    renderSidebar(); render();
+    console.error('syncFromGitHub error:', e);
+    // 오류를 화면 상단에 배너로 표시
+    showGHError('GitHub 불러오기 실패: ' + e.message + ' — GitHub 설정에서 토큰/저장소를 확인하세요.');
   }
 }
+
+function showGHLoading() {
+  let el = document.getElementById('gh-loading-overlay');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'gh-loading-overlay';
+    el.style.cssText = 'position:fixed;inset:0;background:var(--bg1);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;font-size:1rem;color:var(--text2)';
+    el.innerHTML = '<div style="font-size:2.5rem">⏳</div><div style="font-weight:600">GitHub에서 최신 데이터 불러오는 중...</div><div style="font-size:.8rem;color:var(--text3)">잠시만 기다려주세요</div>';
+    document.body.appendChild(el);
+  }
+  el.style.display = 'flex';
+}
+function hideGHLoading() {
+  const el = document.getElementById('gh-loading-overlay');
+  if (el) el.remove();
+}
+function showGHError(msg) {
+  let el = document.getElementById('gh-error-banner');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'gh-error-banner';
+    el.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9998;background:#fee2e2;color:#991b1b;padding:10px 16px;font-size:.85rem;display:flex;align-items:center;gap:8px;border-bottom:1px solid #fca5a5';
+    document.body.appendChild(el);
+  }
+  el.innerHTML = `<span>❌ ${msg}</span><button onclick="this.parentElement.remove()" style="margin-left:auto;background:none;border:none;cursor:pointer;font-size:1rem">✕</button>`;
+}
+
 
 function openGHSetup() {
   const cfg = getGHConfig();
@@ -743,7 +775,7 @@ function disconnectGitHub() {
 
 function initGHStatus() {
   const cfg = getGHConfig();
-  if (cfg) { setSyncStatus('ok','연결됨'); syncFromGitHub(); }
+  if (cfg) { setSyncStatus('ok','연결됨'); showGHLoading(); syncFromGitHub(); }
   else { _appReady = true; }
 }
 
