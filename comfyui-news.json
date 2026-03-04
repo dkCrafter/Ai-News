@@ -98,8 +98,7 @@
       "link": "https://github.com/Comfy-Org/ComfyUI/releases",
       "date": "2026-02-24",
       "liked": false,
-      "thumb": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=225&fit=crop",
-      "subcat": "Video"
+      "thumb": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=225&fit=crop"
     },
     {
       "id": 8,
@@ -505,7 +504,6 @@
       "title": "SeedVR2 — ByteDance 1-step 영상·이미지 업스케일",
       "desc": "ByteDance의 16B 파라미터 디퓨전 기반 영상 업스케일러. 기존 ESRGAN 대비 시간 일관성 획기적 향상, 540p → 4K 1단계 처리. Apache 2.0 오픈소스, ComfyUI 4-노드 통합. 8GB VRAM에서도 GGUF Q4로 구동 가능.",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler",
       "date": "2025-10-01",
       "liked": false
@@ -563,7 +561,6 @@
       "title": "FlashVSR — 실시간 디퓨전 기반 영상 초해상도 (CVPR 2026)",
       "desc": "단일 스텝 디퓨전으로 A100 단일 GPU에서 768×1408 해상도 ~17FPS 달성. 기존 원스텝 VSR 대비 최대 12배 속도 향상. 핵심 기술: 3단계 증류 파이프라인 + 지역 제약 희소 어텐션 + 경량 조건부 디코더. v1.1에서 안정성·충실도 개선. ComfyUI 커스텀 노드 다수 배포(smthemex, 1038lab, naxci1). fal.ai 클라우드 추론 지원. 학습 데이터셋 VSR-120K(12만 영상) 공개.",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://github.com/OpenImagingLab/FlashVSR",
       "date": "2025-10-01",
       "liked": false
@@ -573,7 +570,6 @@
       "title": "NVIDIA RTX Video Node — ComfyUI 4K 실시간 업스케일 (CES 2026)",
       "desc": "CES 2026에서 NVIDIA 발표. RTX GPU Tensor Core 기반으로 720p AI 생성 영상을 수 초 안에 4K로 업스케일. 엣지 선명화·압축 아티팩트 제거 실시간 처리. ComfyUI 2026년 2월 출시 예정. LTX-2 + RTX Video 파이프라인으로 4K AI 영상 로컬 생성 가능. NVFP4 포맷으로 VRAM 60% 절감, 성능 3배 향상(RTX 50 시리즈).",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/",
       "date": "2026-01-06",
       "liked": false
@@ -642,8 +638,7 @@
       "color": "#8b5cf6",
       "builtin": true,
       "subcats": [
-        "Image",
-        "Video"
+        "Image"
       ]
     },
     {
