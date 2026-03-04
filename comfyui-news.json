@@ -580,15 +580,6 @@
       "liked": false
     },
     {
-      "id": 62,
-      "title": "Cutie-Roto — AI 영상 로토스코핑 무료 대안",
-      "desc": "Cutie 모델 기반 AI 로토스코핑 도구. Adobe Roto Brush·DaVinci Resolve Magic Mask 무료 대안. 첫 프레임 마스크 지정 후 영상 전체 자동 추적. GUI 기반으로 별도 ComfyUI 불필요, Windows 원클릭 실행. 수동 로토 대비 정확도는 낮지만 빠른 초안·임시 키 작업에 적합.",
-      "cat": "Roto",
-      "link": "https://github.com/Zarxrax/Cutie-Roto",
-      "date": "2024-12-01",
-      "liked": false
-    },
-    {
       "id": 63,
       "title": "FlashVSR — 실시간 디퓨전 기반 영상 초해상도 (CVPR 2026)",
       "desc": "단일 스텝 디퓨전으로 A100 단일 GPU에서 768×1408 해상도 ~17FPS 달성. 기존 원스텝 VSR 대비 최대 12배 속도 향상. 핵심 기술: 3단계 증류 파이프라인 + 지역 제약 희소 어텐션 + 경량 조건부 디코더. v1.1에서 안정성·충실도 개선. ComfyUI 커스텀 노드 다수 배포(smthemex, 1038lab, naxci1). fal.ai 클라우드 추론 지원. 학습 데이터셋 VSR-120K(12만 영상) 공개.",
