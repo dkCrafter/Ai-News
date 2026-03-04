@@ -665,13 +665,6 @@
       ]
     },
     {
-      "id": "CleanPlate",
-      "name": "Clean Plate",
-      "color": "#14b8a6",
-      "builtin": true,
-      "subcats": []
-    },
-    {
       "id": "VFX",
       "name": "VFX",
       "color": "#16a34a",
