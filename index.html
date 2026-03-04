@@ -135,6 +135,8 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);position:stic
 .card.has-thumb .card-inner{display:flex;align-items:stretch;}
 .card-thumb-wrap{flex-shrink:0;width:200px;overflow:hidden;background:var(--bg3);position:relative;}
 .card-thumb{width:200px;height:100%;min-height:120px;object-fit:cover;display:block;}
+.card-thumb-wrap{position:relative;flex-shrink:0;}
+.gif-badge{position:absolute;top:5px;left:5px;background:rgba(0,0,0,.55);color:#fff;font-size:.6rem;font-weight:700;padding:2px 5px;border-radius:4px;pointer-events:none;letter-spacing:.04em;}
 
 /* ── WITHOUT THUMBNAIL (text card) ── */
 .card:not(.has-thumb) .card-inner{display:block;}
@@ -274,6 +276,9 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);position:stic
   <div class="hinner">
     <div class="logo"><div class="pulse"></div>ComfyUI / NEWS HUB</div>
     <div class="hright">
+      <button class="sync-btn" onclick="openSettings()" title="설정" style="padding:5px 9px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
       <button class="sync-btn" id="sync-btn" onclick="openGHSetup()" title="GitHub 동기화">
         <div class="sync-dot"></div>
         <div class="sync-spin"></div>
@@ -890,6 +895,28 @@ function tagHTML(n) {
   return `<span class="ctag" style="${st}">${esc(n.cat)}</span>`;
 }
 
+// ── 썸네일 URL 정규화 ─────────────────────────────────────────────
+// YouTube → 썸네일 이미지, 그 외 그대로
+function normalizeThumb(url) {
+  if (!url) return url;
+  // YouTube watch
+  const yt1 = url.match(/youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]{11})/);
+  if (yt1) return `https://img.youtube.com/vi/${yt1[1]}/hqdefault.jpg`;
+  // youtu.be short
+  const yt2 = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (yt2) return `https://img.youtube.com/vi/${yt2[1]}/hqdefault.jpg`;
+  // YouTube embed
+  const yt3 = url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+  if (yt3) return `https://img.youtube.com/vi/${yt3[1]}/hqdefault.jpg`;
+  return url;
+}
+function isVideoUrl(url) {
+  return /\.(mp4|webm|mov|ogg)(\?.*)?$/i.test(url);
+}
+function isGifUrl(url) {
+  return /\.gif(\?.*)?$/i.test(url);
+}
+
 function cardHTML(n) {
   const rel  = relDate(n.date);
   const meta = n.date ? (n.date + (rel ? ' · ' + rel : '')) : '';
@@ -908,12 +935,22 @@ function cardHTML(n) {
   </div>`;
 
   if (hasThumb) {
+    const thumbSrc = normalizeThumb(n.thumb);
+    const thumbEl  = isVideoUrl(thumbSrc)
+      ? `<video class="card-thumb" src="${esc(thumbSrc)}" muted playsinline loop preload="metadata"
+           onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"
+           onerror="this.closest('.card-thumb-wrap').style.display='none';this.closest('.card').classList.remove('has-thumb')"></video>`
+      : isGifUrl(thumbSrc)
+      ? `<img class="card-thumb gif-thumb" src="${esc(thumbSrc)}" alt="" loading="lazy"
+           title="GIF 애니메이션"
+           onerror="this.closest('.card-thumb-wrap').style.display='none';this.closest('.card').classList.remove('has-thumb')">`
+      : `<img class="card-thumb" src="${esc(thumbSrc)}" alt="" loading="lazy"
+           onerror="this.closest('.card-thumb-wrap').style.display='none';this.closest('.card').classList.remove('has-thumb')">`;
     // YouTube-style: thumb left, content right
     return `<div class="card has-thumb ${n.liked?'liked':''}" id="card-${n.id}">
       <div class="card-inner">
         <div class="card-thumb-wrap">
-          <img class="card-thumb" src="${esc(n.thumb)}" alt="" loading="lazy"
-            onerror="this.closest('.card-thumb-wrap').style.display='none';this.closest('.card').classList.remove('has-thumb')">
+          ${thumbEl}
         </div>
         <div class="card-body">
           <div class="ctags">${tagHTML(n)}</div>
@@ -1082,12 +1119,37 @@ function getForm(prefix) {
 }
 
 function previewThumb(p) {
-  const v = document.getElementById(p + '-thumb').value.trim();
+  const raw  = document.getElementById(p + '-thumb').value.trim();
+  const v    = normalizeThumb(raw);
+  if (v !== raw) document.getElementById(p + '-thumb').value = v;
   const wrap = document.getElementById(p + '-thumb-preview-wrap');
   if (!wrap) return;
+
+  // JWT 만료 경고
+  const warnId = p + '-thumb-warn';
+  let warnEl = document.getElementById(warnId);
+  if (!warnEl) {
+    warnEl = document.createElement('div');
+    warnEl.id = warnId;
+    warnEl.style.cssText = 'font-size:.72rem;color:#b45309;margin-top:4px;display:none';
+    wrap.parentNode.insertBefore(warnEl, wrap.nextSibling);
+  }
+  if (v && v.includes('jwt=')) {
+    warnEl.textContent = '⚠️ JWT 토큰이 포함된 임시 URL입니다. 시간이 지나면 만료돼요. raw.githubusercontent.com 영구 URL을 사용하세요.';
+    warnEl.style.display = 'block';
+  } else {
+    warnEl.style.display = 'none';
+  }
+
   if (v) {
     wrap.style.display = 'block';
-    document.getElementById(p + '-thumb-preview').src = v;
+    const prev = document.getElementById(p + '-thumb-preview');
+    if (isVideoUrl(v)) {
+      wrap.innerHTML = `<video class="thumb-preview" src="${esc(v)}" muted playsinline preload="metadata" controls style="max-width:100%;border-radius:8px"></video>
+        <button class="thumb-clear" onclick="clearThumb('${p}')">✕</button>`;
+    } else {
+      if (prev) prev.src = v;
+    }
   } else {
     wrap.style.display = 'none';
   }
@@ -1104,7 +1166,13 @@ function clearThumb(p) {
 // ═══════════════════════════════════════════════════
 function openOv(id)  { document.getElementById(id).classList.add('open'); }
 function closeOv(id) { document.getElementById(id).classList.remove('open'); }
-function closeBg(e, id) { if (e.target === document.getElementById(id)) closeOv(id); }
+// 드래그 중 overlay에서 mouseup 시 모달 닫힘 방지
+let _mouseDownTarget = null;
+document.addEventListener('mousedown', e => { _mouseDownTarget = e.target; });
+function closeBg(e, id) {
+  // 클릭 시작이 overlay 자체일 때만 닫기 (드래그 종료는 무시)
+  if (e.target === document.getElementById(id) && _mouseDownTarget === e.target) closeOv(id);
+}
 
 function showStep(name) {
   ['step-url','step-preview','step-manual'].forEach(id =>
@@ -1182,6 +1250,31 @@ function tryAuto() {
   if (v.startsWith('http')) doAnalyze();
 }
 
+// ── API KEY ────────────────────────────────────────────────────────
+const API_KEY_STORAGE = 'comfyui_anthropic_key';
+function getApiKey()     { try { return localStorage.getItem(API_KEY_STORAGE)||''; } catch { return ''; } }
+function setApiKey(k)    { try { localStorage.setItem(API_KEY_STORAGE, k); } catch(e) {} }
+
+function openSettings() {
+  const k = getApiKey();
+  document.getElementById('settings-key-input').value = k;
+  document.getElementById('settings-key-status').textContent = k ? '✅ API 키 설정됨' : '';
+  openOv('ov-settings');
+}
+function saveSettings() {
+  const k = document.getElementById('settings-key-input').value.trim();
+  setApiKey(k);
+  document.getElementById('settings-key-status').textContent = k ? '✅ 저장됐습니다!' : '삭제됐습니다.';
+  setTimeout(() => closeOv('ov-settings'), 800);
+}
+
+function showAnalyzeError(msg) {
+  document.getElementById('analyzing-state').style.display = 'none';
+  document.getElementById('analyze-btn').disabled = false;
+  document.getElementById('error-msg').textContent = msg;
+  document.getElementById('error-state').style.display = 'block';
+}
+
 async function doAnalyze() {
   const url = document.getElementById('f-url').value.trim();
   if (!url.startsWith('http')) { toast('올바른 URL을 입력해주세요.'); return; }
@@ -1189,17 +1282,12 @@ async function doAnalyze() {
   document.getElementById('error-state').style.display = 'none';
   document.getElementById('analyzing-state').style.display = 'block';
   document.getElementById('analyze-btn').disabled = true;
-
-  const sEl  = document.getElementById('analyzing-msg');
-  const msgs = ['페이지 정보 읽는 중...', '썸네일 가져오는 중...', 'AI 분류 중...'];
-  let si = 0;
-  const tick = setInterval(() => { si=(si+1)%msgs.length; if(sEl) sEl.textContent=msgs[si]; }, 1800);
+  document.getElementById('analyzing-msg').textContent = '제목 가져오는 중...';
 
   try {
     const domain = new URL(url).hostname.replace('www.', '');
-    let meta = { title:'', description:'', date:today(), publisher:domain, image:'' };
+    let title = '', date = today();
 
-    // Step A: microlink for OG metadata + image
     try {
       const r = await fetch(
         'https://api.microlink.io/?url=' + encodeURIComponent(url) +
@@ -1208,69 +1296,28 @@ async function doAnalyze() {
       if (r.ok) {
         const d = await r.json();
         if (d.status === 'success') {
-          meta.title       = d.data.title       || '';
-          meta.description = d.data.description || '';
-          meta.date        = d.data.date ? d.data.date.split('T')[0] : today();
-          meta.publisher   = d.data.publisher   || domain;
-          meta.image       = d.data.image?.url  || d.data.screenshot?.url || '';
+          title = d.data.title || '';
+          // date는 today() 기본값 유지 (microlink 날짜는 부정확한 경우 많음)
         }
       }
     } catch(e) { console.warn('microlink:', e.message); }
 
-    // Step B: Claude classify
-    sEl.textContent = 'AI 분류 중...';
-    const catNames = cats.map(c => c.id).join('|');
-    const prompt = `다음 링크를 ComfyUI 뉴스 카드로 분류해주세요.
-URL: ${url}
-도메인: ${domain}
-원문 제목: ${meta.title || '(없음)'}
-원문 설명: ${meta.description || '(없음)'}
-게시일: ${meta.date}
-
-JSON만 출력 (마크다운 없이):
-{"title":"한국어 제목(50자 이내)","desc":"한국어 설명(120자 이내)","cat":"${catNames}","subcat":"해당 카테고리의 하위 카테고리가 있다면 선택, 없으면 null","date":"${meta.date}"}
-
-카테고리: 업데이트(ComfyUI 버전/노드), 모델(AI모델 출시/통합), LoRA(LoRA관련), VFX(시각효과/영상), 기타`;
-
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:600,
-        messages: [{ role:'user', content: prompt }] })
-    });
-    clearInterval(tick);
-    if (!res.ok) throw new Error('Claude API ' + res.status + ': ' + (await res.text()).slice(0,200));
-
-    const rd  = await res.json();
-    const raw = rd.content.map(c => c.text||'').join('');
-    const jm  = raw.match(/\{[\s\S]*?\}/);
-    if (!jm) throw new Error('JSON 파싱 실패');
-    const p = JSON.parse(jm[0]);
-
-    const validCat = cats.find(c => c.id === p.cat) ? p.cat : '기타';
-    const catObj   = getCat(validCat);
-    const validSub = (catObj && p.subcat && catObj.subcats.includes(p.subcat)) ? p.subcat : undefined;
-
-    document.getElementById('form-preview').innerHTML = itemForm('pv', {
-      title:  p.title  || meta.title       || '',
-      desc:   p.desc   || meta.description || '',
-      cat:    validCat,
-      subcat: validSub,
-      date:   p.date   || meta.date        || today(),
-      link:   url,
-      thumb:  meta.image || '',
-    });
-
-    const icon = SRC_ICONS[domain] || '🔗';
-    document.getElementById('preview-src').innerHTML =
-      `<span style="font-size:16px">${icon}</span> <strong>${esc(meta.publisher)}</strong>에서 AI가 분류했습니다 — 확인·수정 후 등록`;
-
     document.getElementById('analyzing-state').style.display = 'none';
-    document.getElementById('add-modal-title').textContent = '분석 결과 확인';
-    showStep('step-preview');
+    document.getElementById('analyze-btn').disabled = false;
+    // 폼 먼저 렌더링 후 필드 채우기
+    document.getElementById('form-manual').innerHTML = itemForm('mn', {
+      title: title,
+      date:  date,
+      link:  url,
+    });
+    showStep('step-manual');
+    document.getElementById('add-modal-title').textContent = '뉴스 정보 입력';
+    setTimeout(() => {
+      const tf = document.getElementById('mn-title');
+      if (tf) tf.focus();
+    }, 50);
 
   } catch(err) {
-    clearInterval(tick);
     console.error(err);
     document.getElementById('analyzing-state').style.display = 'none';
     document.getElementById('analyze-btn').disabled = false;
@@ -1315,10 +1362,14 @@ function addCat() {
 
 function removeCat(id) {
   const cat = cats.find(c => c.id === id);
-  if (cat?.builtin) { toast('기본 카테고리는 삭제할 수 없어요.'); return; }
-  if (!confirm(`'${cat?.name}' 카테고리를 삭제할까요? 해당 뉴스는 '기타'로 변경됩니다.`)) return;
+  if (id === '기타') { toast("'기타' 카테고리는 삭제할 수 없어요."); return; }
+  const count = news.filter(n => n.cat === id).length;
+  const msg = count > 0
+    ? `'${cat?.name}' 카테고리를 삭제할까요?\n소속 뉴스 ${count}건이 '기타'로 이동됩니다.`
+    : `'${cat?.name}' 카테고리를 삭제할까요?`;
+  if (!confirm(msg)) return;
   cats = cats.filter(c => c.id !== id);
-  news.forEach(n => { if(n.cat === id) n.cat = '기타'; });
+  news.forEach(n => { if(n.cat === id) { n.cat = '기타'; n.subcat = undefined; } });
   save(); saveCats(); renderCatMgr(); renderSidebar(); render();
   toast('삭제됐습니다.');
 }
@@ -1358,7 +1409,7 @@ function renderCatMgr() {
         ${cat.subcats.length ? `<span class="cat-mgr-sub-count">${cat.subcats.length}개 하위</span>` : ''}
         ${cat.builtin ? `<span class="cat-mgr-builtin-badge">기본</span>` : ''}
         <span class="cat-mgr-expand">▼</span>
-        ${!cat.builtin ? `<button class="cat-mgr-del" onclick="event.stopPropagation();removeCat('${esc(cat.id)}')">✕</button>` : ''}
+        ${cat.id !== '기타' ? `<button class="cat-mgr-del" onclick="event.stopPropagation();removeCat('${esc(cat.id)}')">✕</button>` : ''}
       </div>
       <div class="cat-mgr-body">
         <div style="font-size:.72rem;color:var(--text3);margin-top:8px;margin-bottom:6px">색상</div>
@@ -1520,6 +1571,45 @@ initGHStatus();
         </div>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SETTINGS MODAL ═══ -->
+<div class="overlay" id="ov-settings" onclick="closeBg(event,'ov-settings')">
+  <div class="modal" style="max-width:440px">
+    <div class="mhead">
+      <span class="mtitle">⚙️ 설정</span>
+      <button class="mclose" onclick="closeOv('ov-settings')">✕</button>
+    </div>
+
+    <div style="padding:4px 0 16px">
+      <div style="font-size:.82rem;font-weight:700;color:var(--text1);margin-bottom:8px">🤖 Anthropic API 키</div>
+      <div style="font-size:.78rem;color:var(--text2);margin-bottom:10px;line-height:1.6">
+        URL 자동 분석(AI 분류) 기능에 사용됩니다.<br>
+        <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener"
+          style="color:var(--accent);text-decoration:none;font-weight:600">🔑 API 키 발급하기 →</a>
+      </div>
+      <input class="finput" id="settings-key-input" type="password"
+        placeholder="sk-ant-api03-..." 
+        style="width:100%;box-sizing:border-box;font-family:monospace;font-size:.82rem"
+        onkeydown="if(event.key==='Enter')saveSettings()" />
+      <div id="settings-key-status" style="font-size:.78rem;color:#16a34a;margin-top:6px;min-height:18px"></div>
+      <div style="font-size:.73rem;color:var(--text3);margin-top:4px;line-height:1.5">
+        키는 이 브라우저 로컬에만 저장되며 외부로 전송되지 않습니다.
+      </div>
+    </div>
+
+    <hr style="border:none;border-top:1px solid var(--border);margin:0 0 14px">
+
+    <div style="font-size:.82rem;font-weight:700;color:var(--text1);margin-bottom:8px">🐙 GitHub 연동</div>
+    <button class="btn-sec" style="width:100%;justify-content:center" onclick="closeOv('ov-settings');openGHSetup()">
+      GitHub 연동 설정 열기
+    </button>
+
+    <div class="mfooter" style="margin-top:16px">
+      <button class="btn-sec" onclick="closeOv('ov-settings')">취소</button>
+      <button class="btn-primary" onclick="saveSettings()">저장</button>
     </div>
   </div>
 </div>
