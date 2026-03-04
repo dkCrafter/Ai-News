@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "LTX-2 I2V synced to an MP3",
+      "desc": "LTX-2 I2V synced to an MP3 - Ver3 Workflow with new i2v lora and an API version - full 3 min music video. Music: Dido's \"Life For Rent\"\n(source: Reddit Dohwar42)\nLTX-2 Audio Sync Image2Video Workflow. 이 LTX-2 워크플로우에서는 오디오와 이미지를 입력하여 입모양 싱크된 영상을 만들 수 있습니다. \n이 워크플로우에 대한 이전 레딧 게시물에서는 캐릭터의 움직임이 전혀 없는 '정지된' 영상 문제를 해결하기 위해 공식 '정적 카메라' 로라를 사용했습니다. 이번에는 해당 게시물의 새로운 로라를 사용합니다. 이 로라는 카메라 움직임을 통해 보다 '동적인' 영상을 구현합니다. 이전 워크플로우는 사실상 정적인 클로즈업 샷만 가능했습니다.\n이 2차 버전은 https://console .ltx .video/ 에 접속하여 무료 API 키를 발급받아야 합니다. 시스템 자원을 엄청나게 절약해주고 더 긴 동영상이나 더 높은 해상도의 동영상을 만들 수 있으니 꼭 해보시길 강력히 추천합니다. LTX와 프롬프트 및 데이터를 공유하게 된다는 점은 알고 있지만, 프롬프트 수집이 더 나은 모델 개발에 도움이 된다면 전 찬성합니다.\n버전 3 노트 2026년 1월 31일:\n타일드 VAE 디코드를 🅛🅣🅧 LTXV 타일드 VAE 디코드로 교체\n정적 카메라 로라를 LTX-2-Image2Vid-Adapter.safetensors 로라로 교체\n모델 로딩 및 로라를 상단으로 재배치. 다운로드 또는 입력해야 하는 모든 영역을 빨간색 그룹으로 색상 구분\n워크플로우에 API 키 버전 추가\n이 워크플로로 항상 완벽한 결과를 얻었나요? 아니요. 이 영상에는 가장 잘 나온 결과물만 선별했습니다. 좋은 결과를 얻으려면 여러번 시도해야 했고 프롬프트 조정도 필요했습니다. 배경, 얼굴, 손이 왜곡된 결과물도 꽤 많이 나왔습니다.\n좋은 결과와 품질을 얻으려면 직접 계속 실험해 봐야 합니다! \n다음은 ComfyUI 버전과 시스템 사양의 스크린샷입니다(RTX 4090(24GB), System RAM 64GB). API 키 버전의 이 워크플로에서 20단계로 30초 길이의 720p에 가까운 동영상을 생성하는 데 8~10분이 소요됩니다.\nreddit : https://www.reddit.com/.../ltx2_i2v_synced_to_an_mp3.../\nworkflow : https://github.com/.../LTX-2-Audio-Sync-Image2Video...",
+      "cat": "모델",
+      "subcat": "Audio",
+      "date": "2026-03-04",
+      "link": "https://www.reddit.com/r/StableDiffusion/comments/1qs5l5e/ltx2_i2v_synced_to_an_mp3_ver3_workflow_with_new/",
+      "thumb": "",
+      "id": 1772624071443,
+      "liked": false
+    },
+    {
       "title": "Just Dub it",
       "desc": "JUST-DUB-IT (Tel Aviv University, Lightrick): Video Dubbing via Joint Audio-Visual Diffusion\n경량 LoRA를 통해 기초 오디오-비디오 확산 모델을 영상-영상 더빙에 적용하는 단일 모델 접근법을 제안. 단일 클립 내에서 언어 전환이 포함된 다국어 영상을 생성한 후, 각 반쪽의 얼굴과 오디오를 상대 반쪽의 언어에 맞춰 보정. Heygen 등 기존 더빙 대비 향상된 시각적 충실도, 입술 동기화 및 견고성을 갖춘 고품질 더빙 영상을 생성함. 코드 공개 예정. \nJUST-DUB-IT: Video Dubbing via Joint Audio-Visual Diffusion (2601, Tel Aviv University, Lightrick)\npaper: https://arxiv.org/abs/2601.22143\nproject: https://justdubit.github.io/\ncode : https://github.com/justdubit/just-dub-it (soon)",
       "cat": "모델",
