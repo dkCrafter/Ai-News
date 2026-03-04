@@ -626,6 +626,13 @@
       ]
     },
     {
+      "id": "Tracking",
+      "name": "Tracking",
+      "color": "#f59e0b",
+      "builtin": true,
+      "subcats": []
+    },
+    {
       "id": "모델",
       "name": "모델",
       "color": "#4f46e5",
@@ -643,13 +650,6 @@
       "id": "LoRA",
       "name": "LoRA",
       "color": "#c026d3",
-      "builtin": true,
-      "subcats": []
-    },
-    {
-      "id": "Tracking",
-      "name": "Tracking",
-      "color": "#f59e0b",
       "builtin": true,
       "subcats": []
     },
