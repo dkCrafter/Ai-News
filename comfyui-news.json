@@ -1,6 +1,57 @@
 {
   "news": [
     {
+      "title": "OmnimatteZero: Nodes to run native weights of LTX’s OmnimatteZero in ComfyUI",
+      "desc": "",
+      "cat": "Inpaint",
+      "subcat": "Video",
+      "date": "2026-03-04",
+      "link": "https://github.com/tpc2233/ComfyUI-TP-OmnimatteZero",
+      "thumb": "https://private-user-images.githubusercontent.com/107653069/546674566-428a987b-df3d-42b8-9952-2938092c42df.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI2MDMxODYsIm5iZiI6MTc3MjYwMjg4NiwicGF0aCI6Ii8xMDc2NTMwNjkvNTQ2Njc0NTY2LTQyOGE5ODdiLWRmM2QtNDJiOC05OTUyLTI5MzgwOTJjNDJkZi5naWY_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMwNFQwNTQxMjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT00ZGY3YjQ4Y2RjZDgxZjRkYzc3M2NmZjU0NWQwNjdmNDQxMzYyN2ZiNTBiMjM0Y2RjOGVmMjNiZTBkZjc3OGE2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Lye_zE2r913rgaz2s9z3dKX0zyUvGCUWC9dW6PgmAQc",
+      "id": 1772609886351,
+      "liked": false
+    },
+    {
+      "title": "CoWTracker: Tracking by Warping instead of Correlation",
+      "desc": "",
+      "cat": "Tracking",
+      "date": "2026-03-04",
+      "link": "https://cowtracker.github.io/#visuals",
+      "thumb": "https://cowtracker.github.io/videos/track_longboard.mp4",
+      "id": 1772608080567,
+      "liked": false
+    },
+    {
+      "title": "ViTMatte",
+      "desc": "",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://github.com/hustvl/ViTMatte",
+      "thumb": "https://github.com/hustvl/ViTMatte/raw/main/figs/vitmatte.png",
+      "id": 1772607837217,
+      "liked": false
+    },
+    {
+      "title": "CorridorKey",
+      "desc": "",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://github.com/nikopueringer/CorridorKey",
+      "thumb": "https://private-user-images.githubusercontent.com/52174106/555872440-1fb27ea8-bc91-4ebc-818f-5a3b5585af08.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI2MDg5NzEsIm5iZiI6MTc3MjYwODY3MSwicGF0aCI6Ii81MjE3NDEwNi81NTU4NzI0NDAtMWZiMjdlYTgtYmM5MS00ZWJjLTgxOGYtNWEzYjU1ODVhZjA4Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzA0VDA3MTc1MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ5ZDFjOTMxMzA4NTE3ZTQ4OTY1YjIwZDM5M2I3OWQ5MTEyNzkxYmY1NDMzNmJkMjJhNzg5ZjY2OGY2YTAzOWUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.rwNsBS2kGecdm7w1htJQBrJvnsE5PXdxSL-QhalyEW8",
+      "id": 1772606889557,
+      "liked": false
+    },
+    {
+      "title": "VideoMaMa",
+      "desc": "https://cvlab-kaist.github.io/VideoMaMa/",
+      "cat": "Roto",
+      "date": "2026-03-04",
+      "link": "https://github.com/cvlab-kaist/VideoMaMa",
+      "thumb": "https://img.youtube.com/vi/FLIJaIeY8DU/hqdefault.jpg",
+      "id": 1772606745030,
+      "liked": false
+    },
+    {
       "id": 1,
       "title": "ComfyUI v0.15.0 정식 릴리즈",
       "desc": "BBox 위젯, GLSL 셰이더 노드, ElevenLabs TTS API 노드 등 다수 신규 노드 추가. Gemma3·Qwen3 네이티브 텍스트 생성 지원.",
@@ -14,21 +65,10 @@
       "title": "GLSL 셰이더 노드 추가",
       "desc": "PyOpenGL 기반 GLSL 셰이더를 ComfyUI 워크플로우에서 직접 사용 가능.",
       "cat": "AOV",
-      "subcat": "Relight",
       "link": "https://github.com/Comfy-Org/ComfyUI/releases",
       "date": "2026-02-24",
-      "liked": false
-    },
-    {
-      "id": 3,
-      "title": "Seedream 5.0 Lite — ComfyUI 공식 지원",
-      "desc": "ByteDance의 Seedream 5.0 Lite 이미지 생성 모델이 ComfyUI에 정식 통합됐어요.",
-      "cat": "모델",
-      "subcat": "Image",
-      "link": "https://www.comfy.org",
-      "date": "2026-02-25",
       "liked": false,
-      "thumb": "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=225&fit=crop"
+      "subcat": "Relight"
     },
     {
       "id": 4,
@@ -55,21 +95,11 @@
       "title": "Topaz 비디오 향상 API 노드",
       "desc": "Topaz Labs 비디오 업스케일·향상 API를 ComfyUI에서 직접 사용 가능.",
       "cat": "Upscale",
-      "subcat": "Video",
       "link": "https://github.com/Comfy-Org/ComfyUI/releases",
       "date": "2026-02-24",
       "liked": false,
-      "thumb": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=225&fit=crop"
-    },
-    {
-      "id": 7,
-      "title": "Kling v2.1 비디오 생성 노드",
-      "desc": "Kling AI v2.1 비디오 생성 노드 추가. 모션 품질과 일관성이 크게 향상됐어요.",
-      "cat": "모델",
-      "subcat": "Video",
-      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
-      "date": "2026-02-24",
-      "liked": false
+      "thumb": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=225&fit=crop",
+      "subcat": "Video"
     },
     {
       "id": 8,
@@ -102,26 +132,16 @@
       "id": 11,
       "title": "Moment Factory — 3D 프로젝션 매핑 케이스 스터디",
       "desc": "Moment Factory가 ComfyUI로 대규모 건축물 프로젝션 매핑 워크플로우를 재구성한 사례 공개.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
+      "cat": "VFX",
       "link": "https://blog.comfy.org/p/case-study-how-moment-factory-reimagined",
       "date": "2026-02-26",
-      "liked": false
+      "liked": false,
+      "thumb": ""
     },
     {
       "id": 12,
       "title": "LTX Video 2.0 fp8 체크포인트 지원",
       "desc": "LTX Video 2.0 fp8 체크포인트 로딩 이슈 수정 및 안정 지원.",
-      "cat": "모델",
-      "subcat": "Video",
-      "link": "https://github.com/Comfy-Org/ComfyUI/releases",
-      "date": "2026-02-24",
-      "liked": false
-    },
-    {
-      "id": 13,
-      "title": "KlingAvatar — 얼굴 일관성 비디오 생성",
-      "desc": "인물 사진에서 일관된 얼굴 정체성을 유지하며 애니메이션 생성 가능.",
       "cat": "모델",
       "subcat": "Video",
       "link": "https://github.com/Comfy-Org/ComfyUI/releases",
@@ -156,16 +176,6 @@
       "subcat": "Video",
       "link": "https://comfyui-wiki.com/en/tutorial/advanced/video/wan2.2/wan2-2",
       "date": "2026-02-13",
-      "liked": false
-    },
-    {
-      "id": 17,
-      "title": "Series Entertainment — Netflix 타이틀 제작에 ComfyUI 활용",
-      "desc": "Series Entertainment가 ComfyUI로 여러 Netflix 타이틀에서 10만+ 에셋을 제작한 사례 공개. 감정적 스토리텔링을 대규모로 확장하는 워크플로우 소개.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://www.comfy.org/",
-      "date": "2026-02-20",
       "liked": false
     },
     {
@@ -310,16 +320,6 @@
       "subcat": "",
       "link": "https://blog.comfy.org/p/kling-30-models-are-now-available",
       "date": "2026-02-10",
-      "liked": false
-    },
-    {
-      "id": 33,
-      "title": "Seedream 5.0 Lite — ComfyUI 공식 지원",
-      "desc": "ByteDance Seedream 5.0 Lite 모델이 ComfyUI에 추가됨. API 노드로 바로 사용 가능. 이미지 생성 품질 크게 향상.",
-      "cat": "모델",
-      "subcat": "Image",
-      "link": "https://www.comfy.org/",
-      "date": "2026-02-25",
       "liked": false
     },
     {
@@ -483,21 +483,10 @@
       "liked": false
     },
     {
-      "id": 50,
-      "title": "SAM2 (Segment Anything Model 2) — Meta AI 영상 로토 자동화",
-      "desc": "Meta AI의 오픈소스 영상 세그먼테이션 모델. 첫 프레임에 점/박스 하나만 찍으면 전체 영상에서 마스크를 자동 추적. 44FPS 실시간 처리, ComfyUI Kijai 노드로 통합. 로토스코핑·클린플레이트·인페인팅 파이프라인에 직접 활용 가능.",
-      "cat": "Roto",
-      "subcat": "Video",
-      "link": "https://github.com/kijai/ComfyUI-segment-anything-2",
-      "date": "2024-08-01",
-      "liked": false
-    },
-    {
       "id": 51,
       "title": "SAM 3 Lite — 영상 세그먼트 차세대 업그레이드",
       "desc": "SAM2 대비 모호한 경계·투명 객체·오클루전 처리 대폭 개선. 영상에서 프레임 간 마스크 일관성 향상. ComfyUI Manager에서 바로 설치. 스틸 이미지는 SAM2로도 충분하나, 영상 로토는 SAM3 권장.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://apatero.com/blog/comfyui-sam3-open-source-alternative-guide-2025",
       "date": "2025-09-01",
       "liked": false
@@ -507,7 +496,6 @@
       "title": "Wan 2.2 AI CharacterSwap — 자동 로토+트래킹 VFX 워크플로",
       "desc": "Wan 2.2 Animate 기반 얼굴·캐릭터 교체 프로덕션 워크플로. SAM3 자동 로토 + 포즈 트래킹 + 페이스 락킹 → Wan 2.2로 합성. 디에이징·의상 교체에도 활용 가능. 실제 VFX 파이프라인용 오픈소스.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/rik-python/AI-CharacterSwap-Workflow",
       "date": "2025-08-01",
       "liked": false
@@ -517,20 +505,20 @@
       "title": "CoTracker3 — 점/객체 고정밀 영상 트래킹",
       "desc": "Meta Research의 포인트·객체 트래킹 모델. 영상 내 임의의 점을 지정하면 전체 프레임에 걸쳐 추적. SAM2·VACE와 함께 VFX 파이프라인에 통합. ComfyUI + AInVFX 워크플로 예제 공개.",
       "cat": "Tracking",
-      "subcat": "Video",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "link": "https://cotracker3.github.io/",
       "date": "2025-07-01",
-      "liked": false
+      "liked": false,
+      "thumb": "https://cotracker3.github.io/videos/teaser2/bmx_bumps_cotracker.mp4"
     },
     {
       "id": 54,
       "title": "ATI (Any Trajectory Instruction) — 드로잉으로 모션 지시",
       "desc": "영상 위에 경로를 그리면 객체가 해당 궤적대로 움직이는 모션 제어 모델. Wan 2.1 기반. 멀티 스플라인으로 여러 객체 동시 제어 가능. VFX 프리비즈·오브젝트 애니메이션에 유용.",
       "cat": "Tracking",
-      "subcat": "Video",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "link": "https://anytraj.github.io/",
       "date": "2025-09-01",
-      "liked": false
+      "liked": false,
+      "thumb": "https://anytraj.github.io/ATI%20_%20ByteDance%20Intelligent%20Creation_files/Teaser.mp4"
     },
     {
       "id": 55,
@@ -573,31 +561,10 @@
       "liked": false
     },
     {
-      "id": 59,
-      "title": "VACE — Wan 기반 영상 클린플레이트·로컬 편집",
-      "desc": "Wan 계열 영상 인페인팅 프레임워크. 50% 그레이 마스크로 지정 영역 교체, 참조 이미지로 VFX 이펙트 생성. SAM2와 연동해 자동 마스크 → 클린플레이트 파이프라인 구성 가능.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
-      "date": "2025-07-01",
-      "liked": false
-    },
-    {
-      "id": 60,
-      "title": "big-lama / LaMA — 전통 클린플레이트 인페인팅",
-      "desc": "구조 기반 대형 마스크 인페인팅. 도로·하늘·배경 클린플레이트 생성에 최적. AI 디퓨전 모델 전처리 단계로 병행 사용 권장. ComfyUI Fooocus 인페인팅 모드에 내장.",
-      "cat": "CleanPlate",
-      "subcat": "Image",
-      "link": "https://github.com/advimman/lama",
-      "date": "2022-01-01",
-      "liked": false
-    },
-    {
       "id": 61,
       "title": "RotoAI — 프롬프트 기반 영상 세그멘테이션 스튜디오",
       "desc": "SAM2 + Grounding DINO 기반 오픈소스 로토스코핑 도구. 자연어 프롬프트로 객체 선택(예: \"빨간 셔츠 입은 사람\"). Google Colab GPU 백엔드 + 로컬 React 프론트엔드 하이브리드 아키텍처. 스마트 청킹(5초 단위)으로 긴 영상도 OOM 없이 처리. Neon Glow·크로마키·보케 블러 등 효과 지원. 라이선스: AGPL-3.0.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/sPappalard/RotoAI",
       "date": "2025-06-01",
       "liked": false
@@ -607,7 +574,6 @@
       "title": "Cutie-Roto — AI 영상 로토스코핑 무료 대안",
       "desc": "Cutie 모델 기반 AI 로토스코핑 도구. Adobe Roto Brush·DaVinci Resolve Magic Mask 무료 대안. 첫 프레임 마스크 지정 후 영상 전체 자동 추적. GUI 기반으로 별도 ComfyUI 불필요, Windows 원클릭 실행. 수동 로토 대비 정확도는 낮지만 빠른 초안·임시 키 작업에 적합.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/Zarxrax/Cutie-Roto",
       "date": "2024-12-01",
       "liked": false
@@ -641,16 +607,6 @@
       "link": "https://github.com/yuvraj108c/ComfyUI-Video-Depth-Anything",
       "date": "2025-01-22",
       "liked": false
-    },
-    {
-      "id": 66,
-      "title": "ProPainter — 광학 흐름 기반 영상 오브젝트 제거 (ComfyUI)",
-      "desc": "NTU S-Lab의 영상 인페인팅 프레임워크. 흐름 기반 전파(Recurrent Flow Completion) + 시공간 트랜스포머로 자연스러운 클린플레이트 생성. 오브젝트 제거·워터마크 제거·영상 아웃페인팅 지원. SAM2/Cutie와 연동하면 자동 마스크 → 클린플레이트 완전 자동화 파이프라인 구성 가능. ComfyUI 노드: ComfyUI_ProPainter_Nodes(daniabib). 라이선스: 비상업 NTU S-Lab License.",
-      "cat": "CleanPlate",
-      "subcat": "Video",
-      "link": "https://github.com/sczhou/ProPainter",
-      "date": "2023-09-01",
-      "liked": false
     }
   ],
   "cats": [
@@ -676,26 +632,6 @@
       "subcats": []
     },
     {
-      "id": "Roto",
-      "name": "Roto",
-      "color": "#10b981",
-      "builtin": true,
-      "subcats": [
-        "Image",
-        "Video"
-      ]
-    },
-    {
-      "id": "Tracking",
-      "name": "Tracking",
-      "color": "#f59e0b",
-      "builtin": true,
-      "subcats": [
-        "Image",
-        "Video"
-      ]
-    },
-    {
       "id": "Inpaint",
       "name": "Inpaint",
       "color": "#0891b2",
@@ -705,6 +641,20 @@
         "Video",
         "LoRA"
       ]
+    },
+    {
+      "id": "Roto",
+      "name": "Roto",
+      "color": "#10b981",
+      "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "Tracking",
+      "name": "Tracking",
+      "color": "#f59e0b",
+      "builtin": true,
+      "subcats": []
     },
     {
       "id": "Upscale",
@@ -728,14 +678,11 @@
       ]
     },
     {
-      "id": "CleanPlate",
-      "name": "Clean Plate",
-      "color": "#14b8a6",
+      "id": "VFX",
+      "name": "VFX",
+      "color": "#16a34a",
       "builtin": true,
-      "subcats": [
-        "Image",
-        "Video"
-      ]
+      "subcats": []
     },
     {
       "id": "업데이트",
@@ -753,3 +700,5 @@
     }
   ]
 }
+
+
