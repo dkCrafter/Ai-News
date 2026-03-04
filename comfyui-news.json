@@ -659,13 +659,6 @@
       "subcats": []
     },
     {
-      "id": "VFX",
-      "name": "VFX",
-      "color": "#16a34a",
-      "builtin": true,
-      "subcats": []
-    },
-    {
       "id": "Inpaint",
       "name": "Inpaint",
       "color": "#0891b2",
@@ -720,6 +713,13 @@
         "Image",
         "Video"
       ]
+    },
+    {
+      "id": "VFX",
+      "name": "VFX",
+      "color": "#16a34a",
+      "builtin": true,
+      "subcats": []
     },
     {
       "id": "업데이트",
