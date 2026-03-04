@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComfyUI News Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f6f3;--bg2:#fff;--bg3:#f0f0ec;
+  --border:#e4e4de;--border2:#d0d0c8;
+  --accent:#2563eb;--accent-lt:#eff4ff;
+  --text:#1a1a1a;--text2:#55554e;--text3:#9999a0;
+  --like:#f43f5e;--like-bg:#fff1f3;
+  --radius:10px;
+  --shadow:0 4px 20px rgba(0,0,0,0.09);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* HEADER */
+header{background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.hinner{max-width:1000px;margin:0 auto;padding:0 1.5rem;height:54px;display:flex;align-items:center;gap:12px;}
+.logo{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:600;}
+.pulse{width:7px;height:7px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 2px #dcfce7;animation:pulse 2s infinite;}
+@keyframes pulse{50%{box-shadow:0 0 0 5px #dcfce700;}}
+.hright{margin-left:auto;display:flex;align-items:center;gap:8px;}
+.hbadge{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text3);background:var(--bg3);border:1px solid var(--border);padding:3px 8px;border-radius:20px;}
+.btn-primary{font-size:.82rem;font-weight:600;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:7px 14px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:background .15s;font-family:inherit;}
+.btn-primary:hover{background:#1d4ed8;}
+.btn-sec{font-size:.84rem;font-weight:500;padding:7px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;font-family:inherit;}
+.btn-sec:hover{background:var(--bg3);}
+.btn-danger{font-size:.84rem;font-weight:500;padding:7px 14px;border-radius:8px;border:1px solid #fca5a5;background:transparent;color:#dc2626;cursor:pointer;font-family:inherit;}
+.btn-danger:hover{background:#fff0f0;}
+.btn-link{background:none;border:none;font-size:.78rem;color:var(--text3);cursor:pointer;padding:4px 0;text-decoration:underline;font-family:inherit;}
+.btn-link:hover{color:var(--accent);}
+
+/* ── SYNC STATUS ── */
+.sync-btn{display:flex;align-items:center;gap:5px;padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:.76rem;color:var(--text2);font-family:inherit;transition:all .15s;}
+.sync-btn:hover{background:var(--bg3);}
+.sync-btn.syncing{color:var(--accent);border-color:var(--accent);}
+.sync-btn.ok{color:#16a34a;border-color:#86efac;}
+.sync-btn.error{color:#dc2626;border-color:#fca5a5;}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--text3);flex-shrink:0;transition:background .3s;}
+.sync-btn.syncing .sync-dot{background:var(--accent);animation:pulse 1s infinite;}
+.sync-btn.ok .sync-dot{background:#16a34a;}
+.sync-btn.error .sync-dot{background:#dc2626;}
+.sync-spin{display:none;width:12px;height:12px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;}
+.sync-btn.syncing .sync-spin{display:block;}
+.sync-btn.syncing .sync-dot{display:none;}
+
+/* ── SHEETS SETUP MODAL ── */
+.setup-steps{counter-reset:step;}
+.setup-step{display:flex;gap:12px;margin-bottom:16px;}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-body{flex:1;}
+.step-title{font-size:.84rem;font-weight:600;margin-bottom:4px;}
+.step-desc{font-size:.78rem;color:var(--text2);line-height:1.55;}
+.code-block{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text);margin-top:6px;white-space:pre-wrap;word-break:break-all;position:relative;}
+.copy-btn{position:absolute;top:5px;right:5px;background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:.68rem;cursor:pointer;font-family:inherit;}
+.copy-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+.url-status{font-size:.74rem;margin-top:5px;min-height:16px;}
+.url-status.ok{color:#16a34a;}
+.url-status.error{color:#dc2626;}
+
+.btn-ghost{background:none;border:1px solid var(--border);font-size:.78rem;color:var(--text2);cursor:pointer;padding:4px 10px;border-radius:6px;font-family:inherit;transition:all .12s;}
+.btn-ghost:hover{background:var(--bg3);border-color:var(--border2);}
+
+/* LAYOUT */
+.wrap{max-width:1000px;margin:0 auto;padding:1.5rem;display:grid;grid-template-columns:220px 1fr;gap:1.5rem;align-items:start;}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:70px;}
+.sbox{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:14px;margin-bottom:10px;}
+.stitle{font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;}
+.stitle-btn{background:none;border:none;cursor:pointer;color:var(--text3);font-size:11px;padding:2px 5px;border-radius:4px;}
+.stitle-btn:hover{color:var(--accent);background:var(--accent-lt);}
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.sstat{background:var(--bg3);border-radius:8px;padding:9px 8px;text-align:center;}
+.snum{font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:600;display:block;}
+.slbl{font-size:.65rem;color:var(--text3);display:block;margin-top:2px;}
+
+/* FILTER ITEMS */
+.fitem{width:100%;display:flex;align-items:center;justify-content:space-between;padding:7px 9px;border-radius:8px;cursor:pointer;border:none;background:transparent;text-align:left;font-size:.84rem;color:var(--text2);margin-bottom:2px;transition:background .12s;font-family:inherit;}
+.fitem:hover{background:var(--bg3);}
+.fitem.active{background:var(--accent-lt);color:var(--accent);font-weight:600;}
+.fitem.active .fcount{background:#dbeafe;color:var(--accent);}
+.like-filter.active{background:var(--like-bg)!important;color:var(--like)!important;}
+.like-filter.active .fcount{background:#ffe4e9;color:var(--like);}
+.fleft{display:flex;align-items:center;gap:7px;}
+.fdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.fcount{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--text3);background:var(--bg3);padding:1px 6px;border-radius:10px;min-width:20px;text-align:center;}
+
+/* CAT ROW (toggle arrow) */
+.cat-row-wrap{margin-bottom:2px;}
+.cat-row-header{display:flex;align-items:center;}
+.cat-filter{flex:1;display:flex;align-items:center;justify-content:space-between;padding:7px 9px;border-radius:8px 0 0 8px;cursor:pointer;border:none;background:transparent;font-size:.84rem;color:var(--text2);transition:background .12s;font-family:inherit;}
+.cat-filter:hover{background:var(--bg3);}
+.cat-filter.active{background:var(--accent-lt);color:var(--accent);font-weight:600;}
+.cat-filter.active .fcount{background:#dbeafe;color:var(--accent);}
+.cat-toggle{border:none;background:transparent;padding:7px 8px;cursor:pointer;color:var(--text3);border-left:1px solid var(--border);border-radius:0 8px 8px 0;font-size:10px;line-height:1;transition:background .12s;font-family:inherit;}
+.cat-toggle:hover{background:var(--bg3);}
+.cat-toggle .arr{display:inline-block;transition:transform .2s;}
+.cat-toggle.open .arr{transform:rotate(180deg);}
+.sub-wrap{max-height:0;overflow:hidden;transition:max-height .25s ease;}
+.sub-wrap.open{max-height:400px;}
+.fitem-sub{padding-left:22px;font-size:.8rem;}
+
+.divider{height:1px;background:var(--border);margin:6px 0 8px;}
+
+/* CAT ADD BTN */
+.cat-add-btn{width:100%;display:flex;align-items:center;gap:6px;padding:6px 9px;border-radius:8px;cursor:pointer;border:1px dashed var(--border);background:transparent;font-size:.78rem;color:var(--text3);transition:all .12s;margin-top:4px;font-family:inherit;}
+.cat-add-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-lt);}
+
+/* SEARCHBAR */
+.searchbar{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:8px;margin-bottom:1rem;}
+.searchbar:focus-within{border-color:var(--accent);}
+.sinput{border:none;outline:none;background:transparent;font-size:.86rem;color:var(--text);width:100%;}
+.sinput::placeholder{color:var(--text3);}
+
+/* DATE GROUP */
+.dgroup{margin-bottom:1.5rem;}
+.drow{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.dlabel{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text3);white-space:nowrap;}
+.dline{flex:1;height:1px;background:var(--border);}
+.dtoday{color:#22c55e;}
+
+/* ── CARD BASE ── */
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;transition:box-shadow .15s,border-color .15s;position:relative;overflow:hidden;}
+.card:hover{border-color:var(--border2);box-shadow:var(--shadow);}
+.card.liked{border-color:#fda4af;}
+.card.liked::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--like);z-index:2;}
+
+/* ── WITH THUMBNAIL (YouTube style) ── */
+.card.has-thumb .card-inner{display:flex;align-items:stretch;}
+.card-thumb-wrap{flex-shrink:0;width:200px;overflow:hidden;background:var(--bg3);position:relative;}
+.card-thumb{width:200px;height:100%;min-height:120px;object-fit:cover;display:block;}
+
+/* ── WITHOUT THUMBNAIL (text card) ── */
+.card:not(.has-thumb) .card-inner{display:block;}
+.card:not(.has-thumb) .card-body{padding:14px 16px;}
+
+/* ── CARD BODY ── */
+.card-body{flex:1;min-width:0;padding:13px 16px;}
+
+/* ── CARD CONTENT ── */
+.ctitle{font-size:.93rem;font-weight:600;line-height:1.45;margin-bottom:6px;}
+.card.has-thumb .ctitle{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.ctags{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:5px;}
+.ctag{font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:600;padding:2px 7px;border-radius:5px;white-space:nowrap;}
+.cmeta{font-size:.74rem;color:var(--text3);margin-bottom:7px;}
+.cdesc{font-size:.81rem;color:var(--text2);line-height:1.6;margin-bottom:9px;}
+.card.has-thumb .cdesc{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.cfoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.clink{font-size:.77rem;color:var(--accent);text-decoration:none;display:flex;align-items:center;gap:4px;font-weight:500;}
+.clink:hover{text-decoration:underline;}
+.like-btn{display:flex;align-items:center;gap:5px;background:none;border:1px solid var(--border);border-radius:20px;padding:4px 11px;cursor:pointer;font-size:.75rem;color:var(--text3);transition:all .15s;font-family:inherit;}
+.like-btn:hover{border-color:#fda4af;color:var(--like);background:var(--like-bg);}
+.like-btn .hi::before{content:'♡';}
+.like-btn.liked{border-color:#f43f5e;background:#fff1f3;color:#f43f5e;font-weight:600;}
+.like-btn.liked .hi::before{content:'❤️';font-size:13px;}
+.like-btn.liked .hi{animation:pop .25s ease;}
+@keyframes pop{50%{transform:scale(1.5)}}
+.cactions{margin-left:auto;display:flex;gap:4px;opacity:0;transition:opacity .15s;}
+.card:hover .cactions,.cactions:focus-within{opacity:1;}
+.cbtn{font-size:.72rem;padding:3px 9px;border-radius:5px;border:1px solid var(--border);background:transparent;cursor:pointer;transition:all .12s;font-family:inherit;}
+.cbtn-edit{color:var(--accent);}
+.cbtn-edit:hover{background:var(--accent-lt);border-color:var(--accent);}
+.cbtn-del{color:var(--text3);}
+.cbtn-del:hover{background:#fff0f0;border-color:#fca5a5;color:#dc2626;}
+
+.empty{text-align:center;padding:4rem 1rem;color:var(--text3);}
+.empty .eicon{font-size:2.2rem;margin-bottom:10px;}
+
+/* ── MODAL BASE ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.38);z-index:200;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+.overlay.open{display:flex;}
+.modal{background:var(--bg2);border-radius:16px;padding:24px;width:100%;max-width:520px;margin:auto;box-shadow:0 20px 60px rgba(0,0,0,.18);animation:fadeUp .2s ease;}
+.modal-wide{max-width:640px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.mhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.mtitle{font-size:.94rem;font-weight:700;}
+.mclose{background:var(--bg3);border:none;width:28px;height:28px;border-radius:6px;cursor:pointer;font-size:14px;color:var(--text2);display:flex;align-items:center;justify-content:center;}
+.mclose:hover{background:var(--border);}
+.mfooter{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);}
+.mfooter-split{justify-content:space-between;}
+
+/* ── FORM ELEMENTS ── */
+.fg{margin-bottom:13px;}
+.flabel{font-size:.74rem;font-weight:600;color:var(--text2);margin-bottom:5px;display:block;}
+.finput,.fselect,.ftextarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:8px 11px;color:var(--text);font-size:.85rem;font-family:inherit;outline:none;transition:border-color .15s;}
+.finput:focus,.fselect:focus,.ftextarea:focus{border-color:var(--accent);background:#fff;}
+.ftextarea{resize:vertical;min-height:68px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+/* THUMB PREVIEW */
+.thumb-preview-wrap{position:relative;margin-bottom:6px;border-radius:8px;overflow:hidden;border:1px solid var(--border);}
+.thumb-preview{width:100%;height:140px;object-fit:cover;display:block;background:var(--bg3);}
+.thumb-clear{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.55);color:#fff;border:none;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;}
+
+/* URL STEP */
+.url-row{display:flex;gap:6px;}
+.url-row .finput{flex:1;}
+.url-analyze-btn{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:inherit;}
+.url-analyze-btn:hover:not(:disabled){background:#1d4ed8;}
+.url-analyze-btn:disabled{background:#93c5fd;cursor:not-allowed;}
+.src-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;}
+.src-chip{font-size:.68rem;padding:2px 8px;border-radius:10px;background:var(--bg3);color:var(--text3);border:1px solid var(--border);}
+.analyzing-box{display:flex;align-items:center;gap:12px;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin:10px 0;}
+.analyzing-title{font-size:.86rem;font-weight:600;}
+.analyzing-sub{font-size:.74rem;color:var(--text3);margin-top:3px;}
+.spin{width:20px;height:20px;border:2.5px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-box{background:#fff5f5;border:1px solid #fca5a5;border-radius:10px;padding:12px 14px;margin:10px 0;font-size:.82rem;color:#dc2626;}
+.error-box strong{display:block;margin-bottom:3px;}
+.preview-src{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:7px 12px;margin-bottom:14px;}
+
+/* ── CATEGORY MANAGER ── */
+.cat-mgr-list{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px;}
+.cat-mgr-row{background:var(--bg2);border-bottom:1px solid var(--border);transition:background .1s;}
+.cat-mgr-row:last-child{border-bottom:none;}
+.cat-mgr-row.dragging{opacity:.4;}
+.cat-mgr-row.drag-over{background:var(--accent-lt);}
+.cat-mgr-top{display:flex;align-items:center;gap:8px;padding:10px 12px;cursor:pointer;}
+.cat-mgr-top:hover .cat-mgr-name{color:var(--accent);}
+.drag-handle{cursor:grab;color:var(--text3);font-size:14px;flex-shrink:0;user-select:none;padding:2px 4px;}
+.drag-handle:active{cursor:grabbing;}
+.cat-color-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.cat-mgr-name{font-size:.86rem;font-weight:600;flex:1;}
+.cat-mgr-sub-count{font-size:.72rem;color:var(--text3);background:var(--bg3);padding:1px 7px;border-radius:10px;}
+.cat-mgr-expand{font-size:11px;color:var(--text3);transition:transform .2s;margin-left:4px;}
+.cat-mgr-row.expanded .cat-mgr-expand{transform:rotate(180deg);}
+.cat-mgr-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:13px;padding:2px 6px;border-radius:4px;flex-shrink:0;}
+.cat-mgr-del:hover{color:#dc2626;background:#fff0f0;}
+.cat-mgr-builtin-badge{font-size:.62rem;color:var(--text3);background:var(--bg3);padding:1px 6px;border-radius:10px;flex-shrink:0;}
+
+.cat-mgr-body{padding:0 12px 12px;border-top:1px solid var(--border);background:var(--bg3);display:none;}
+.cat-mgr-row.expanded .cat-mgr-body{display:block;}
+.sub-list{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px;}
+.sub-tag{display:flex;align-items:center;gap:4px;background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:2px 8px 2px 10px;font-size:.76rem;}
+.sub-tag-del{background:none;border:none;cursor:pointer;color:var(--text3);font-size:11px;padding:0 2px;line-height:1;}
+.sub-tag-del:hover{color:#dc2626;}
+.sub-add-row{display:flex;gap:6px;margin-top:4px;}
+.sub-add-row .finput{flex:1;padding:6px 10px;font-size:.8rem;}
+.sub-add-btn{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:6px 12px;font-size:.78rem;cursor:pointer;white-space:nowrap;font-family:inherit;}
+
+/* COLOR PICKER */
+.color-row{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap;}
+.color-swatch{width:20px;height:20px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:border-color .1s;flex-shrink:0;}
+.color-swatch.selected,.color-swatch:hover{border-color:var(--text2);}
+
+/* ADD CAT FORM */
+.add-cat-form{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:10px;}
+
+/* TOAST */
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(50px);background:#1a1a1a;color:#fff;font-size:.82rem;font-weight:500;padding:10px 18px;border-radius:100px;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap;z-index:999;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:660px){
+  .wrap{grid-template-columns:1fr}
+  .sidebar{position:static}
+  .sgrid{grid-template-columns:repeat(4,1fr)}
+  .frow{grid-template-columns:1fr}
+  .card.has-thumb .card-inner{flex-direction:column;}
+  .card-thumb-wrap{width:100%;}
+  .card-thumb{width:100%;height:180px;min-height:unset;}
+  .ctitle{font-size:.88rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hinner">
+    <div class="logo"><div class="pulse"></div>ComfyUI / NEWS HUB</div>
+    <div class="hright">
+      <button class="sync-btn" id="sync-btn" onclick="openGHSetup()" title="GitHub 동기화">
+        <div class="sync-dot"></div>
+        <div class="sync-spin"></div>
+        <span id="sync-label">GitHub 연결</span>
+      </button>
+      <span class="hbadge" id="totalBadge">0 items</span>
+      <button class="btn-primary" onclick="openAddModal()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>뉴스 추가
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sbox">
+      <div class="stitle">통계</div>
+      <div class="sgrid" id="statsGrid"></div>
+    </div>
+    <div class="sbox">
+      <div class="stitle">
+        카테고리
+        <button class="stitle-btn" onclick="openCatMgr()" title="카테고리 관리">⚙</button>
+      </div>
+      <!-- 좋아요 -->
+      <button class="fitem like-filter" onclick="setFilter('❤️좋아요',this)">
+        <span class="fleft"><span style="font-size:14px">❤️</span> 좋아요</span>
+        <span class="fcount" id="cnt-like">0</span>
+      </button>
+      <div class="divider"></div>
+      <!-- 전체 -->
+      <button class="fitem active" id="fi-전체" onclick="setFilter('전체',this)">
+        <span class="fleft"><span class="fdot" style="background:#94a3b8"></span>전체</span>
+        <span class="fcount" id="cnt-전체">0</span>
+      </button>
+      <!-- dynamic cats rendered here -->
+      <div id="sidebar-cats"></div>
+      <!-- add category shortcut -->
+      <button class="cat-add-btn" onclick="openCatMgr()">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>카테고리 관리
+      </button>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <div>
+    <div class="searchbar">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="sinput" id="searchInput" placeholder="소식 검색..." oninput="render()">
+    </div>
+    <div id="newsList"></div>
+  </div>
+</div>
+
+<!-- ═══ ADD MODAL ═══ -->
+<div class="overlay" id="ov-add" onclick="closeBg(event,'ov-add')">
+  <div class="modal">
+    <div class="mhead">
+      <span class="mtitle" id="add-modal-title">뉴스 추가</span>
+      <button class="mclose" onclick="closeOv('ov-add')">✕</button>
+    </div>
+
+    <!-- step-url -->
+    <div id="step-url">
+      <div class="fg">
+        <label class="flabel">링크 붙여넣기</label>
+        <div class="url-row">
+          <input class="finput" id="f-url" placeholder="https://reddit.com/r/comfyui/..."
+            onpaste="setTimeout(tryAuto,80)" onkeydown="if(event.key==='Enter')doAnalyze()">
+          <button class="url-analyze-btn" id="analyze-btn" onclick="doAnalyze()">분석</button>
+        </div>
+        <div class="src-chips">
+          <span class="src-chip">🟠 Reddit</span><span class="src-chip">🔵 Facebook</span>
+          <span class="src-chip">⚫ GitHub</span><span class="src-chip">🐦 Twitter/X</span>
+          <span class="src-chip">🤗 HuggingFace</span><span class="src-chip">🔗 기타</span>
+        </div>
+      </div>
+      <div id="analyzing-state" style="display:none">
+        <div class="analyzing-box">
+          <div class="spin"></div>
+          <div><div class="analyzing-title">AI가 분석 중...</div><div class="analyzing-sub" id="analyzing-msg">페이지 읽는 중</div></div>
+        </div>
+      </div>
+      <div id="error-state" style="display:none">
+        <div class="error-box"><strong>분석 실패</strong><span id="error-msg"></span></div>
+      </div>
+      <div class="mfooter mfooter-split">
+        <button class="btn-link" onclick="gotoManual()">직접 입력하기 →</button>
+        <button class="btn-sec" onclick="closeOv('ov-add')">취소</button>
+      </div>
+    </div>
+
+    <!-- step-preview -->
+    <div id="step-preview" style="display:none">
+      <div class="preview-src" id="preview-src"></div>
+      <div id="form-preview"></div>
+      <div class="mfooter mfooter-split">
+        <button class="btn-link" onclick="gotoUrl()">← 다시 입력</button>
+        <div style="display:flex;gap:8px">
+          <button class="btn-sec" onclick="closeOv('ov-add')">취소</button>
+          <button class="btn-primary" onclick="commitAdd('pv')">등록하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- step-manual -->
+    <div id="step-manual" style="display:none">
+      <div id="form-manual"></div>
+      <div class="mfooter mfooter-split">
+        <button class="btn-link" onclick="gotoUrl()">← URL 분석으로</button>
+        <div style="display:flex;gap:8px">
+          <button class="btn-sec" onclick="closeOv('ov-add')">취소</button>
+          <button class="btn-primary" onclick="commitAdd('mn')">등록하기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EDIT MODAL ═══ -->
+<div class="overlay" id="ov-edit" onclick="closeBg(event,'ov-edit')">
+  <div class="modal">
+    <div class="mhead">
+      <span class="mtitle">소식 편집</span>
+      <button class="mclose" onclick="closeOv('ov-edit')">✕</button>
+    </div>
+    <div id="form-edit"></div>
+    <div class="mfooter mfooter-split">
+      <button class="btn-danger" onclick="commitDelete()">삭제</button>
+      <div style="display:flex;gap:8px">
+        <button class="btn-sec" onclick="closeOv('ov-edit')">취소</button>
+        <button class="btn-primary" onclick="commitEdit()">저장하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CATEGORY MANAGER MODAL ═══ -->
+<div class="overlay" id="ov-cat" onclick="closeBg(event,'ov-cat')">
+  <div class="modal modal-wide">
+    <div class="mhead">
+      <span class="mtitle">카테고리 관리</span>
+      <button class="mclose" onclick="closeOv('ov-cat')">✕</button>
+    </div>
+
+    <!-- Add new cat form -->
+    <div class="add-cat-form">
+      <div class="flabel" style="margin-bottom:8px">새 카테고리 추가</div>
+      <div class="frow" style="gap:8px;align-items:flex-start">
+        <div class="fg" style="margin:0">
+          <input class="finput" id="new-cat-name" placeholder="카테고리 이름" maxlength="20"
+            onkeydown="if(event.key==='Enter')addCat()">
+        </div>
+        <div class="fg" style="margin:0">
+          <div class="color-row" id="new-cat-colors"></div>
+        </div>
+      </div>
+      <button class="btn-primary" style="margin-top:10px;width:100%;justify-content:center" onclick="addCat()">추가하기</button>
+    </div>
+
+    <div style="font-size:.72rem;color:var(--text3);margin-bottom:8px">↕ 드래그로 순서 변경 · 클릭으로 하위 카테고리 편집</div>
+    <div class="cat-mgr-list" id="cat-mgr-list"></div>
+
+    <div class="mfooter">
+      <button class="btn-sec" onclick="closeOv('ov-cat')">닫기</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// CONSTANTS
+// ═══════════════════════════════════════════════════
+const KEY     = 'comfyui_news_v6';
+const CAT_KEY = 'comfyui_cats_v3';
+
+const PRESET_COLORS = [
+  '#4f46e5','#c026d3','#16a34a','#ea580c','#94a3b8',
+  '#0891b2','#db2777','#7c3aed','#059669','#d97706',
+  '#dc2626','#2563eb','#0d9488','#65a30d','#9333ea'
+];
+
+const SRC_ICONS = {
+  'reddit.com':'🟠','facebook.com':'🔵','github.com':'⚫',
+  'twitter.com':'🐦','x.com':'🐦','youtube.com':'🔴',
+  'huggingface.co':'🤗','civitai.com':'🎨',
+  'comfy.org':'⚡','blog.comfy.org':'⚡'
+};
+
+// Default category config — each cat: {id, name, color, subcats:[]}
+const DEFAULT_CATS = [
+  {id:'모델',      name:'모델',       color:'#4f46e5', builtin:true, subcats:['Image','Image Edit','Video','3D','Audio','Other']},
+  {id:'LoRA',     name:'LoRA',      color:'#c026d3', builtin:true, subcats:[]},
+  {id:'Roto',     name:'Roto',      color:'#10b981', builtin:true, subcats:['Image','Video']},
+  {id:'Tracking', name:'Tracking',  color:'#f59e0b', builtin:true, subcats:['Image','Video']},
+  {id:'Inpaint',  name:'Inpaint',   color:'#0891b2', builtin:true, subcats:['Image','Video','LoRA']},
+  {id:'Upscale',  name:'Upscale',   color:'#8b5cf6', builtin:true, subcats:['Image','Video']},
+  {id:'AOV',      name:'AOV',       color:'#6366f1', builtin:true, subcats:['Depth','Relight','Normal']},
+  {id:'CleanPlate',name:'Clean Plate',color:'#14b8a6',builtin:true, subcats:['Image','Video']},
+  {id:'업데이트',  name:'업데이트',   color:'#ea580c', builtin:true, subcats:[]},
+  {id:'기타',     name:'기타',       color:'#94a3b8', builtin:true, subcats:[]},
+];
+
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let news    = [];
+let cats    = [];   // array of {id,name,color,builtin,subcats}
+let curFilter = '전체';
+let openSubs  = {};  // {catId: bool}
+let editId    = null;
+let dragSrcIdx = null;
+
+const SEED = [
+  {id:1,  title:'ComfyUI v0.15.0 정식 릴리즈', desc:'BBox 위젯, GLSL 셰이더 노드, ElevenLabs TTS API 노드 등 다수 신규 노드 추가. Gemma3·Qwen3 네이티브 텍스트 생성 지원.', cat:'업데이트', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:2,  title:'GLSL 셰이더 노드 추가', desc:'PyOpenGL 기반 GLSL 셰이더를 ComfyUI 워크플로우에서 직접 사용 가능.', cat:'AOV', subcat:'Relight', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:3,  title:'Seedream 5.0 Lite — ComfyUI 공식 지원', desc:'ByteDance의 Seedream 5.0 Lite 이미지 생성 모델이 ComfyUI에 정식 통합됐어요.', cat:'모델', subcat:'Image', link:'https://www.comfy.org', date:'2026-02-25', liked:false, thumb:'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=400&h=225&fit=crop'},
+  {id:4,  title:'Recraft V4 노드 추가', desc:'디자인·일러스트 특화 Recraft V4 API 노드가 ComfyUI에 추가됐습니다.', cat:'모델', subcat:'Image', link:'https://www.comfy.org', date:'2026-02-18', liked:false},
+  {id:5,  title:'Rodin Gen-2 (이미지→3D) 지원', desc:'이미지에서 고품질 3D 에셋을 생성하는 Rodin Gen-2 노드 추가.', cat:'모델', subcat:'3D', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:6,  title:'Topaz 비디오 향상 API 노드', desc:'Topaz Labs 비디오 업스케일·향상 API를 ComfyUI에서 직접 사용 가능.', cat:'Upscale', subcat:'Video', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false, thumb:'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=400&h=225&fit=crop'},
+  {id:7,  title:'Kling v2.1 비디오 생성 노드', desc:'Kling AI v2.1 비디오 생성 노드 추가. 모션 품질과 일관성이 크게 향상됐어요.', cat:'모델', subcat:'Video', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:8,  title:'NAG (Noise-Aware Guidance) 전 모델 적용', desc:'Flux 코드 기반 NAG가 전체 모델로 확장됐어요.', cat:'업데이트', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:9,  title:'LoRA 로딩 개선 — Qwen / Lycoris / Omnigen2', desc:'Qwen Image 모델 LoRA 로딩 및 머징 개선. Lycoris LoRA 호환성 확장.', cat:'LoRA', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:10, title:'AMD ROCm 7.1.1 네이티브 통합', desc:'AMD GPU 사용자를 위한 ROCm 7.1.1 공식 지원.', cat:'업데이트', link:'https://blog.comfy.org/p/official-amd-rocm-support-arrives', date:'2026-02-20', liked:false},
+  {id:11, title:'Moment Factory — 3D 프로젝션 매핑 케이스 스터디', desc:'Moment Factory가 ComfyUI로 대규모 건축물 프로젝션 매핑 워크플로우를 재구성한 사례 공개.', cat:'CleanPlate', subcat:'Video', link:'https://blog.comfy.org/p/case-study-how-moment-factory-reimagined', date:'2026-02-26', liked:false},
+  {id:12, title:'LTX Video 2.0 fp8 체크포인트 지원', desc:'LTX Video 2.0 fp8 체크포인트 로딩 이슈 수정 및 안정 지원.', cat:'모델', subcat:'Video', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:13, title:'KlingAvatar — 얼굴 일관성 비디오 생성', desc:'인물 사진에서 일관된 얼굴 정체성을 유지하며 애니메이션 생성 가능.', cat:'모델', subcat:'Video', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+  {id:14, title:'ElevenLabs TTS API 노드', desc:'ElevenLabs 텍스트-음성 변환 API가 ComfyUI 노드로 통합됐어요.', cat:'모델', subcat:'Audio', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-24', liked:false},
+
+  // === 2026 추가 뉴스 ===
+  {id:15, title:'Kling 3.0 ComfyUI 파트너 노드 출시', desc:'멀티샷 한 번에 생성, 15초 영상, 다국어 대화, 온스크린 텍스트 렌더링 등 Kling 3.0 전 기능을 ComfyUI 워크플로우에서 바로 사용 가능.', cat:'모델', subcat:'Video', link:'https://blog.comfy.org/p/kling-30-models-are-now-available', date:'2026-02-10', liked:false},
+
+  {id:16, title:'Wan 2.2 오픈소스 공개 — ComfyUI 네이티브 지원', desc:'Alibaba의 Wan 2.2가 MoE 아키텍처 기반으로 출시. 고품질 영상 생성, 영화급 미학 제어, 복잡한 모션 생성 지원. ComfyUI에 네이티브 통합되어 템플릿 제공.', cat:'모델', subcat:'Video', link:'https://comfyui-wiki.com/en/tutorial/advanced/video/wan2.2/wan2-2', date:'2026-02-13', liked:false},
+
+  {id:17, title:'Series Entertainment — Netflix 타이틀 제작에 ComfyUI 활용', desc:'Series Entertainment가 ComfyUI로 여러 Netflix 타이틀에서 10만+ 에셋을 제작한 사례 공개. 감정적 스토리텔링을 대규모로 확장하는 워크플로우 소개.', cat:'CleanPlate', subcat:'Video', link:'https://www.comfy.org/', date:'2026-02-20', liked:false},
+
+  {id:18, title:'NVIDIA RTX × ComfyUI — 4K AI 영상 생성 최적화', desc:'NVIDIA가 ComfyUI와 협력해 RTX GPU 성능을 40% 향상. NVFP4 포맷으로 VRAM 60% 절감, 속도 3배 향상. RTX Video 노드로 4K 업스케일 지원.', cat:'업데이트', link:'https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/', date:'2026-01-06', liked:false},
+
+  {id:19, title:'ComfyUI v0.8.0 — LTX Video 2.0 & NVFP4 지원', desc:'LTX Video 2.0(LTXV 2) 모델 추가, NVFP4 체크포인트 지원(fp4 행렬 연산), Sage Attention 3, Kling Omni 720p, WAN2.6 ReferenceToVideo API 노드 추가.', cat:'업데이트', link:'https://docs.comfy.org/changelog', date:'2026-01-07', liked:false},
+
+  {id:20, title:'ComfyUI v0.8.1 — Gemma 12B & LTXAV 개선', desc:'Gemma 12B 양자화 모델 지원 추가. LTXAV 텍스트 인코더 VRAM 사용량 절감, FP8MM 오프로딩 성능 수정, PyTorch cu130 업그레이드 권장.', cat:'업데이트', link:'https://docs.comfy.org/changelog', date:'2026-01-08', liked:false},
+
+  {id:21, title:'Wan 2.2 Animate — 캐릭터 애니메이션 프레임워크', desc:'Alibaba Tongyi Lab의 Wan-Animate 출시. Wan2.2 기반 통합 캐릭터 애니메이션 프레임워크로 캐릭터 애니메이션 생성 및 영상 속 캐릭터 교체 지원. 모델 가중치·코드 오픈소스.', cat:'모델', subcat:'Video', link:'https://comfyui-wiki.com/en/news', date:'2026-02-18', liked:false},
+
+  {id:22, title:'ACE Step 1.5 — 텍스트→음악 생성 ComfyUI 지원', desc:'ACE Step 1.5 텍스트-뮤직 생성 모델 ComfyUI 통합. 터보 AIO 체크포인트 제공, min_p 샘플링, LLM 샘플링 옵션, 레퍼런스 오디오 지원.', cat:'모델', subcat:'Audio', link:'https://github.com/Comfy-Org/ComfyUI/releases', date:'2026-02-26', liked:false},
+
+  {id:23, title:'ComfyUI v0.14.1 — Recraft V4 & ViduQ3 Turbo', desc:'Recraft V4 창작 워크플로우 노드 추가, ViduQ3 Turbo 모델 지원. Gemini/Nano Banana API 노드 빈 이미지 반환 버그 수정.', cat:'업데이트', link:'https://docs.comfy.org/changelog', date:'2026-02-17', liked:false},
+
+  {id:24, title:'Stable Video Infinity 2.0 Pro — Wan 2.2 기반 무한 길이 영상', desc:'SVI 2.0 Pro 출시. Wan 2.2 기반으로 ComfyUI에서 무한 길이 영상 생성 가능. HIGH/LOW 버전 LoRA 제공, 장면 전환 및 일관성 대폭 개선.', cat:'모델', subcat:'Video', link:'https://comfyui-wiki.com/en/news/2025-12-27-svi-2-0-pro-wan-2-2-release', date:'2026-01-29', liked:false},
+
+  {id:25, title:'Wan 2.2 S2V — 사진+오디오→영상 생성', desc:'Wan2.2-S2V 모델 출시. 정지 이미지와 오디오 파일 한 장으로 대화·노래·퍼포먼스 영상 생성 지원. 립싱크 정확도 대폭 향상.', cat:'모델', subcat:'Video', link:'https://comfyui-wiki.com/en/news', date:'2026-02-15', liked:false},
+
+  {id:26, title:'Nano Banana 2 — ComfyUI 파트너 노드 추가', desc:'Nano Banana 2가 ComfyUI 파트너 노드로 출시. 향상된 처리 능력으로 이미지·영상 생성 워크플로우 확장.', cat:'업데이트', link:'https://blog.comfy.org/', date:'2026-02-22', liked:false},
+
+  {id:27, title:'Flux 2 + NVFP4/FP8 — VRAM 대폭 절감', desc:'Black Forest Labs Flux 2 모델에 NVFP4 체크포인트 지원 추가. RTX 50 시리즈에서 VRAM 60% 절감·속도 3배 향상. FP8 포맷으로도 30~40% VRAM 절감 가능.', cat:'모델', subcat:'Image', link:'https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/', date:'2026-01-06', liked:false},
+
+  {id:28, title:'Wan 2.6 — 멀티샷 스토리텔링 & 오디오 동기화', desc:'Wan 2.6 API 노드 ComfyUI 통합. 캐릭터 주연, 멀티샷 스토리텔링, 오디오 싱크 영상 생성, 멀티 이미지 컨트롤 지원.', cat:'모델', subcat:'Video', link:'https://blog.comfy.org/p/new-template-library-and-partner', date:'2025-12-19', liked:false},
+
+  {id:29, title:'ComfyUI Nodes 2.0 퍼블릭 베타 & 서브그래프', desc:'v0.3.76 업데이트로 Nodes 2.0 UI 퍼블릭 베타 공개. 리니어 모드 베타, 서브그래프 개선, 새 워크플로우 진행 패널, 에셋 사이드바 추가.', cat:'업데이트', link:'https://docs.comfy.org/changelog', date:'2025-12-02', liked:false},
+
+  {id:30, title:'Z-Image (Alibaba PAI) — ComfyUI 통합', desc:'Alibaba PAI 팀의 Z-Image 시리즈 ComfyUI 통합. NVFP4 체크포인트, ControlNet Union, LoRA 학습 지원. 이미지 생성 품질 대폭 향상.', cat:'모델', subcat:'Image', link:'https://docs.comfy.org/changelog', date:'2025-11-26', liked:false},
+  {id:31, title:'ComfyUI v0.15.0 릴리즈', desc:'BBox 위젯, 3밴드 EQ 노드, Gemma3/Qwen3 텍스트 생성, GLSL 셰이더, ElevenLabs TTS API 노드, SplitImageToTileList 노드 등 대규모 기능 추가.', cat:'업데이트', subcat:'', link:'https://docs.comfy.org/changelog', date:'2026-02-24', liked:false},
+  {id:32, title:'Kling 3.0 ComfyUI 파트너 노드 출시', desc:'멀티샷 한 번에 생성, 샷별 길이 지정, 15초 영상, 한/영/일/중/스페인어 다국어 대화 지원. 스토리보드 수준의 영상 제작 가능.', cat:'모델', subcat:'', link:'https://blog.comfy.org/p/kling-30-models-are-now-available', date:'2026-02-10', liked:false},
+  {id:33, title:'Seedream 5.0 Lite — ComfyUI 공식 지원', desc:'ByteDance Seedream 5.0 Lite 모델이 ComfyUI에 추가됨. API 노드로 바로 사용 가능. 이미지 생성 품질 크게 향상.', cat:'모델', subcat:'Image', link:'https://www.comfy.org/', date:'2026-02-25', liked:false},
+  {id:34, title:'Nano Banana 2 — ComfyUI 통합', desc:'Nano Banana 2 모델이 ComfyUI 파트너 노드로 추가됨. 기존 Gemini/Nano Banana API 노드의 빈 이미지 반환 버그도 동시 수정.', cat:'업데이트', subcat:'', link:'https://www.comfy.org/', date:'2026-02-28', liked:false},
+  {id:35, title:'Subgraph 기능 공식 출시', desc:'복잡한 노드 조합을 하나의 재사용 가능한 서브그래프 노드로 패키징. 노드 라이브러리에 퍼블리시해서 커스텀 노드처럼 사용 가능. 워크플로우 모듈화 대폭 향상.', cat:'업데이트', subcat:'', link:'https://docs.comfy.org/interface/features/subgraph', date:'2026-02-24', liked:false},
+  {id:36, title:'ComfyUI 첫 번째 위클리 챌린지 시작', desc:'ComfyUI Wiki가 첫 위클리 챌린지 개최. 제공된 뎁스맵으로 고양이 인간 캐릭터 턴어라운드 영상 제작. 상금 $100.', cat:'기타', subcat:'', link:'https://comfyui-wiki.com/en/news', date:'2026-03-01', liked:false},
+  {id:37, title:'Wan 2.2 5B Fun Control/Inpaint 지원', desc:'Wan2.2 5B Fun Control 모델과 Fun Inpaint 모델이 ComfyUI에 통합. 영상 생성의 고급 크리에이티브 컨트롤 가능.', cat:'모델', subcat:'Video', link:'https://docs.comfy.org/changelog', date:'2026-02-24', liked:false},
+  {id:38, title:'Qwen-Image 20B 네이티브 지원', desc:'Alibaba의 20B 파라미터 MMDiT 이미지 모델 Qwen-Image가 ComfyUI에 네이티브 지원. 복잡한 텍스트 렌더링과 정밀 편집에 특화. FP8 체크포인트 지원.', cat:'모델', subcat:'Image', link:'https://docs.comfy.org/changelog', date:'2026-02-01', liked:false},
+  {id:39, title:'InfiniteTalk — 무제한 길이 립싱크 영상', desc:'MeiGen-AI의 InfiniteTalk 모델이 ComfyUI WanVideo Wrapper에 통합. 사진 1장 + 오디오로 무제한 길이의 자연스러운 립싱크 영상 생성. Apache 2.0.', cat:'모델', subcat:'', link:'https://comfyui-wiki.com/en/news/2025-08-20-infinitetalk-audio-driven-video-generation', date:'2026-02-15', liked:false},
+  {id:40, title:'FLUX.1 Fill (Dev) — 공식 Inpaint 모델 출시', desc:'Black Forest Labs의 FLUX.1 Tools 중 하나. 텍스트 프롬프트 + 바이너리 마스크로 이미지 자연스럽게 채우기/확장. Ideogram 2.0 벤치마크 성능 초월. ComfyUI 네이티브 지원.', cat:'Inpaint', subcat:'Image', link:'https://bfl.ai/flux-1-tools/', date:'2025-07-01', liked:false},
+  {id:41, title:'LanPaint — 학습 없이 모든 모델에 Inpaint', desc:'Flux, HiDream, SD 3.5, SDXL, Wan2.2, Qwen Image 등 어떤 모델이든 추가 학습 없이 고품질 인페인팅/아웃페인팅 가능. ComfyUI KSampler처럼 사용. Apache 2.0.', cat:'Inpaint', subcat:'Image', link:'https://github.com/scraed/LanPaint', date:'2025-08-01', liked:false},
+  {id:42, title:'DiffuEraser — 영상 객체 제거 Inpaint 모델', desc:'Alibaba Tongyi Lab의 비디오 인페인팅 확산 모델. 삭제된 영역을 자연스러운 콘텐츠로 복원하고 프레임 간 시간적 일관성 유지. SAM2 자동 마스크 생성 지원. Apache 2.0.', cat:'Inpaint', subcat:'Video', link:'https://github.com/lixiaowen-xw/DiffuEraser', date:'2025-07-10', liked:false},
+  {id:43, title:'HiDream E1.1 — 이미지 편집/Inpaint 모델 업데이트', desc:'HiDream-ai의 지시 기반 이미지 편집 모델 E1.1 오픈소스 공개. 마스크 없이 텍스트 프롬프트만으로 이미지 수정. MIT 라이선스. ComfyUI 공식 지원.', cat:'Inpaint', subcat:'Image', link:'https://huggingface.co/HiDream-ai/HiDream-I1-Full', date:'2025-07-16', liked:false},
+  {id:44, title:'Wan 2.2 5B Fun Inpaint — 영상 인페인팅 모델', desc:'Alibaba Wan 팀의 Wan2.2 5B Fun Inpaint 모델. 영상 특정 영역 마스킹 후 프롬프트로 교체. 객체 제거·추가·배경 변경 가능. ComfyUI v0.3.76+ 네이티브 지원.', cat:'Inpaint', subcat:'Video', link:'https://docs.comfy.org/changelog', date:'2025-10-01', liked:false},
+  {id:45, title:'FloED — 광학 흐름 기반 영상 인페인팅', desc:'홍콩과기대 + Alibaba DAMO Academy 공동 연구. 광학 흐름으로 시간적 일관성 향상 + 추론 속도 가속. 기존 방식 대비 플리커링 대폭 감소. 코드·가중치 오픈소스.', cat:'Inpaint', subcat:'Video', link:'https://comfyui-wiki.com/en/news/2025-04-13-floed-video-inpainting', date:'2025-08-13', liked:false},
+  {id:47, title:'Object Removal LoRA v2 — Flux Fill 기반 객체 제거', desc:'Flux Fill Dev 모델에 파인튜닝된 객체 제거 전용 LoRA. 마스크 영역의 불필요한 객체를 자연스럽게 지우고 배경으로 채움. RORD 데이터셋으로 학습, 비상업용 무료. HuggingFace 공개.', cat:'Inpaint', subcat:'LoRA', link:'https://huggingface.co/lrzjason/ObjectRemovalFluxFill', date:'2025-03-24', liked:false},
+  {id:48, title:'FLUX.2 Klein 4B Object Remove LoRA — fal.ai', desc:'fal.ai가 공개한 FLUX.2 Klein 4B 기반 객체 제거 전문 LoRA. "Remove the highlighted object from the scene" 프롬프트로 사용. ComfyUI 호환 safetensors 제공. Apache 2.0 라이선스.', cat:'Inpaint', subcat:'LoRA', link:'https://huggingface.co/fal/flux-2-klein-4B-object-remove-lora', date:'2025-10-01', liked:false},
+  {id:49, title:'F.2 Klein 9B Uncrop/Inpaint LoRA — 컨텍스트 인페인트', desc:'Flux.2 Klein 9B 기반 언크롭·인페인트·아웃페인트 통합 LoRA. "Remove the white parts" 프롬프트로 객체 제거 및 배경 확장. 컨텍스트 이미지 참조 지원. Civitai 무료 공개.', cat:'Inpaint', subcat:'LoRA', link:'https://civitai.com/models/2106308/uncropinpaintoutpaint-with-context-image-for-f2-klein-9b-qwen-image-edit-lora', date:'2025-11-06', liked:false},
+  {id:46, title:'Qwen Image Edit 2509 — 20B 이미지 편집/Inpaint', desc:'Alibaba Qwen의 20B MMDiT 이미지 편집 특화 모델. 마스크 영역 외 변경 없이 객체 삽입·교체 가능. ComfyUI 네이티브 지원 + LanPaint 연동으로 인페인팅/아웃페인팅도 지원.', cat:'Inpaint', subcat:'Image', link:'https://docs.comfy.org/changelog', date:'2025-09-09', liked:false},
+  // ─── VFX 카테고리 ───────────────────────────────────────────────
+  // Roto / Segment
+  {id:50, title:'SAM2 (Segment Anything Model 2) — Meta AI 영상 로토 자동화', desc:'Meta AI의 오픈소스 영상 세그먼테이션 모델. 첫 프레임에 점/박스 하나만 찍으면 전체 영상에서 마스크를 자동 추적. 44FPS 실시간 처리, ComfyUI Kijai 노드로 통합. 로토스코핑·클린플레이트·인페인팅 파이프라인에 직접 활용 가능.', cat:'Roto', subcat:'Video', link:'https://github.com/kijai/ComfyUI-segment-anything-2', date:'2024-08-01', liked:false},
+  {id:51, title:'SAM 3 Lite — 영상 세그먼트 차세대 업그레이드', desc:'SAM2 대비 모호한 경계·투명 객체·오클루전 처리 대폭 개선. 영상에서 프레임 간 마스크 일관성 향상. ComfyUI Manager에서 바로 설치. 스틸 이미지는 SAM2로도 충분하나, 영상 로토는 SAM3 권장.', cat:'Roto', subcat:'Video', link:'https://apatero.com/blog/comfyui-sam3-open-source-alternative-guide-2025', date:'2025-09-01', liked:false},
+  {id:52, title:'Wan 2.2 AI CharacterSwap — 자동 로토+트래킹 VFX 워크플로', desc:'Wan 2.2 Animate 기반 얼굴·캐릭터 교체 프로덕션 워크플로. SAM3 자동 로토 + 포즈 트래킹 + 페이스 락킹 → Wan 2.2로 합성. 디에이징·의상 교체에도 활용 가능. 실제 VFX 파이프라인용 오픈소스.', cat:'Roto', subcat:'Video', link:'https://github.com/rik-python/AI-CharacterSwap-Workflow', date:'2025-08-01', liked:false},
+
+  // Tracking
+  {id:53, title:'CoTracker3 — 점/객체 고정밀 영상 트래킹', desc:'Meta Research의 포인트·객체 트래킹 모델. 영상 내 임의의 점을 지정하면 전체 프레임에 걸쳐 추적. SAM2·VACE와 함께 VFX 파이프라인에 통합. ComfyUI + AInVFX 워크플로 예제 공개.', cat:'Tracking', subcat:'Video', link:'https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/', date:'2025-07-01', liked:false},
+  {id:54, title:'ATI (Any Trajectory Instruction) — 드로잉으로 모션 지시', desc:'영상 위에 경로를 그리면 객체가 해당 궤적대로 움직이는 모션 제어 모델. Wan 2.1 기반. 멀티 스플라인으로 여러 객체 동시 제어 가능. VFX 프리비즈·오브젝트 애니메이션에 유용.', cat:'Tracking', subcat:'Video', link:'https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/', date:'2025-09-01', liked:false},
+
+  // Upscale
+  {id:55, title:'SeedVR2 — ByteDance 1-step 영상·이미지 업스케일', desc:'ByteDance의 16B 파라미터 디퓨전 기반 영상 업스케일러. 기존 ESRGAN 대비 시간 일관성 획기적 향상, 540p → 4K 1단계 처리. Apache 2.0 오픈소스, ComfyUI 4-노드 통합. 8GB VRAM에서도 GGUF Q4로 구동 가능.', cat:'Upscale', subcat:'Video', link:'https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler', date:'2025-10-01', liked:false},
+  {id:56, title:'Real-ESRGAN / ESRGAN — 이미지 업스케일 ComfyUI 표준', desc:'AI 이미지 업스케일의 표준. 4x 고해상도 변환. ComfyUI 내장 지원. SeedVR2 등장 전까지 VFX 클린플레이트·텍스처 업스케일에 가장 널리 쓰인 모델. 정적 이미지에는 여전히 빠르고 실용적.', cat:'Upscale', subcat:'Image', link:'https://comfyui-wiki.com/en/workflows/inpaint', date:'2023-01-01', liked:false},
+
+  // AOV / Relight
+  {id:57, title:'IC-Light v2 — ComfyUI 조명 재합성 모델', desc:'배경/전경 이미지를 받아 물리적으로 일관된 새 조명 환경 생성. 노말맵·깊이맵과 연동하여 PBR 스타일 릴라이팅 가능. Flux 기반 v2 버전. VFX 합성·제품 촬영 후보정에 활용.', cat:'AOV', subcat:'Relight', link:'https://github.com/lllyasviel/IC-Light', date:'2025-06-01', liked:false},
+  {id:58, title:'Depth Pro / Marigold — 단일 이미지 깊이맵 추출', desc:'Apple Depth Pro & Marigold: 단일 이미지에서 절대 깊이(미터 단위) 추정. VFX 합성 시 AOV 레이어 대체, 카메라 매칭·세트 익스텐션에 활용. ComfyUI 커스텀 노드 지원.', cat:'AOV', subcat:'Depth', link:'https://github.com/apple/ml-depth-pro', date:'2025-04-01', liked:false},
+
+  // Clean Plate
+  {id:59, title:'VACE — Wan 기반 영상 클린플레이트·로컬 편집', desc:'Wan 계열 영상 인페인팅 프레임워크. 50% 그레이 마스크로 지정 영역 교체, 참조 이미지로 VFX 이펙트 생성. SAM2와 연동해 자동 마스크 → 클린플레이트 파이프라인 구성 가능.', cat:'CleanPlate', subcat:'Video', link:'https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/', date:'2025-07-01', liked:false},
+  {id:60, title:'big-lama / LaMA — 전통 클린플레이트 인페인팅', desc:'구조 기반 대형 마스크 인페인팅. 도로·하늘·배경 클린플레이트 생성에 최적. AI 디퓨전 모델 전처리 단계로 병행 사용 권장. ComfyUI Fooocus 인페인팅 모드에 내장.', cat:'CleanPlate', subcat:'Image', link:'https://github.com/advimman/lama', date:'2022-01-01', liked:false},
+  {id:61, title:'RotoAI — 프롬프트 기반 영상 세그멘테이션 스튜디오', desc:'SAM2 + Grounding DINO 기반 오픈소스 로토스코핑 도구. 자연어 프롬프트로 객체 선택(예: "빨간 셔츠 입은 사람"). Google Colab GPU 백엔드 + 로컬 React 프론트엔드 하이브리드 아키텍처. 스마트 청킹(5초 단위)으로 긴 영상도 OOM 없이 처리. Neon Glow·크로마키·보케 블러 등 효과 지원. 라이선스: AGPL-3.0.', cat:'Roto', subcat:'Video', link:'https://github.com/sPappalard/RotoAI', date:'2025-06-01', liked:false},
+  {id:62, title:'Cutie-Roto — AI 영상 로토스코핑 무료 대안', desc:'Cutie 모델 기반 AI 로토스코핑 도구. Adobe Roto Brush·DaVinci Resolve Magic Mask 무료 대안. 첫 프레임 마스크 지정 후 영상 전체 자동 추적. GUI 기반으로 별도 ComfyUI 불필요, Windows 원클릭 실행. 수동 로토 대비 정확도는 낮지만 빠른 초안·임시 키 작업에 적합.', cat:'Roto', subcat:'Video', link:'https://github.com/Zarxrax/Cutie-Roto', date:'2024-12-01', liked:false},
+  {id:63, title:'FlashVSR — 실시간 디퓨전 기반 영상 초해상도 (CVPR 2026)', desc:'단일 스텝 디퓨전으로 A100 단일 GPU에서 768×1408 해상도 ~17FPS 달성. 기존 원스텝 VSR 대비 최대 12배 속도 향상. 핵심 기술: 3단계 증류 파이프라인 + 지역 제약 희소 어텐션 + 경량 조건부 디코더. v1.1에서 안정성·충실도 개선. ComfyUI 커스텀 노드 다수 배포(smthemex, 1038lab, naxci1). fal.ai 클라우드 추론 지원. 학습 데이터셋 VSR-120K(12만 영상) 공개.', cat:'Upscale', subcat:'Video', link:'https://github.com/OpenImagingLab/FlashVSR', date:'2025-10-01', liked:false},
+  {id:64, title:'NVIDIA RTX Video Node — ComfyUI 4K 실시간 업스케일 (CES 2026)', desc:'CES 2026에서 NVIDIA 발표. RTX GPU Tensor Core 기반으로 720p AI 생성 영상을 수 초 안에 4K로 업스케일. 엣지 선명화·압축 아티팩트 제거 실시간 처리. ComfyUI 2026년 2월 출시 예정. LTX-2 + RTX Video 파이프라인으로 4K AI 영상 로컬 생성 가능. NVFP4 포맷으로 VRAM 60% 절감, 성능 3배 향상(RTX 50 시리즈).', cat:'Upscale', subcat:'Video', link:'https://blogs.nvidia.com/blog/rtx-ai-garage-ces-2026-open-models-video-generation/', date:'2026-01-06', liked:false},
+  {id:65, title:'Video Depth Anything — 초장편 영상 일관 깊이 추정', desc:'Depth Anything V2 팀의 영상 전용 확장 모델(2025-01-22 출시). 5분 이상 초장편 영상에서도 프레임간 깊이 일관성 유지. Small(28.4M, Apache 2.0) / Large(381.8M, CC BY-NC 4.0) 두 가지 모델. EXR·NPZ·그레이스케일 출력 지원 → Nuke·Resolve 컴포지팅에 직결. ComfyUI 비공식 구현: ComfyUI-Video-Depth-Anything(yuvraj108c). VFX 활용: 세트 익스텐션·카메라 매칭·AOV 레이어 교체.', cat:'AOV', subcat:'Depth', link:'https://github.com/yuvraj108c/ComfyUI-Video-Depth-Anything', date:'2025-01-22', liked:false},
+  {id:66, title:'ProPainter — 광학 흐름 기반 영상 오브젝트 제거 (ComfyUI)', desc:'NTU S-Lab의 영상 인페인팅 프레임워크. 흐름 기반 전파(Recurrent Flow Completion) + 시공간 트랜스포머로 자연스러운 클린플레이트 생성. 오브젝트 제거·워터마크 제거·영상 아웃페인팅 지원. SAM2/Cutie와 연동하면 자동 마스크 → 클린플레이트 완전 자동화 파이프라인 구성 가능. ComfyUI 노드: ComfyUI_ProPainter_Nodes(daniabib). 라이선스: 비상업 NTU S-Lab License.', cat:'CleanPlate', subcat:'Video', link:'https://github.com/sczhou/ProPainter', date:'2023-09-01', liked:false},
+];
+
+// ═══════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════
+const GH_KEY = 'comfyui_gh_config';
+
+// ── GITHUB SYNC ────────────────────────────────────────────────────
+
+function getGHConfig() {
+  try { return JSON.parse(localStorage.getItem(GH_KEY) || 'null'); } catch { return null; }
+}
+function setGHConfig(cfg) {
+  try { localStorage.setItem(GH_KEY, JSON.stringify(cfg)); } catch(e) {}
+}
+
+// GitHub API 요청
+async function ghRequest(method, cfg, body) {
+  const url = `https://api.github.com/repos/${cfg.repo}/contents/${cfg.path}`;
+  const opts = {
+    method,
+    headers: {
+      'Authorization': `Bearer ${cfg.token}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/vnd.github+json'
+    }
+  };
+  if (body) opts.body = JSON.stringify(body);
+  const res = await fetch(url, opts);
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || `HTTP ${res.status}`);
+  }
+  return res.json();
+}
+
+// Base64 인코딩/디코딩
+function encodeGHData(data) {
+  return btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+}
+function decodeGHData(b64) {
+  return JSON.parse(decodeURIComponent(escape(atob(b64.replace(/\n/g, '')))));
+}
+
+let _ghSha = null;
+let _syncTimer = null;
+
+function scheduleGHSync() {
+  clearTimeout(_syncTimer);
+  _syncTimer = setTimeout(() => syncToGitHub(true), 2000);
+}
+
+function setSyncStatus(status, label) {
+  const btn = document.getElementById('sync-btn');
+  const lbl = document.getElementById('sync-label');
+  if (!btn) return;
+  btn.className = 'sync-btn ' + (status || '');
+  if (lbl) lbl.textContent = label || 'GitHub';
+}
+
+async function syncToGitHub(silent) {
+  const cfg = getGHConfig(); if (!cfg) return;
+  setSyncStatus('syncing', '동기화 중...');
+  try {
+    // SHA 모를 경우 먼저 파일 조회
+    if (!_ghSha) {
+      try { const ex = await ghRequest('GET', cfg); _ghSha = ex.sha; } catch(e) {}
+    }
+    const body = {
+      message: `Update ComfyUI news (${news.length} items)`,
+      content: encodeGHData({ news, cats }),
+      ...(_ghSha ? { sha: _ghSha } : {})
+    };
+    const result = await ghRequest('PUT', cfg, body);
+    _ghSha = result.content.sha;
+    setSyncStatus('ok', '동기화됨 ✓');
+    setTimeout(() => setSyncStatus('ok', '연결됨'), 2500);
+    if (!silent) toast('✓ GitHub에 저장됐습니다!');
+  } catch(e) {
+    setSyncStatus('error', '동기화 실패');
+    if (!silent) toast('❌ 동기화 실패: ' + e.message);
+  }
+}
+
+async function syncFromGitHub() {
+  const cfg = getGHConfig(); if (!cfg) return;
+  setSyncStatus('syncing', '불러오는 중...');
+  try {
+    const result = await ghRequest('GET', cfg);
+    _ghSha = result.sha;
+    const data = decodeGHData(result.content);
+    if (data.news && Array.isArray(data.news) && data.news.length > 0) {
+      news = data.news;
+      try { localStorage.setItem(KEY, JSON.stringify(news)); } catch(e) {}
+    }
+    if (data.cats && Array.isArray(data.cats) && data.cats.length > 0) {
+      cats = data.cats;
+      try { localStorage.setItem(CAT_KEY, JSON.stringify(cats)); } catch(e) {}
+    }
+    setSyncStatus('ok', '연결됨');
+    renderSidebar(); render();
+    toast('✓ GitHub에서 불러오기 완료! (' + news.length + '건)');
+  } catch(e) {
+    setSyncStatus('error', '오류');
+    toast('❌ 불러오기 실패: ' + e.message);
+  }
+}
+
+function openGHSetup() {
+  const cfg = getGHConfig();
+  document.getElementById('gh-connected-view').style.display = cfg ? 'block' : 'none';
+  document.getElementById('gh-setup-view').style.display = cfg ? 'none' : 'block';
+  if (cfg) document.getElementById('connected-repo-label').textContent = cfg.repo + ' › ' + cfg.path;
+  openOv('ov-gh');
+}
+
+async function connectGitHub() {
+  const token = document.getElementById('gh-token-input').value.trim();
+  const repo  = document.getElementById('gh-repo-input').value.trim();
+  const path  = document.getElementById('gh-path-input').value.trim() || 'comfyui-news.json';
+  const stEl  = document.getElementById('gh-status');
+  if (!token) { stEl.textContent='❌ Token을 입력하세요'; stEl.className='url-status error'; return; }
+  if (!repo.includes('/')) { stEl.textContent='❌ 저장소 형식: owner/repo-name'; stEl.className='url-status error'; return; }
+  stEl.textContent='⏳ 연결 확인 중...'; stEl.className='url-status';
+  const cfg = { token, repo, path };
+  try {
+    const testRes = await fetch(`https://api.github.com/repos/${repo}`, {
+      headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+    });
+    if (!testRes.ok) { const e = await testRes.json(); throw new Error(e.message || `HTTP ${testRes.status}`); }
+    try { const f = await ghRequest('GET', cfg); _ghSha = f.sha; } catch(e) { _ghSha = null; }
+    setGHConfig(cfg);
+    setSyncStatus('ok', '연결됨');
+    stEl.textContent='✅ 연결 성공!'; stEl.className='url-status ok';
+    setTimeout(() => { closeOv('ov-gh'); syncToGitHub(); toast('✓ GitHub 연결 완료!'); }, 700);
+  } catch(e) {
+    stEl.textContent='❌ ' + e.message; stEl.className='url-status error';
+  }
+}
+
+function disconnectGitHub() {
+  if (!confirm('GitHub 연결을 해제할까요?\n로컬 데이터는 그대로 유지됩니다.')) return;
+  try { localStorage.removeItem(GH_KEY); } catch(e) {}
+  _ghSha = null;
+  setSyncStatus('', 'GitHub 연결');
+  document.getElementById('gh-setup-view').style.display='block';
+  document.getElementById('gh-connected-view').style.display='none';
+  toast('연결이 해제됐습니다.');
+}
+
+function initGHStatus() {
+  const cfg = getGHConfig();
+  if (cfg) { setSyncStatus('ok','연결됨'); syncFromGitHub(); }
+}
+
+// ── LOCAL STORAGE ──────────────────────────────────────────────────
+function load() {
+  try {
+    const s = localStorage.getItem(KEY);
+    if (s) {
+      news = JSON.parse(s);
+      const existingIds = new Set(news.map(n => n.id));
+      const newItems = SEED.filter(n => !existingIds.has(n.id));
+      if (newItems.length > 0) {
+        news = [...news, ...newItems];
+        save();
+        console.log(`✓ 새 소식 ${newItems.length}건 자동 추가됨`);
+      }
+      const seedMap = {};
+      SEED.forEach(s => seedMap[s.id] = s);
+      let migrated = 0;
+      news = news.map(n => {
+        const s = seedMap[n.id];
+        if (s && (n.cat !== s.cat || n.subcat !== s.subcat)) {
+          migrated++;
+          return {...n, cat: s.cat, subcat: s.subcat};
+        }
+        return n;
+      });
+      if (migrated > 0) { save(); console.log(`✓ 카테고리 마이그레이션 ${migrated}건`); }
+    } else {
+      news = [...SEED];
+      save();
+    }
+  } catch(e) { console.warn('news load failed:', e.message); news = [...SEED]; }
+  try {
+    const c = localStorage.getItem(CAT_KEY);
+    cats = c ? JSON.parse(c) : deepClone(DEFAULT_CATS);
+    if (!c) saveCats();
+    const existingCatIds = new Set(cats.map(c => c.id));
+    const newCats = DEFAULT_CATS.filter(c => c.builtin && !existingCatIds.has(c.id));
+    if (newCats.length > 0) {
+      const updateIdx = cats.findIndex(c => c.id === '업데이트');
+      if (updateIdx >= 0) cats.splice(updateIdx, 0, ...newCats.map(deepClone));
+      else cats.push(...newCats.map(deepClone));
+      saveCats();
+      console.log(`✓ 새 카테고리 ${newCats.map(c=>c.name).join(', ')} 추가됨`);
+    }
+  } catch { cats = deepClone(DEFAULT_CATS); }
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(news)); } catch(e) { console.warn('localStorage unavailable:', e.message); }
+  if (getGHConfig()) scheduleGHSync();
+}
+function saveCats() {
+  try { localStorage.setItem(CAT_KEY, JSON.stringify(cats)); } catch(e) { console.warn('localStorage unavailable:', e.message); }
+  if (getGHConfig()) scheduleGHSync();
+}
+
+function deepClone(x){ return JSON.parse(JSON.stringify(x)); }
+function today()   { return new Date().toISOString().split('T')[0]; }
+function esc(s)    { return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function getCat(id) { return cats.find(c => c.id === id); }
+function catColor(id) { const c = getCat(id); return c ? c.color : '#94a3b8'; }
+function tagStyle(id) {
+  const col = catColor(id);
+  return `background:${col}18;color:${col};border:1px solid ${col}33;`;
+}
+
+// ═══════════════════════════════════════════════════
+// SIDEBAR RENDER
+// ═══════════════════════════════════════════════════
+function renderSidebar() {
+  const el = document.getElementById('sidebar-cats');
+  el.innerHTML = cats.map(cat => {
+    const hasSubs = cat.subcats && cat.subcats.length > 0;
+    const cnt = news.filter(n => n.cat === cat.id).length;
+    const col = cat.color;
+    if (hasSubs) {
+      const isOpen = !!openSubs[cat.id];
+      const subItems = cat.subcats.map(sub => {
+        const subCnt = news.filter(n => n.cat === cat.id && n.subcat === sub).length;
+        const fid = cat.id + '::' + sub;
+        return `<button class="fitem fitem-sub" onclick="setFilter('${esc(fid)}',this)">
+          <span class="fleft"><span class="fdot" style="background:${esc(col)};opacity:.6"></span>${esc(sub)}</span>
+          <span class="fcount" id="cnt-${esc(fid)}">${subCnt}</span>
+        </button>`;
+      }).join('');
+      return `<div class="cat-row-wrap">
+        <div class="cat-row-header">
+          <button class="cat-filter" id="fi-${esc(cat.id)}" onclick="setFilter('${esc(cat.id)}',this)">
+            <span class="fleft"><span class="fdot" style="background:${esc(col)}"></span>${esc(cat.name)}</span>
+            <span class="fcount" id="cnt-${esc(cat.id)}">${cnt}</span>
+          </button>
+          <button class="cat-toggle ${isOpen?'open':''}" id="sub-toggle-${esc(cat.id)}" onclick="toggleSub('${esc(cat.id)}')"><span class="arr">▼</span></button>
+        </div>
+        <div class="sub-wrap ${isOpen?'open':''}" id="sub-wrap-${esc(cat.id)}">${subItems}</div>
+      </div>`;
+    }
+    return `<button class="fitem" id="fi-${esc(cat.id)}" onclick="setFilter('${esc(cat.id)}',this)">
+      <span class="fleft"><span class="fdot" style="background:${esc(col)}"></span>${esc(cat.name)}</span>
+      <span class="fcount" id="cnt-${esc(cat.id)}">${cnt}</span>
+    </button>`;
+  }).join('');
+}
+
+function toggleSub(catId) {
+  openSubs[catId] = !openSubs[catId];
+  const wrap = document.getElementById('sub-wrap-' + catId);
+  const btn  = document.getElementById('sub-toggle-' + catId);
+  if (wrap) wrap.classList.toggle('open', openSubs[catId]);
+  if (btn)  btn.classList.toggle('open', openSubs[catId]);
+}
+
+// ═══════════════════════════════════════════════════
+// FILTER
+// ═══════════════════════════════════════════════════
+function setFilter(f, el) {
+  curFilter = f;
+  document.querySelectorAll('.fitem,.cat-filter').forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+  render();
+}
+
+function getFiltered() {
+  const q = (document.getElementById('searchInput')?.value || '').toLowerCase();
+  return news.filter(n => {
+    let ok = curFilter === '전체'        ? true
+           : curFilter === '❤️좋아요'   ? !!n.liked
+           : curFilter.includes('::')   ? (() => { const [c,s] = curFilter.split('::'); return n.cat===c && n.subcat===s; })()
+           : n.cat === curFilter;
+    const qok = !q || n.title.toLowerCase().includes(q) || (n.desc||'').toLowerCase().includes(q);
+    return ok && qok;
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════════
+function relDate(d) {
+  const diff = Math.floor((Date.now() - new Date(d)) / 86400000);
+  return diff===0?'오늘':diff===1?'어제':diff<7?diff+'일 전':'';
+}
+
+function tagHTML(n) {
+  const cat = getCat(n.cat);
+  const col = cat ? cat.color : '#94a3b8';
+  const st  = `background:${col}18;color:${col};border:1px solid ${col}33;`;
+  if (n.subcat) {
+    return `<span class="ctag" style="${st}">${esc(n.cat)}</span>` +
+           `<span class="ctag" style="${st};opacity:.8">${esc(n.subcat)}</span>`;
+  }
+  return `<span class="ctag" style="${st}">${esc(n.cat)}</span>`;
+}
+
+function cardHTML(n) {
+  const rel  = relDate(n.date);
+  const meta = n.date ? (n.date + (rel ? ' · ' + rel : '')) : '';
+  const hasThumb = !!(n.thumb && n.thumb.trim());
+  const cat  = getCat(n.cat);
+  const col  = cat ? cat.color : '#94a3b8';
+
+  const foot = `<div class="cfoot">
+    <button class="like-btn ${n.liked?'liked':''}" onclick="toggleLike(${n.id})"><span class="hi"></span> 좋아요</button>
+    ${n.link ? `<a class="clink" href="${esc(n.link)}" target="_blank" rel="noopener">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>링크 열기</a>` : ''}
+    <div class="cactions">
+      <button class="cbtn cbtn-edit" onclick="openEditModal(${n.id})">편집</button>
+      <button class="cbtn cbtn-del"  onclick="removeItem(${n.id})">삭제</button>
+    </div>
+  </div>`;
+
+  if (hasThumb) {
+    // YouTube-style: thumb left, content right
+    return `<div class="card has-thumb ${n.liked?'liked':''}" id="card-${n.id}">
+      <div class="card-inner">
+        <div class="card-thumb-wrap">
+          <img class="card-thumb" src="${esc(n.thumb)}" alt="" loading="lazy"
+            onerror="this.closest('.card-thumb-wrap').style.display='none';this.closest('.card').classList.remove('has-thumb')">
+        </div>
+        <div class="card-body">
+          <div class="ctags">${tagHTML(n)}</div>
+          <div class="ctitle">${esc(n.title)}</div>
+          ${meta ? `<div class="cmeta">${meta}</div>` : ''}
+          ${n.desc ? `<div class="cdesc">${esc(n.desc)}</div>` : ''}
+          ${foot}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // Text-only card: colored left accent stripe
+  return `<div class="card ${n.liked?'liked':''}" id="card-${n.id}" style="border-left:3px solid ${col};">
+    <div class="card-inner">
+      <div class="card-body">
+        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:5px;">
+          <div class="ctags" style="margin:2px 0 0;flex-shrink:0">${tagHTML(n)}</div>
+          <div class="ctitle" style="margin:0">${esc(n.title)}</div>
+        </div>
+        ${meta ? `<div class="cmeta">${meta}</div>` : ''}
+        ${n.desc ? `<div class="cdesc">${esc(n.desc)}</div>` : ''}
+        ${foot}
+      </div>
+    </div>
+  </div>`;
+}
+
+function render() {
+  const list   = getFiltered();
+  const liked  = news.filter(n => n.liked).length;
+  const set = (id, v) => { const el = document.getElementById(id); if(el) el.textContent = v; };
+
+  set('cnt-like',  liked);
+  set('cnt-전체', news.length);
+  set('totalBadge', news.length + ' items');
+
+  cats.forEach(cat => {
+    set('cnt-' + cat.id, news.filter(n => n.cat === cat.id).length);
+    cat.subcats.forEach(sub => {
+      set('cnt-' + cat.id + '::' + sub, news.filter(n => n.cat === cat.id && n.subcat === sub).length);
+    });
+  });
+
+  document.getElementById('statsGrid').innerHTML = `
+    <div class="sstat"><span class="snum">${news.length}</span><span class="slbl">전체</span></div>
+    <div class="sstat"><span class="snum" style="color:var(--like)">${liked}</span><span class="slbl">좋아요</span></div>
+    <div class="sstat"><span class="snum" style="color:#4f46e5">${news.filter(n=>n.cat==='모델').length}</span><span class="slbl">모델</span></div>
+    <div class="sstat"><span class="snum" style="color:#16a34a">${news.filter(n=>n.cat==='VFX').length}</span><span class="slbl">VFX</span></div>`;
+
+  const el = document.getElementById('newsList');
+  if (!list.length) {
+    el.innerHTML = `<div class="empty"><div class="eicon">${curFilter==='❤️좋아요'?'❤️':'🔍'}</div><p>${curFilter==='❤️좋아요'?'좋아요한 소식이 없습니다.':'해당하는 소식이 없습니다.'}</p></div>`;
+    return;
+  }
+  const groups = {};
+  list.forEach(n => (groups[n.date||'날짜없음'] ??= []).push(n));
+  el.innerHTML = Object.entries(groups).sort(([a],[b]) => b.localeCompare(a)).map(([date, items]) => {
+    const rel = relDate(date);
+    return `<div class="dgroup">
+      <div class="drow"><span class="dlabel ${rel==='오늘'?'dtoday':''}">${date}${rel?' · '+rel:''}</span><div class="dline"></div></div>
+      ${items.map(cardHTML).join('')}
+    </div>`;
+  }).join('');
+}
+
+function toggleLike(id) {
+  const n = news.find(x => x.id === id); if(!n) return;
+  n.liked = !n.liked; save(); render();
+  toast(n.liked ? '❤️ 좋아요!' : '좋아요 해제');
+}
+
+function removeItem(id) {
+  if (!confirm('이 소식을 삭제할까요?')) return;
+  news = news.filter(n => n.id !== id);
+  save(); render(); toast('삭제됐습니다.');
+}
+
+// ═══════════════════════════════════════════════════
+// ITEM FORM
+// ═══════════════════════════════════════════════════
+function itemForm(prefix, data) {
+  const selCat   = data?.cat || cats[0]?.id || '';
+  const catObj   = getCat(selCat);
+  const hasSubs  = catObj && catObj.subcats.length > 0;
+  const thumbVal = data?.thumb || '';
+
+  const catOpts = cats.map(c =>
+    `<option value="${esc(c.id)}" ${selCat===c.id?'selected':''}>${esc(c.name)}</option>`
+  ).join('');
+
+  const subcatOpts = hasSubs
+    ? catObj.subcats.map(s => `<option value="${esc(s)}" ${data?.subcat===s?'selected':''}>${esc(s)}</option>`).join('')
+    : '';
+
+  return `
+    <div class="fg">
+      <label class="flabel">제목 *</label>
+      <input class="finput" id="${prefix}-title" value="${esc(data?.title||'')}" placeholder="제목">
+    </div>
+    <div class="fg">
+      <label class="flabel">설명</label>
+      <textarea class="ftextarea" id="${prefix}-desc" placeholder="설명">${esc(data?.desc||'')}</textarea>
+    </div>
+    <div class="frow">
+      <div class="fg">
+        <label class="flabel">카테고리</label>
+        <select class="fselect" id="${prefix}-cat" onchange="onCatChg('${prefix}')">
+          ${catOpts}
+        </select>
+      </div>
+      <div class="fg" id="${prefix}-sub-wrap" style="display:${hasSubs?'block':'none'}">
+        <label class="flabel">하위 카테고리</label>
+        <select class="fselect" id="${prefix}-subcat">${subcatOpts}</select>
+      </div>
+    </div>
+    <div class="frow">
+      <div class="fg">
+        <label class="flabel">날짜</label>
+        <input class="finput" type="date" id="${prefix}-date" value="${esc(data?.date||today())}">
+      </div>
+      <div class="fg">
+        <label class="flabel">링크</label>
+        <input class="finput" id="${prefix}-link" value="${esc(data?.link||'')}" placeholder="https://...">
+      </div>
+    </div>
+    <div class="fg">
+      <label class="flabel">썸네일</label>
+      <div id="${prefix}-thumb-preview-wrap" style="${thumbVal?'':'display:none'}" class="thumb-preview-wrap">
+        <img id="${prefix}-thumb-preview" class="thumb-preview" src="${esc(thumbVal)}" alt=""
+          onerror="this.closest('.thumb-preview-wrap').style.display='none'">
+        <button class="thumb-clear" onclick="clearThumb('${prefix}')">✕</button>
+      </div>
+      <input class="finput" id="${prefix}-thumb" value="${esc(thumbVal)}"
+        placeholder="이미지 URL (자동 분석 시 자동 입력)"
+        oninput="previewThumb('${prefix}')">
+    </div>`;
+}
+
+function onCatChg(prefix) {
+  const catId = document.getElementById(prefix + '-cat').value;
+  const cat   = getCat(catId);
+  const hasSubs = cat && cat.subcats.length > 0;
+  const wrap  = document.getElementById(prefix + '-sub-wrap');
+  if (!wrap) return;
+  wrap.style.display = hasSubs ? 'block' : 'none';
+  if (hasSubs) {
+    document.getElementById(prefix + '-subcat').innerHTML =
+      cat.subcats.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join('');
+  }
+}
+
+function getForm(prefix) {
+  const cat = document.getElementById(prefix + '-cat').value;
+  const catObj = getCat(cat);
+  const hasSubs = catObj && catObj.subcats.length > 0;
+  return {
+    title:  document.getElementById(prefix + '-title').value.trim(),
+    desc:   document.getElementById(prefix + '-desc').value.trim(),
+    cat,
+    subcat: hasSubs ? (document.getElementById(prefix + '-subcat')?.value || '') : undefined,
+    date:   document.getElementById(prefix + '-date').value || today(),
+    link:   document.getElementById(prefix + '-link').value.trim(),
+    thumb:  document.getElementById(prefix + '-thumb').value.trim(),
+  };
+}
+
+function previewThumb(p) {
+  const v = document.getElementById(p + '-thumb').value.trim();
+  const wrap = document.getElementById(p + '-thumb-preview-wrap');
+  if (!wrap) return;
+  if (v) {
+    wrap.style.display = 'block';
+    document.getElementById(p + '-thumb-preview').src = v;
+  } else {
+    wrap.style.display = 'none';
+  }
+}
+
+function clearThumb(p) {
+  document.getElementById(p + '-thumb').value = '';
+  const wrap = document.getElementById(p + '-thumb-preview-wrap');
+  if (wrap) wrap.style.display = 'none';
+}
+
+// ═══════════════════════════════════════════════════
+// MODAL HELPERS
+// ═══════════════════════════════════════════════════
+function openOv(id)  { document.getElementById(id).classList.add('open'); }
+function closeOv(id) { document.getElementById(id).classList.remove('open'); }
+function closeBg(e, id) { if (e.target === document.getElementById(id)) closeOv(id); }
+
+function showStep(name) {
+  ['step-url','step-preview','step-manual'].forEach(id =>
+    document.getElementById(id).style.display = id === name ? 'block' : 'none');
+}
+
+// ═══════════════════════════════════════════════════
+// ADD FLOW
+// ═══════════════════════════════════════════════════
+function openAddModal() {
+  showStep('step-url');
+  document.getElementById('analyzing-state').style.display = 'none';
+  document.getElementById('error-state').style.display = 'none';
+  document.getElementById('f-url').value = '';
+  document.getElementById('analyze-btn').disabled = false;
+  document.getElementById('add-modal-title').textContent = '뉴스 추가';
+  openOv('ov-add');
+  setTimeout(() => document.getElementById('f-url').focus(), 80);
+}
+
+function gotoUrl() {
+  showStep('step-url');
+  document.getElementById('analyzing-state').style.display = 'none';
+  document.getElementById('error-state').style.display = 'none';
+  document.getElementById('analyze-btn').disabled = false;
+  document.getElementById('add-modal-title').textContent = '뉴스 추가';
+}
+
+function gotoManual() {
+  showStep('step-manual');
+  document.getElementById('add-modal-title').textContent = '직접 입력';
+  document.getElementById('form-manual').innerHTML = itemForm('mn', null);
+  setTimeout(() => document.getElementById('mn-title').focus(), 60);
+}
+
+function commitAdd(prefix) {
+  const d = getForm(prefix);
+  if (!d.title) { toast('제목을 입력해주세요.'); return; }
+  d.id = Date.now(); d.liked = false;
+  news.unshift(d); save(); closeOv('ov-add'); render(); toast('✓ 등록됐습니다!');
+}
+
+// ═══════════════════════════════════════════════════
+// EDIT FLOW
+// ═══════════════════════════════════════════════════
+function openEditModal(id) {
+  editId = id;
+  const n = news.find(x => x.id === id); if (!n) return;
+  document.getElementById('form-edit').innerHTML = itemForm('ed', n);
+  openOv('ov-edit');
+  setTimeout(() => document.getElementById('ed-title').focus(), 80);
+}
+
+function commitEdit() {
+  const d = getForm('ed');
+  if (!d.title) { toast('제목을 입력해주세요.'); return; }
+  const n = news.find(x => x.id === editId); if (!n) return;
+  Object.assign(n, d);
+  const cat = getCat(n.cat);
+  if (!cat || !cat.subcats.length) delete n.subcat;
+  save(); closeOv('ov-edit'); render(); toast('✓ 저장됐습니다!');
+}
+
+function commitDelete() {
+  if (!confirm('이 소식을 삭제할까요?')) return;
+  news = news.filter(n => n.id !== editId);
+  save(); closeOv('ov-edit'); render(); toast('삭제됐습니다.');
+}
+
+// ═══════════════════════════════════════════════════
+// URL ANALYZE
+// ═══════════════════════════════════════════════════
+function tryAuto() {
+  const v = document.getElementById('f-url').value.trim();
+  if (v.startsWith('http')) doAnalyze();
+}
+
+async function doAnalyze() {
+  const url = document.getElementById('f-url').value.trim();
+  if (!url.startsWith('http')) { toast('올바른 URL을 입력해주세요.'); return; }
+
+  document.getElementById('error-state').style.display = 'none';
+  document.getElementById('analyzing-state').style.display = 'block';
+  document.getElementById('analyze-btn').disabled = true;
+
+  const sEl  = document.getElementById('analyzing-msg');
+  const msgs = ['페이지 정보 읽는 중...', '썸네일 가져오는 중...', 'AI 분류 중...'];
+  let si = 0;
+  const tick = setInterval(() => { si=(si+1)%msgs.length; if(sEl) sEl.textContent=msgs[si]; }, 1800);
+
+  try {
+    const domain = new URL(url).hostname.replace('www.', '');
+    let meta = { title:'', description:'', date:today(), publisher:domain, image:'' };
+
+    // Step A: microlink for OG metadata + image
+    try {
+      const r = await fetch(
+        'https://api.microlink.io/?url=' + encodeURIComponent(url) +
+        '&palette=false&audio=false&video=false&iframe=false'
+      );
+      if (r.ok) {
+        const d = await r.json();
+        if (d.status === 'success') {
+          meta.title       = d.data.title       || '';
+          meta.description = d.data.description || '';
+          meta.date        = d.data.date ? d.data.date.split('T')[0] : today();
+          meta.publisher   = d.data.publisher   || domain;
+          meta.image       = d.data.image?.url  || d.data.screenshot?.url || '';
+        }
+      }
+    } catch(e) { console.warn('microlink:', e.message); }
+
+    // Step B: Claude classify
+    sEl.textContent = 'AI 분류 중...';
+    const catNames = cats.map(c => c.id).join('|');
+    const prompt = `다음 링크를 ComfyUI 뉴스 카드로 분류해주세요.
+URL: ${url}
+도메인: ${domain}
+원문 제목: ${meta.title || '(없음)'}
+원문 설명: ${meta.description || '(없음)'}
+게시일: ${meta.date}
+
+JSON만 출력 (마크다운 없이):
+{"title":"한국어 제목(50자 이내)","desc":"한국어 설명(120자 이내)","cat":"${catNames}","subcat":"해당 카테고리의 하위 카테고리가 있다면 선택, 없으면 null","date":"${meta.date}"}
+
+카테고리: 업데이트(ComfyUI 버전/노드), 모델(AI모델 출시/통합), LoRA(LoRA관련), VFX(시각효과/영상), 기타`;
+
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model:'claude-sonnet-4-20250514', max_tokens:600,
+        messages: [{ role:'user', content: prompt }] })
+    });
+    clearInterval(tick);
+    if (!res.ok) throw new Error('Claude API ' + res.status + ': ' + (await res.text()).slice(0,200));
+
+    const rd  = await res.json();
+    const raw = rd.content.map(c => c.text||'').join('');
+    const jm  = raw.match(/\{[\s\S]*?\}/);
+    if (!jm) throw new Error('JSON 파싱 실패');
+    const p = JSON.parse(jm[0]);
+
+    const validCat = cats.find(c => c.id === p.cat) ? p.cat : '기타';
+    const catObj   = getCat(validCat);
+    const validSub = (catObj && p.subcat && catObj.subcats.includes(p.subcat)) ? p.subcat : undefined;
+
+    document.getElementById('form-preview').innerHTML = itemForm('pv', {
+      title:  p.title  || meta.title       || '',
+      desc:   p.desc   || meta.description || '',
+      cat:    validCat,
+      subcat: validSub,
+      date:   p.date   || meta.date        || today(),
+      link:   url,
+      thumb:  meta.image || '',
+    });
+
+    const icon = SRC_ICONS[domain] || '🔗';
+    document.getElementById('preview-src').innerHTML =
+      `<span style="font-size:16px">${icon}</span> <strong>${esc(meta.publisher)}</strong>에서 AI가 분류했습니다 — 확인·수정 후 등록`;
+
+    document.getElementById('analyzing-state').style.display = 'none';
+    document.getElementById('add-modal-title').textContent = '분석 결과 확인';
+    showStep('step-preview');
+
+  } catch(err) {
+    clearInterval(tick);
+    console.error(err);
+    document.getElementById('analyzing-state').style.display = 'none';
+    document.getElementById('analyze-btn').disabled = false;
+    document.getElementById('error-msg').textContent = err.message || '알 수 없는 오류';
+    document.getElementById('error-state').style.display = 'block';
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// CATEGORY MANAGER
+// ═══════════════════════════════════════════════════
+let selectedColor = PRESET_COLORS[0];
+
+function openCatMgr() {
+  // Init color swatches
+  const el = document.getElementById('new-cat-colors');
+  el.innerHTML = PRESET_COLORS.map(c =>
+    `<div class="color-swatch ${c===selectedColor?'selected':''}" style="background:${c}"
+      onclick="selectColor('${c}')"></div>`
+  ).join('');
+  renderCatMgr();
+  openOv('ov-cat');
+  setTimeout(() => document.getElementById('new-cat-name').focus(), 80);
+}
+
+function selectColor(c) {
+  selectedColor = c;
+  document.querySelectorAll('#new-cat-colors .color-swatch').forEach(el => {
+    el.classList.toggle('selected', el.style.background === c);
+  });
+}
+
+function addCat() {
+  const name = document.getElementById('new-cat-name').value.trim();
+  if (!name) return;
+  if (cats.find(c => c.name === name)) { toast('이미 있는 카테고리예요.'); return; }
+  cats.push({ id: name, name, color: selectedColor, builtin: false, subcats: [] });
+  saveCats();
+  document.getElementById('new-cat-name').value = '';
+  renderCatMgr(); renderSidebar(); render(); toast('카테고리 추가됐습니다.');
+}
+
+function removeCat(id) {
+  const cat = cats.find(c => c.id === id);
+  if (cat?.builtin) { toast('기본 카테고리는 삭제할 수 없어요.'); return; }
+  if (!confirm(`'${cat?.name}' 카테고리를 삭제할까요? 해당 뉴스는 '기타'로 변경됩니다.`)) return;
+  cats = cats.filter(c => c.id !== id);
+  news.forEach(n => { if(n.cat === id) n.cat = '기타'; });
+  save(); saveCats(); renderCatMgr(); renderSidebar(); render();
+  toast('삭제됐습니다.');
+}
+
+function addSubcat(catId) {
+  const inp = document.getElementById('sub-input-' + catId);
+  const val = inp.value.trim(); if (!val) return;
+  const cat = getCat(catId); if (!cat) return;
+  if (cat.subcats.includes(val)) { toast('이미 있는 하위 카테고리예요.'); return; }
+  cat.subcats.push(val);
+  saveCats(); inp.value = '';
+  renderCatMgr(); renderSidebar(); render(); toast('하위 카테고리 추가됐습니다.');
+}
+
+function removeSubcat(catId, sub) {
+  const cat = getCat(catId); if (!cat) return;
+  cat.subcats = cat.subcats.filter(s => s !== sub);
+  // clear subcat from news items
+  news.forEach(n => { if(n.cat===catId && n.subcat===sub) delete n.subcat; });
+  save(); saveCats(); renderCatMgr(); renderSidebar(); render();
+  toast(`'${sub}' 하위 카테고리가 삭제됐습니다.`);
+}
+
+function renderCatMgr() {
+  const el = document.getElementById('cat-mgr-list');
+  el.innerHTML = cats.map((cat, i) => {
+    const subTags = cat.subcats.map(s =>
+      `<span class="sub-tag">${esc(s)}<button class="sub-tag-del" onclick="removeSubcat('${esc(cat.id)}','${esc(s)}')">✕</button></span>`
+    ).join('');
+    return `<div class="cat-mgr-row" id="cmr-${esc(cat.id)}" draggable="true"
+      ondragstart="catDragStart(event,${i})" ondragover="catDragOver(event,${i})"
+      ondrop="catDrop(event,${i})" ondragleave="catDragLeave(event)">
+      <div class="cat-mgr-top" onclick="toggleCatMgrRow('${esc(cat.id)}')">
+        <span class="drag-handle" onclick="event.stopPropagation()">⠿</span>
+        <span class="cat-color-dot" style="background:${esc(cat.color)}"></span>
+        <span class="cat-mgr-name">${esc(cat.name)}</span>
+        ${cat.subcats.length ? `<span class="cat-mgr-sub-count">${cat.subcats.length}개 하위</span>` : ''}
+        ${cat.builtin ? `<span class="cat-mgr-builtin-badge">기본</span>` : ''}
+        <span class="cat-mgr-expand">▼</span>
+        ${!cat.builtin ? `<button class="cat-mgr-del" onclick="event.stopPropagation();removeCat('${esc(cat.id)}')">✕</button>` : ''}
+      </div>
+      <div class="cat-mgr-body">
+        <div style="font-size:.72rem;color:var(--text3);margin-top:8px;margin-bottom:6px">색상</div>
+        <div class="color-row" id="cat-colors-${esc(cat.id)}">
+          ${PRESET_COLORS.map(c =>
+            `<div class="color-swatch ${c===cat.color?'selected':''}" style="background:${c}"
+              onclick="setCatColor('${esc(cat.id)}','${c}')"></div>`
+          ).join('')}
+        </div>
+        <div style="font-size:.72rem;color:var(--text3);margin-top:12px;margin-bottom:6px">하위 카테고리</div>
+        <div class="sub-list">${subTags || '<span style="font-size:.76rem;color:var(--text3)">없음</span>'}</div>
+        <div class="sub-add-row">
+          <input class="finput sub-input" id="sub-input-${esc(cat.id)}" placeholder="하위 카테고리 추가..."
+            onkeydown="if(event.key==='Enter')addSubcat('${esc(cat.id)}')">
+          <button class="sub-add-btn" onclick="addSubcat('${esc(cat.id)}')">추가</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleCatMgrRow(id) {
+  const row = document.getElementById('cmr-' + id);
+  if (row) row.classList.toggle('expanded');
+}
+
+function setCatColor(catId, color) {
+  const cat = getCat(catId); if (!cat) return;
+  cat.color = color;
+  saveCats(); renderCatMgr(); renderSidebar(); render();
+}
+
+// ── DRAG & DROP (category reorder) ──
+function catDragStart(e, i) {
+  dragSrcIdx = i;
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+function catDragOver(e, i) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.cat-mgr-row').forEach(r => r.classList.remove('drag-over'));
+  if (i !== dragSrcIdx) e.currentTarget.classList.add('drag-over');
+}
+function catDragLeave(e) { e.currentTarget.classList.remove('drag-over'); }
+function catDrop(e, i) {
+  e.preventDefault();
+  document.querySelectorAll('.cat-mgr-row').forEach(r => { r.classList.remove('drag-over','dragging'); });
+  if (dragSrcIdx === null || dragSrcIdx === i) return;
+  const moved = cats.splice(dragSrcIdx, 1)[0];
+  cats.splice(i, 0, moved);
+  dragSrcIdx = null;
+  saveCats(); renderCatMgr(); renderSidebar(); render();
+}
+
+// ═══════════════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════════════
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+load();
+renderSidebar();
+render();
+initGHStatus();
+</script>
+
+<!-- ═══ GITHUB SETUP MODAL ═══ -->
+<div class="overlay" id="ov-gh" onclick="closeBg(event,'ov-gh')">
+  <div class="modal modal-wide">
+    <div class="mhead">
+      <span class="mtitle">🐙 GitHub 연동 설정</span>
+      <button class="mclose" onclick="closeOv('ov-gh')">✕</button>
+    </div>
+
+    <!-- 연결된 상태 -->
+    <div id="gh-connected-view" style="display:none">
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:#f0fdf4;border:1px solid #86efac;border-radius:10px;margin-bottom:16px;">
+        <span style="font-size:20px">✅</span>
+        <div>
+          <div style="font-size:.86rem;font-weight:600;color:#15803d">GitHub 연결됨</div>
+          <div style="font-size:.76rem;color:#166534;margin-top:2px" id="connected-repo-label"></div>
+        </div>
+        <button class="btn-sec" style="margin-left:auto;font-size:.76rem" onclick="disconnectGitHub()">연결 해제</button>
+      </div>
+      <div style="display:flex;gap:8px;">
+        <button class="btn-primary" style="flex:1;justify-content:center" onclick="syncFromGitHub()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+          GitHub에서 불러오기
+        </button>
+        <button class="btn-sec" style="flex:1" onclick="syncToGitHub()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+          GitHub으로 올리기
+        </button>
+      </div>
+      <div class="mfooter">
+        <button class="btn-sec" onclick="closeOv('ov-gh')">닫기</button>
+      </div>
+    </div>
+
+    <!-- 설정 화면 -->
+    <div id="gh-setup-view">
+
+      <div class="setup-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">GitHub 저장소 만들기</div>
+          <div class="step-desc">데이터를 저장할 <strong>Public 또는 Private</strong> 저장소를 준비하세요. 이미 있으면 그대로 사용 가능합니다.</div>
+          <a href="https://github.com/new" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:6px 12px;background:#24292f;color:#fff;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;">
+            🐙 새 저장소 만들기
+          </a>
+        </div>
+      </div>
+
+      <div class="setup-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Personal Access Token 발급</div>
+          <div class="step-desc">GitHub → <strong>Settings → Developer settings → Personal access tokens → Tokens (classic)</strong><br>
+          <code style="background:var(--bg2);padding:1px 5px;border-radius:4px;font-size:.78rem">repo</code> 권한(또는 <code style="background:var(--bg2);padding:1px 5px;border-radius:4px;font-size:.78rem">contents: write</code>)을 포함해서 발급하세요.</div>
+          <a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:6px 12px;background:#238636;color:#fff;border-radius:6px;font-size:.78rem;font-weight:600;text-decoration:none;">
+            🔑 Token 발급하기
+          </a>
+        </div>
+      </div>
+
+      <div class="setup-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">연결 정보 입력</div>
+
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+            <div>
+              <label style="font-size:.78rem;font-weight:600;color:var(--text2);display:block;margin-bottom:3px">🔑 Personal Access Token</label>
+              <input class="finput" id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="width:100%;box-sizing:border-box;font-family:monospace;font-size:.82rem" />
+            </div>
+            <div>
+              <label style="font-size:.78rem;font-weight:600;color:var(--text2);display:block;margin-bottom:3px">📁 저장소 (owner/repo)</label>
+              <input class="finput" id="gh-repo-input" type="text" placeholder="yourname/comfyui-data" style="width:100%;box-sizing:border-box;font-size:.82rem" />
+            </div>
+            <div>
+              <label style="font-size:.78rem;font-weight:600;color:var(--text2);display:block;margin-bottom:3px">📄 파일 경로 <span style="font-weight:400;color:var(--text3)">(기본: comfyui-news.json)</span></label>
+              <input class="finput" id="gh-path-input" type="text" placeholder="comfyui-news.json" style="width:100%;box-sizing:border-box;font-size:.82rem" />
+            </div>
+          </div>
+
+          <button class="btn-primary" style="width:100%;margin-top:12px;justify-content:center" onclick="connectGitHub()">
+            🐙 연결 확인
+          </button>
+          <div class="url-status" id="gh-status" style="margin-top:8px"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
