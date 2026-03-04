@@ -4,7 +4,6 @@
       "title": "VideoMaMa",
       "desc": "",
       "cat": "Roto",
-      "subcat": "Video",
       "date": "2026-03-04",
       "link": "https://github.com/cvlab-kaist/VideoMaMa",
       "thumb": "",
@@ -498,7 +497,6 @@
       "title": "SAM2 (Segment Anything Model 2) — Meta AI 영상 로토 자동화",
       "desc": "Meta AI의 오픈소스 영상 세그먼테이션 모델. 첫 프레임에 점/박스 하나만 찍으면 전체 영상에서 마스크를 자동 추적. 44FPS 실시간 처리, ComfyUI Kijai 노드로 통합. 로토스코핑·클린플레이트·인페인팅 파이프라인에 직접 활용 가능.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/kijai/ComfyUI-segment-anything-2",
       "date": "2024-08-01",
       "liked": false
@@ -508,7 +506,6 @@
       "title": "SAM 3 Lite — 영상 세그먼트 차세대 업그레이드",
       "desc": "SAM2 대비 모호한 경계·투명 객체·오클루전 처리 대폭 개선. 영상에서 프레임 간 마스크 일관성 향상. ComfyUI Manager에서 바로 설치. 스틸 이미지는 SAM2로도 충분하나, 영상 로토는 SAM3 권장.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://apatero.com/blog/comfyui-sam3-open-source-alternative-guide-2025",
       "date": "2025-09-01",
       "liked": false
@@ -518,7 +515,6 @@
       "title": "Wan 2.2 AI CharacterSwap — 자동 로토+트래킹 VFX 워크플로",
       "desc": "Wan 2.2 Animate 기반 얼굴·캐릭터 교체 프로덕션 워크플로. SAM3 자동 로토 + 포즈 트래킹 + 페이스 락킹 → Wan 2.2로 합성. 디에이징·의상 교체에도 활용 가능. 실제 VFX 파이프라인용 오픈소스.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/rik-python/AI-CharacterSwap-Workflow",
       "date": "2025-08-01",
       "liked": false
@@ -608,7 +604,6 @@
       "title": "RotoAI — 프롬프트 기반 영상 세그멘테이션 스튜디오",
       "desc": "SAM2 + Grounding DINO 기반 오픈소스 로토스코핑 도구. 자연어 프롬프트로 객체 선택(예: \"빨간 셔츠 입은 사람\"). Google Colab GPU 백엔드 + 로컬 React 프론트엔드 하이브리드 아키텍처. 스마트 청킹(5초 단위)으로 긴 영상도 OOM 없이 처리. Neon Glow·크로마키·보케 블러 등 효과 지원. 라이선스: AGPL-3.0.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/sPappalard/RotoAI",
       "date": "2025-06-01",
       "liked": false
@@ -618,7 +613,6 @@
       "title": "Cutie-Roto — AI 영상 로토스코핑 무료 대안",
       "desc": "Cutie 모델 기반 AI 로토스코핑 도구. Adobe Roto Brush·DaVinci Resolve Magic Mask 무료 대안. 첫 프레임 마스크 지정 후 영상 전체 자동 추적. GUI 기반으로 별도 ComfyUI 불필요, Windows 원클릭 실행. 수동 로토 대비 정확도는 낮지만 빠른 초안·임시 키 작업에 적합.",
       "cat": "Roto",
-      "subcat": "Video",
       "link": "https://github.com/Zarxrax/Cutie-Roto",
       "date": "2024-12-01",
       "liked": false
@@ -710,8 +704,7 @@
       "color": "#10b981",
       "builtin": true,
       "subcats": [
-        "Image",
-        "Video"
+        "Image"
       ]
     },
     {
