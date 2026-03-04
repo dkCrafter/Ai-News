@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "TeleStyle (China Telecom): Style Transfer in Images and Videos",
+      "desc": "TeleStyle (China Telecom): Style Transfer in Images and Videos \n이미지 및 영상 스타일링 모두에 적용 가능한 가볍고 효과적인 모델. Qwen-Image-Edit를 기반으로 구축된 TeleStyle은 기본 모델의 강력한 콘텐츠 보존 및 스타일 맞춤화 기능을 활용이미지 및 영상 스타일링 모두에 적용 가능. 오프소스로 공개(Apache-2.0 license). \n효과적인 훈련을 위해 고품질의 독특한 특정 스타일 데이터셋을 선별하고, 수천 개의 다양한 실제 스타일 범주를 활용해 삼중 데이터를 추가 합성했습니다. TeleStyle을 깨끗한(선별된) 삼중 데이터와 노이즈가 있는(합성된) 삼중 데이터로 구성된 이 하이브리드 데이터셋에서 훈련시키기 위해 커리큘럼 지속 학습 프레임워크를 합니다. \nTeleStyle: Content-Preserving Style Transfer in Images and Videos (2601, China Telecom(TeleAI))\nproject: https://tele-ai.github.io/TeleStyle/\npaper: https://arxiv.org/pdf/2601.20175\ncode: https://github.com/Tele-AI/TeleStyle  \nmodel : https://huggingface.co/Tele-AI/TeleStyle",
+      "cat": "모델",
+      "subcat": "Video",
+      "date": "2026-03-04",
+      "link": "https://tele-ai.github.io/TeleStyle/?fbclid=IwY2xjawQU-L1leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
+      "thumb": "",
+      "id": 1772624285234,
+      "liked": false
+    },
+    {
       "title": "Z-Image-Turbo-Art",
       "desc": "Z-Image-Turbo-Art : fine-tuned fusion model of Z-Image(base) and Z-Image-Turbo \n이 모델은 Z-Image와 Z-Image-Turbo를 정밀 조정하여 융합한 것입니다. Z-Image 기본 모델의 스타일화 기능 일부를 추출한 후 Z-Image-Turbo와 계층적 융합을 수행하고 신속한 미세 조정을 거쳤습니다. 이는 현재 Z-Image 기본 모델을 최대한 활용하려는 시도입니다. \n공식 모델과 비교 시, 본 모델은 이미지가 더 선명하고 스타일화 능력이 강하지만, 인물 사진에서 섬세함이 감소했으며 특히 피부 표현이 약해졌습니다. 반면 텍스트 렌더링 능력은 대체로 유지됩니다. 본 모델은 사용이 간편하며, 매개변수 적응성과 LoRA 호환성이 우수합니다. 예술적 스타일의 이미지 생성 및 창작, 광고 장식 등에 적합합니다. \n[사용 방법]\nworkflow: Z-Image-Turbo official workflow\ninference cfg: 1.0；\ninference steps: 8 -12；\nsampler / scheduler: ddim / simple ，or any other。\nmodel: https://huggingface.co/wikeeyang/Z-Image-Turbo-Art\n*modelscope 중국 사이트를 소개하는 겨우 많으나 huggingface에도 있으니 여기 이용하세요.",
       "cat": "Roto",
