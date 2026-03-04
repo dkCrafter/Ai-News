@@ -865,6 +865,13 @@
       "color": "#94a3b8",
       "builtin": true,
       "subcats": []
+    },
+    {
+      "id": "Prompt",
+      "name": "Prompt",
+      "color": "#4f46e5",
+      "builtin": false,
+      "subcats": []
     }
   ]
 }
