@@ -689,9 +689,11 @@ async function syncFromGitHub() {
       try { localStorage.setItem(CAT_KEY, JSON.stringify(cats)); } catch(e) {}
     }
     setSyncStatus('ok', '연결됨');
+    _appReady = true; // GitHub 로드 완료 후 save() 동기화 허용
     renderSidebar(); render();
     toast('✓ GitHub에서 불러오기 완료! (' + news.length + '건)');
   } catch(e) {
+    _appReady = true; // 실패해도 허용 (연결 안 된 상태로 사용)
     setSyncStatus('error', '오류');
     toast('❌ 불러오기 실패: ' + e.message);
   }
@@ -742,9 +744,13 @@ function disconnectGitHub() {
 function initGHStatus() {
   const cfg = getGHConfig();
   if (cfg) { setSyncStatus('ok','연결됨'); syncFromGitHub(); }
+  else { _appReady = true; }
 }
 
 // ── LOCAL STORAGE ──────────────────────────────────────────────────
+// _appReady: 초기 로드 전엔 GitHub 동기화 차단 (SEED로 덮어쓰기 방지)
+let _appReady = false;
+
 function load() {
   try {
     const s = localStorage.getItem(KEY);
@@ -754,7 +760,7 @@ function load() {
       const newItems = SEED.filter(n => !existingIds.has(n.id));
       if (newItems.length > 0) {
         news = [...news, ...newItems];
-        save();
+        _saveLocal();
         console.log(`✓ 새 소식 ${newItems.length}건 자동 추가됨`);
       }
       const seedMap = {};
@@ -768,35 +774,46 @@ function load() {
         }
         return n;
       });
-      if (migrated > 0) { save(); console.log(`✓ 카테고리 마이그레이션 ${migrated}건`); }
+      if (migrated > 0) { _saveLocal(); console.log(`✓ 카테고리 마이그레이션 ${migrated}건`); }
     } else {
       news = [...SEED];
-      save();
+      _saveLocal(); // SEED는 로컬만 저장 — GitHub 절대 덮어쓰기 안 함
     }
   } catch(e) { console.warn('news load failed:', e.message); news = [...SEED]; }
   try {
-    const c = localStorage.getItem(CAT_KEY);
-    cats = c ? JSON.parse(c) : deepClone(DEFAULT_CATS);
-    if (!c) saveCats();
+    const ct = localStorage.getItem(CAT_KEY);
+    cats = ct ? JSON.parse(ct) : deepClone(DEFAULT_CATS);
+    if (!ct) _saveCatsLocal();
     const existingCatIds = new Set(cats.map(c => c.id));
     const newCats = DEFAULT_CATS.filter(c => c.builtin && !existingCatIds.has(c.id));
     if (newCats.length > 0) {
       const updateIdx = cats.findIndex(c => c.id === '업데이트');
       if (updateIdx >= 0) cats.splice(updateIdx, 0, ...newCats.map(deepClone));
       else cats.push(...newCats.map(deepClone));
-      saveCats();
+      _saveCatsLocal();
       console.log(`✓ 새 카테고리 ${newCats.map(c=>c.name).join(', ')} 추가됨`);
     }
   } catch { cats = deepClone(DEFAULT_CATS); }
 }
+
+// 로컬만 저장 (초기 로드 시)
+function _saveLocal() {
+  try { localStorage.setItem(KEY, JSON.stringify(news)); } catch(e) {}
+}
+function _saveCatsLocal() {
+  try { localStorage.setItem(CAT_KEY, JSON.stringify(cats)); } catch(e) {}
+}
+
+// 사용자 액션 시 호출 — _appReady 이후에만 GitHub 동기화
 function save() {
   try { localStorage.setItem(KEY, JSON.stringify(news)); } catch(e) { console.warn('localStorage unavailable:', e.message); }
-  if (getGHConfig()) scheduleGHSync();
+  if (_appReady && getGHConfig()) scheduleGHSync();
 }
 function saveCats() {
   try { localStorage.setItem(CAT_KEY, JSON.stringify(cats)); } catch(e) { console.warn('localStorage unavailable:', e.message); }
-  if (getGHConfig()) scheduleGHSync();
+  if (_appReady && getGHConfig()) scheduleGHSync();
 }
+
 
 function deepClone(x){ return JSON.parse(JSON.stringify(x)); }
 function today()   { return new Date().toISOString().split('T')[0]; }
