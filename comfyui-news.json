@@ -494,7 +494,7 @@
       "title": "CoTracker3 — 점/객체 고정밀 영상 트래킹",
       "desc": "Meta Research의 포인트·객체 트래킹 모델. 영상 내 임의의 점을 지정하면 전체 프레임에 걸쳐 추적. SAM2·VACE와 함께 VFX 파이프라인에 통합. ComfyUI + AInVFX 워크플로 예제 공개.",
       "cat": "Tracking",
-      "link": "https://www.ainvfx.com/blog/lego-animation-deepdive-wan-ati-cotracker-sam2-vace-complete-workflow/",
+      "link": "https://cotracker3.github.io/",
       "date": "2025-07-01",
       "liked": false,
       "thumb": "https://cotracker3.github.io/videos/teaser2/bmx_bumps_cotracker.mp4"
