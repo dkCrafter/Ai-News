@@ -703,9 +703,7 @@
       "name": "Roto",
       "color": "#10b981",
       "builtin": true,
-      "subcats": [
-        "Image"
-      ]
+      "subcats": []
     },
     {
       "id": "Tracking",
