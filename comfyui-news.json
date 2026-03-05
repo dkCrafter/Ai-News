@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "2D Image to 3D Gaussian Splat in ComfyUI - Repaired with Qwen",
+      "desc": "",
+      "cat": "기타",
+      "date": "2026-03-05",
+      "link": "https://www.youtube.com/watch?v=kzqpV905jN4",
+      "thumb": "https://img.youtube.com/vi/kzqpV905jN4/hqdefault.jpg",
+      "id": 1772688305405,
+      "liked": false
+    },
+    {
       "title": "「AI 특유의 인공적인 느낌」을 없애는 화질 프롬프트",
       "desc": "「AI 특유의 인공적인 느낌」을 없애는 화질 프롬프트 (source: X TomaAIbijo)\n프롬프트는 맞는데 AI 냄새가 난다 그것은 실패가 아닙니다. “화질 레이어”가 빠졌을 뿐입니다. \nAI 이미지는 '캐릭터 × 의상 × 구도 × 화질'로 비로소 완성됩니다. 아래는 실제로 차이가 나는 화질·질감 전용 프롬프트 모음입니다. \n*특정 프롬프트가 모든 AI 모델과 모든 상황에 맞을 수는 없지만, 참고는 될수 있을 것 같으니 참고하세요.  \nAI 이미지의 완성도는 사실 '마지막 한 줄'로 결정됩니다.\n이번에는 ✔ 실사 ✔ 스마트폰 ✔ 필름 ✔ 로우파이\n**모두 '추가 가능한 화질 프롬프트'**를 정리했습니다👇\n캐릭터 × 의상 × 구도까지 완성했다면, 마지막에 추가해 보세요.\n① 초고해상도·실사 느낌(상업용·그라비아용)\nultra high resolution, photorealistic, extremely sharp focus,\nfine skin texture, visible pores, natural eyelashes,\nrealistic light reflection on skin, high dynamic range,\ncinematic lighting, professional DSLR photo quality.\nno plastic skin, no AI artifacts\n② 스마트폰 실사감 (자연·일상·타인 촬영용)\nrealistic smartphone photo, casual snapshot,\nslight motion blur, imperfect framing,\nnatural exposure, mild noise,\nunpolished everyday realism, no studio lighting\n③ 2014–2016년 스마트폰 로파이(향수를 중시)\n2014–2016 smartphone photo style,\nnoticeable grain, soft focus,\nslightly overexposed highlights,\nlow dynamic range, nostalgic lo-fi feeling,\nimperfect white balance\n④ 필름 사진(35mm·체키·기록 사진용)\n35mm film photo look,\nvisible film grain, soft contrast,\nslight color fading, gentle halation,\nanalog texture, scanned film realism\n⑤ 감시 카메라·몰래 촬영 풍(의도적으로 화질을 낮춤)\nlow resolution security camera footage style,\ndigital noise, compression artifacts,\nflat lighting, awkward angle,\nunintentional framing, surveillance realism\n⑥ AI 특유의 느낌을 없애기 위한 '억제형' 프롬프트 (매우 중요)\navoid over-sharpening,\navoid perfect symmetry,\navoid artificial smooth skin,\nnatural imperfections, human realism\n⑦ 만능 믹스 (고민되면 이것)\nrealistic photo quality,\nbalanced sharpness,\nnatural grain,\nsoft but clear focus,\nauthentic human skin texture,\nno AI-generated look\nAI 냄새를 없애는 지름길은 화질을 '언어화'하는 것이다.",
       "cat": "Prompt",
