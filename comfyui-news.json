@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "Qwen 360 Diffusion",
+      "desc": "",
+      "cat": "LoRA",
+      "date": "2026-03-05",
+      "link": "https://huggingface.co/ProGamerGov/qwen-360-diffusion",
+      "thumb": "https://huggingface.co/ProGamerGov/qwen-360-diffusion/resolve/main/example_grid.jpg",
+      "id": 1772723564145,
+      "liked": false
+    },
+    {
       "title": "ComfyUI Tutorial: Testing Fire Red 1 Edit",
       "desc": "",
       "cat": "Tutorials",
