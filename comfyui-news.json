@@ -55,12 +55,13 @@
     {
       "title": "Z-Image-Turbo-Art",
       "desc": "Z-Image-Turbo-Art : fine-tuned fusion model of Z-Image(base) and Z-Image-Turbo \n이 모델은 Z-Image와 Z-Image-Turbo를 정밀 조정하여 융합한 것입니다. Z-Image 기본 모델의 스타일화 기능 일부를 추출한 후 Z-Image-Turbo와 계층적 융합을 수행하고 신속한 미세 조정을 거쳤습니다. 이는 현재 Z-Image 기본 모델을 최대한 활용하려는 시도입니다. \n공식 모델과 비교 시, 본 모델은 이미지가 더 선명하고 스타일화 능력이 강하지만, 인물 사진에서 섬세함이 감소했으며 특히 피부 표현이 약해졌습니다. 반면 텍스트 렌더링 능력은 대체로 유지됩니다. 본 모델은 사용이 간편하며, 매개변수 적응성과 LoRA 호환성이 우수합니다. 예술적 스타일의 이미지 생성 및 창작, 광고 장식 등에 적합합니다. \n[사용 방법]\nworkflow: Z-Image-Turbo official workflow\ninference cfg: 1.0；\ninference steps: 8 -12；\nsampler / scheduler: ddim / simple ，or any other。\nmodel: https://huggingface.co/wikeeyang/Z-Image-Turbo-Art\n*modelscope 중국 사이트를 소개하는 겨우 많으나 huggingface에도 있으니 여기 이용하세요.",
-      "cat": "Roto",
+      "cat": "모델",
       "date": "2026-03-04",
       "link": "https://huggingface.co/wikeeyang/Z-Image-Turbo-Art",
       "thumb": "https://huggingface.co/wikeeyang/Z-Image-Turbo-Art/resolve/main/Sample.jpg",
       "id": 1772624205947,
-      "liked": false
+      "liked": false,
+      "subcat": "Image"
     },
     {
       "title": "LTX-2 I2V synced to an MP3",
