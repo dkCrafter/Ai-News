@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "A Compositor Exploring ComfyUI – Study Case 09",
+      "desc": "A Compositor Exploring ComfyUI – Study Case 09\nFrom Day to Night (and Beyond) – Duration Matters\nYou can check the previous shot in the link below 👇\nhttps://lnkd.in/dPYacBvr\nThis is further testing on the same workflow to see where things start breaking.\nModels Used\nwan2.2_Animate_14B_fp8_scaled_e4m3fn_KJ_v2\nLighting LoRAs\n• WanAnimate_relight_lora_fp16\n • lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16\nControlNet\nWan21_Uni3C_controlnet_fp16\nThe Main Issue: Shot Duration\nThe biggest problem here was clip length.\nLonger shots start breaking Uni3C.\n Perspective shifts.\n Camera consistency drifts.\nWhat’s impressive is how strong the tracking and relighting can be — it can genuinely replace a lot of CG prep and heavy camera work.\nBut you must do the math.\nThe Sweet Spot (Again)\n81 frames is still the sweet spot.\nIf you go longer, you need a proper:\nStart frame → End frame workflow\nThen stitch the sequences at:\n81, 162, 243 …etc\nThis keeps camera motion stable and prevents perspective drift.\nWhen Things Break\nIn the “On Fire” version, perspective started shifting.\nIn the “Apocalypse” version, camera tracking broke very fast.\nFixes:\n• Lock the seed\n • If it breaks → try another seed\n • Slightly refine the prompt\n • Make sure your frame math was correct from the beginning\nIf the base setup is wrong, no amount of tweaking will save it.\nSame Lessons Apply\nEverything from Study Case 08 still applies:\n• Strong reference frame\n • Proper denoise\n • Resolution planning\n • Controlled interpolation\n • Cleanup passes\nTwo more cases coming to push this further and see exactly where the limits are.\n해시태그#ComfyUI 해시태그#VFX 해시태그#DayToNight 해시태그#AIinFilm 해시태그#ControlNet 해시태그#Wan22 해시태그#Lighting 해시태그#VirtualProduction 해시태그#CGI 해시태그#PostProduction\n(Links to previous cases below regarding object removal )\nhttps://lnkd.in/dPAUsdef\nhttps://lnkd.in/dYXHzC2w \nhttps://lnkd.in/dvViS29Z\n(Links to previous cases below regarding Face swaping )\nhttps://lnkd.in/d4UucQUD\nhttps://lnkd.in/dS3xY9GZ\n(Links to previous cases below regarding BG swaping )\nhttps://lnkd.in/dDDn9B3J\nhttps://lnkd.in/dC3MsGUp",
+      "cat": "Tutorials",
+      "date": "2026-03-05",
+      "link": "https://www.linkedin.com/posts/mustafa-hassan-4b1659160_comfyui-vfx-daytonight-ugcPost-7434899007258251264-J_kZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAABjFw-IB0rYutduID6eV2KHPv8Y4TJ5Tyqw",
+      "thumb": "",
+      "id": 1772714271471,
+      "liked": false
+    },
+    {
       "title": "Autodesk - Flow Studio",
       "desc": "Autodesk 의 Flow Studio에서 빠르고 세밀한 3D 자산 생성을 위한 새로운 생성형 AI 모델인 Wonder 3D를 소개합니다.",
       "cat": "기타",
@@ -948,6 +958,13 @@
       "name": "기타",
       "color": "#94a3b8",
       "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "논문",
+      "name": "논문",
+      "color": "#4f46e5",
+      "builtin": false,
       "subcats": []
     }
   ]
