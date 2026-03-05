@@ -954,17 +954,17 @@
       "subcats": []
     },
     {
-      "id": "기타",
-      "name": "기타",
-      "color": "#94a3b8",
-      "builtin": true,
-      "subcats": []
-    },
-    {
       "id": "논문",
       "name": "논문",
       "color": "#4f46e5",
       "builtin": false,
+      "subcats": []
+    },
+    {
+      "id": "기타",
+      "name": "기타",
+      "color": "#94a3b8",
+      "builtin": true,
       "subcats": []
     }
   ]
