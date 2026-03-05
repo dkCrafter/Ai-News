@@ -891,13 +891,6 @@
       "subcats": []
     },
     {
-      "id": "기타",
-      "name": "기타",
-      "color": "#94a3b8",
-      "builtin": true,
-      "subcats": []
-    },
-    {
       "id": "Prompt",
       "name": "Prompt",
       "color": "#4f46e5",
@@ -909,6 +902,13 @@
       "name": "Tutorials",
       "color": "#4f46e5",
       "builtin": false,
+      "subcats": []
+    },
+    {
+      "id": "기타",
+      "name": "기타",
+      "color": "#94a3b8",
+      "builtin": true,
       "subcats": []
     }
   ]
