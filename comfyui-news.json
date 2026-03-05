@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "ComfyUI Tutorial: Testing Fire Red 1 Edit",
+      "desc": "",
+      "cat": "Tutorials",
+      "date": "2026-03-05",
+      "link": "https://www.youtube.com/watch?v=2WxwV8HJuUQ&t=1s",
+      "thumb": "https://img.youtube.com/vi/2WxwV8HJuUQ/hqdefault.jpg",
+      "id": 1772722568514,
+      "liked": false
+    },
+    {
       "title": "Nuke Multishot Workflow",
       "desc": "Full CG Sequence Fantasy Castle In 4K - Nuke Multishot Workflow",
       "cat": "Nuke",
