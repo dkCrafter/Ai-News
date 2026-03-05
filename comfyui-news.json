@@ -81,7 +81,7 @@
       "link": "https://github.com/Jasonzzt/ComfyUI-CacheDiT?fbclid=IwY2xjawQU9o9leHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHizBCjgy1TU1tKonkUG9KzQiU9NOVWG-urv44bIStx6BoYAbl-I7Vcsp12ZE_aem_tQMyAwv-XL5rbD_DpXN_OA",
       "thumb": "",
       "id": 1772623722204,
-      "liked": false
+      "liked": true
     },
     {
       "title": "BFS-Best-Face-Swap-Video, LTX-2 Video Face Swap LoRA",
@@ -140,7 +140,7 @@
     {
       "title": "SeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models",
       "desc": "확산(Diffusion) 모델의 순차적인 노이즈 제거 과정으로 인해 추론 속도가 느린 점을 개선하기 위해, 스펙트럼 진화 인식(Spectral Evolution Aware)를 활용하여 콘텐츠를 전달하는 저주파 성분을 고주파 노이즈로부터 분리하는 훈련이 필요 없는 가속화 방법 SeaCache 제안. 최첨단(최고) 지연-품질 절충점을 달성함. \n-기존 TeaCache/TaylorSeer 방식보다 우수\n-FLUX.1-dev ~50%, HunyuanVideo 3x 가속 \n-Wan 등과도 가능\nSeaCache: Spectral-Evolution-Aware Cache for Accelerating Diffusion Models (2602, Sungkyunkwan University, NAVER)\nproject : https://jiwoogit.github.io/SeaCache/\npaper: https://arxiv.org/abs/2602.18993\ncode: https://github.com/jiwoogit/SeaCache (soon)",
-      "cat": "Custom Nodes",
+      "cat": "기타",
       "date": "2026-03-04",
       "link": "https://jiwoogit.github.io/SeaCache/?fbclid=IwY2xjawQU8RtleHRuA2FlbQIxMABicmlkETJXU1BYT2E4NVBvSUJYZWRoc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHuPTVNSLZ7xHeqQodnY-ZxZRmUl0fB_fFHhKT8e1tLfuDHQOBT2Zd4JDOZ27_aem_adbPXosLCVpyFWPYimw-KQ",
       "thumb": "",
