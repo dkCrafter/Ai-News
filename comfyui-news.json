@@ -892,6 +892,13 @@
       "color": "#4f46e5",
       "builtin": false,
       "subcats": []
+    },
+    {
+      "id": "Tutorials",
+      "name": "Tutorials",
+      "color": "#4f46e5",
+      "builtin": false,
+      "subcats": []
     }
   ]
 }
