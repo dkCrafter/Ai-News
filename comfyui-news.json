@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "Nuke Multishot Workflow",
+      "desc": "Full CG Sequence Fantasy Castle In 4K - Nuke Multishot Workflow",
+      "cat": "Nuke",
+      "date": "2026-03-05",
+      "link": "youtube.com/watch?time_continue=385&v=JNhmyQo4h5k&embeds_referring_euri=https%3A%2F%2Fwww.reddit.com%2F",
+      "thumb": "",
+      "id": 1772721640501,
+      "liked": false
+    },
+    {
       "title": "zimage_power_nodes_v10_has_been_released_",
       "desc": "Z-Image Power Nodes v1.0이 출시되었습니다! Z-Image Turbo의 성능을 극한까지 끌어올리는 새로운 버전의 노드 세트입니다.",
       "cat": "Custom Nodes",
