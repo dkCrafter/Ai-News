@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "Any-Resolution-Any-Geometry",
+      "desc": "본 논문에서는 고해상도 단안 기하 추정을 위한 멀티패치 프레임워크를 소개합니다. 이 프레임워크는 단일 RGB 이미지로부터 모든 해상도(예: 2K, 4K, 8K)에서 선명 하고 전역적으로 일관된 깊이 및 표면 법선을 제공합니다.",
+      "cat": "AOV",
+      "subcat": "Depth",
+      "date": "2026-03-05",
+      "link": "https://dreamaker-mrc.github.io/Any-Resolution-Any-Geometry/",
+      "thumb": "https://dreamaker-mrc.github.io/Any-Resolution-Any-Geometry/images/zs3_pred.jpg",
+      "id": 1772713016060,
+      "liked": false
+    },
+    {
       "title": "FireRed-Image-Edit-1.1",
       "desc": "FireRed-Image-Edit-1.1,  Nano-Banana 및 Seedream4.0을 능가 주장 오픈소스 이미지 편집 모델 업그레이드. \nFireRed-Image-Edit는 FureRedTeam(Xiaohongshu Inc.)에서 오픈소스로 발표한 범용 이미지 편집 모델로, 다양한 시나리오에서 높은 충실도와 일관된 편집을 제공. GEdit 벤치마크에서 Nano-Banana 및 Seedream4.0을 능가. 오픈소스 공개(Apache 2.0 license)\nFireRed-Image-Edit-1.1는 1.0 기술 보고서에 제시된 기능을 바탕으로, 동일성 일관성, 다중 이미지 조건화, 도메인 특화 편집 성능을 크게 향상시켜 모델을 실제 창작 제작 요구에 한층 가깝게 만듭니다.\n\nmodel: https://huggingface.co/FireRedTeam/FireRed-Image-Edit-1.1\ndemo: https://huggingface.co/.../FireRed.../FireRed-Image-Edit-1.1",
       "cat": "모델",
