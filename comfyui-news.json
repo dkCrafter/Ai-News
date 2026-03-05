@@ -911,8 +911,8 @@
       ]
     },
     {
-      "id": "divider_1772702632821",
-      "name": "",
+      "id": "divider_1772720801138",
+      "name": "ComfyUI",
       "divider": true,
       "color": "",
       "subcats": []
@@ -992,13 +992,6 @@
       "name": "기타",
       "color": "#94a3b8",
       "builtin": true,
-      "subcats": []
-    },
-    {
-      "id": "divider_1772720801138",
-      "name": "ComfyUI",
-      "divider": true,
-      "color": "",
       "subcats": []
     }
   ]
