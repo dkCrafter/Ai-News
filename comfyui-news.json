@@ -877,6 +877,13 @@
       "subcats": []
     },
     {
+      "id": "divider_1772702640285",
+      "name": "",
+      "divider": true,
+      "color": "",
+      "subcats": []
+    },
+    {
       "id": "VFX",
       "name": "VFX",
       "color": "#16a34a",
@@ -909,13 +916,6 @@
       "name": "기타",
       "color": "#94a3b8",
       "builtin": true,
-      "subcats": []
-    },
-    {
-      "id": "divider_1772702640285",
-      "name": "",
-      "divider": true,
-      "color": "",
       "subcats": []
     }
   ]
