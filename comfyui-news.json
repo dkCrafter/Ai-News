@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "zimage_power_nodes_v10_has_been_released_",
+      "desc": "",
+      "cat": "Custom Nodes",
+      "date": "2026-03-05",
+      "link": "https://www.reddit.com/r/StableDiffusion/comments/1rlf1ea/zimage_power_nodes_v10_has_been_released_a_new/",
+      "thumb": "https://preview.redd.it/z-image-power-nodes-v1-0-has-been-released-a-new-version-of-v0-xa1e28y4l7ng1.png?width=1080&crop=smart&auto=webp&s=fff36b6621a4d3761d0aefd3a5c8d16423089147",
+      "id": 1772721525627,
+      "liked": false
+    },
+    {
       "title": "Utonia: One Encoder for All Point Clouds",
       "desc": "어떤 센서에서든 어떤 포인트 클라우드든 이해할 수 있는 단일 인코더가 필요합니다.\n\n이것이 바로 HKU와 그들의 Pointcept 팀이 만든 새로운 프로젝트인 Utonia의 비전입니다. 대부분의 3D AI 모델은 실내 스캔, 실외 LiDAR, 또는 물체 모델이라는 한 영역을 위해 훈련되어 있으며, 다른 세계의 데이터를 마주하면 무너집니다. Utonia는 이렇게 묻습니다: 만약 우리가 모든 모델에 대해 하나의 모델을 훈련시킬 수 있다면 어떨까요?\n\n그 결과, 원격 감지 이미지, 야외 LiDAR 주행 데이터, 실내 RGB-D 시퀀스, 객체 중심 CAD 모델, 심지어 평범한 영상에서 가져온 포인트 클라우드까지 다섯 가지 매우 다른 출처에서 학습하는 통합 포인트 트랜스포머 V3 인코더가 탄생했습니다. 밀도, 좌표계, 감지 기하학이 다르지만, 유토니아는 도메인 간에 일관된 표현을 찾아냅니다.\n\n이 아이디어를 성공시키는 세 가지 단순하지만 중요한 아이디어가 있습니다:\n- 각 점군을 정준적인 '관측' 세분성으로 재조정하여 모델이 어디서나 유사한 공간 단위를 경험하도록\n- 훈련 중 색상과 정상 입력을 인과적으로 가려, 모달리티가 사라져도 인코더가 견고함을 유지하도록 강요함\n- RoPE(회전 위치 인코딩)를 사용하여 도메인별 방향 사전을 단일 과적합 없이 처리하는 방법\n\n흥미로운 점은? 공동 훈련은 단순히 영역별 성과에 맞추는 것이 아니라, 모든 것을 함께 배울 때만 나타나는 출현적 행동을 만들어냅니다. 이 표현들은 자연스럽게 객체와 표면을 분리하고, 가림을 우아하게 처리하며, 명시적인 감독 없이도 부분 수준의 의미론을 포착합니다.\n\n순수 3D 지각을 넘어, 이 기능들이 시각-언어-행동 정책에 연결될 때 로봇 조작을 향상시키고, 다중 모달 모델에서 공간적 추론을 개선한다는 것을 연구팀은 발견했습니다.\n\n오늘 시도할 수 있는 모든 것이 준비되어 있습니다: 사전 학습된 가중치, 추론 코드, 그리고 직접 점군을 업로드해 PCA 시각화를 실시간으로 볼 수 있는 인터랙티브 데모가 있습니다.\n\n종이: https://lnkd.in/eVS9UvVw\n모델: https://lnkd.in/eZPhmwbV\n데모: https://lnkd.in/eH49cDkY\n프로젝트: https://lnkd.in/etMta9tf",
       "cat": "논문",
