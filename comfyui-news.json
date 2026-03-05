@@ -861,6 +861,13 @@
   ],
   "cats": [
     {
+      "id": "divider_1772720741369",
+      "name": "Nuke Bridge",
+      "divider": true,
+      "color": "",
+      "subcats": []
+    },
+    {
       "id": "Roto",
       "name": "Roto",
       "color": "#10b981",
@@ -985,13 +992,6 @@
       "name": "기타",
       "color": "#94a3b8",
       "builtin": true,
-      "subcats": []
-    },
-    {
-      "id": "divider_1772720741369",
-      "name": "Nuke Bridge",
-      "divider": true,
-      "color": "",
       "subcats": []
     }
   ]
