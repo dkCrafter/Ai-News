@@ -993,6 +993,13 @@
       "color": "#94a3b8",
       "builtin": true,
       "subcats": []
+    },
+    {
+      "id": "divider_1772720801138",
+      "name": "ComfyUI",
+      "divider": true,
+      "color": "",
+      "subcats": []
     }
   ]
 }
