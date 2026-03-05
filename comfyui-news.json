@@ -842,13 +842,6 @@
       ]
     },
     {
-      "id": "-----------------",
-      "name": "-----------------",
-      "color": "#4f46e5",
-      "builtin": false,
-      "subcats": []
-    },
-    {
       "id": "Custom Nodes",
       "name": "Custom Nodes",
       "color": "#4f46e5",
@@ -909,6 +902,13 @@
       "name": "기타",
       "color": "#94a3b8",
       "builtin": true,
+      "subcats": []
+    },
+    {
+      "id": "divider_1772702632821",
+      "name": "",
+      "divider": true,
+      "color": "",
       "subcats": []
     }
   ]
