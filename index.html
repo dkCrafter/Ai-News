@@ -273,6 +273,10 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);position:stic
   .card-thumb{width:100%;height:180px;min-height:unset;}
   .ctitle{font-size:.88rem;}
 }
+
+.thumb-paste-area{border:2px dashed var(--border);border-radius:8px;padding:14px;text-align:center;cursor:pointer;transition:all .15s;margin-bottom:6px;background:var(--bg3);outline:none;}
+.thumb-paste-area:focus,.thumb-paste-area.drag-over{border-color:var(--accent);background:var(--accent-lt);}
+.paste-hint{font-size:.76rem;color:var(--text3);pointer-events:none;}
 </style>
 </head>
 <body>
@@ -300,10 +304,6 @@ header{background:var(--bg2);border-bottom:1px solid var(--border);position:stic
 <div class="wrap">
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <div class="sbox">
-      <div class="stitle">통계</div>
-      <div class="sgrid" id="statsGrid"></div>
-    </div>
     <div class="sbox">
       <div class="stitle">
         카테고리
@@ -1058,11 +1058,7 @@ function render() {
     });
   });
 
-  document.getElementById('statsGrid').innerHTML = `
-    <div class="sstat"><span class="snum">${news.length}</span><span class="slbl">전체</span></div>
-    <div class="sstat"><span class="snum" style="color:var(--like)">${liked}</span><span class="slbl">좋아요</span></div>
-    <div class="sstat"><span class="snum" style="color:#4f46e5">${news.filter(n=>n.cat==='모델').length}</span><span class="slbl">모델</span></div>
-    <div class="sstat"><span class="snum" style="color:#16a34a">${news.filter(n=>n.cat==='VFX').length}</span><span class="slbl">VFX</span></div>`;
+
 
   const el = document.getElementById('newsList');
   if (!list.length) {
@@ -1096,12 +1092,14 @@ async function removeItem(id) {
 // ITEM FORM
 // ═══════════════════════════════════════════════════
 function itemForm(prefix, data) {
-  const selCat   = data?.cat || cats[0]?.id || '';
+  // 카테고리 기본값: 모델 (없으면 첫 번째)
+  const defaultCat = cats.find(c => c.id === '모델')?.id || cats.find(c => !c.divider)?.id || '';
+  const selCat   = data?.cat || defaultCat;
   const catObj   = getCat(selCat);
   const hasSubs  = catObj && catObj.subcats.length > 0;
   const thumbVal = data?.thumb || '';
 
-  const catOpts = cats.map(c =>
+  const catOpts = cats.filter(c => !c.divider).map(c =>
     `<option value="${esc(c.id)}" ${selCat===c.id?'selected':''}>${esc(c.name)}</option>`
   ).join('');
 
@@ -1110,6 +1108,10 @@ function itemForm(prefix, data) {
     : '';
 
   return `
+    <div class="fg">
+      <label class="flabel">링크</label>
+      <input class="finput" id="${prefix}-link" value="${esc(data?.link||'')}" placeholder="https://...">
+    </div>
     <div class="fg">
       <label class="flabel">제목 *</label>
       <input class="finput" id="${prefix}-title" value="${esc(data?.title||'')}" placeholder="제목">
@@ -1130,15 +1132,9 @@ function itemForm(prefix, data) {
         <select class="fselect" id="${prefix}-subcat">${subcatOpts}</select>
       </div>
     </div>
-    <div class="frow">
-      <div class="fg">
-        <label class="flabel">날짜</label>
-        <input class="finput" type="date" id="${prefix}-date" value="${esc(data?.date||today())}">
-      </div>
-      <div class="fg">
-        <label class="flabel">링크</label>
-        <input class="finput" id="${prefix}-link" value="${esc(data?.link||'')}" placeholder="https://...">
-      </div>
+    <div class="fg">
+      <label class="flabel">날짜</label>
+      <input class="finput" type="date" id="${prefix}-date" value="${esc(data?.date||today())}">
     </div>
     <div class="fg">
       <label class="flabel">썸네일</label>
@@ -1147,8 +1143,17 @@ function itemForm(prefix, data) {
           onerror="this.closest('.thumb-preview-wrap').style.display='none'">
         <button class="thumb-clear" onclick="clearThumb('${prefix}')">✕</button>
       </div>
+      <div class="thumb-paste-area" id="${prefix}-paste-area"
+        onpaste="handleThumbPaste(event,'${prefix}')"
+        ondragover="event.preventDefault();this.classList.add('drag-over')"
+        ondragleave="this.classList.remove('drag-over')"
+        ondrop="handleThumbDrop(event,'${prefix}')"
+        tabindex="0"
+        onclick="this.focus()">
+        <span class="paste-hint">📋 클릭 후 Ctrl+V로 클립보드 이미지 붙여넣기 · 또는 드래그앤드롭</span>
+      </div>
       <input class="finput" id="${prefix}-thumb" value="${esc(thumbVal)}"
-        placeholder="이미지 URL (자동 분석 시 자동 입력)"
+        placeholder="또는 이미지 URL 직접 입력"
         oninput="previewThumb('${prefix}')">
     </div>`;
 }
@@ -1246,14 +1251,11 @@ function showStep(name) {
 // ADD FLOW
 // ═══════════════════════════════════════════════════
 function openAddModal() {
-  showStep('step-url');
-  document.getElementById('analyzing-state').style.display = 'none';
-  document.getElementById('error-state').style.display = 'none';
-  document.getElementById('f-url').value = '';
-  document.getElementById('analyze-btn').disabled = false;
+  showStep('step-manual');
   document.getElementById('add-modal-title').textContent = '뉴스 추가';
+  document.getElementById('form-manual').innerHTML = itemForm('mn', null);
   openOv('ov-add');
-  setTimeout(() => document.getElementById('f-url').focus(), 80);
+  setTimeout(() => document.getElementById('mn-link')?.focus(), 80);
 }
 
 function gotoUrl() {
@@ -1590,6 +1592,37 @@ function showConfirm(msg, title='확인') {
 
 function toggleDesc(el) {
   el.classList.toggle('expanded');
+}
+
+function handleThumbPaste(e, prefix) {
+  const items = e.clipboardData?.items;
+  if (!items) return;
+  for (const item of items) {
+    if (item.type.startsWith('image/')) {
+      e.preventDefault();
+      const blob = item.getAsFile();
+      const reader = new FileReader();
+      reader.onload = ev => applyThumbData(prefix, ev.target.result);
+      reader.readAsDataURL(blob);
+      return;
+    }
+  }
+}
+function handleThumbDrop(e, prefix) {
+  e.preventDefault();
+  document.getElementById(prefix + '-paste-area')?.classList.remove('drag-over');
+  const file = e.dataTransfer.files?.[0];
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = ev => applyThumbData(prefix, ev.target.result);
+    reader.readAsDataURL(file);
+  }
+}
+function applyThumbData(prefix, dataUrl) {
+  const inp = document.getElementById(prefix + '-thumb');
+  if (inp) { inp.value = dataUrl; previewThumb(prefix); }
+  const hint = document.querySelector('#' + prefix + '-paste-area .paste-hint');
+  if (hint) hint.textContent = '✅ 이미지 붙여넣기 완료';
 }
 </script>
 
