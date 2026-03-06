@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "NOVA: Sparse Control, Dense Synthesis for Pair-Free Video Editing",
+      "desc": "본 논문은 전용 희소 VACE 분기, 복사된 밀집 DiT 분기, 그리고 이들을 연결하는 학습 가능한 교차 주의(CA) 모듈을 갖춘 WAN VACE 1.3B 기반 설계를 설명합니다. 현재 코드베이스는 이를 단일 WAN 1.3B Fun InP 모델로 단순화하여 소스, 단서(키프레임), 목표 잠재 변수를 시간 축을 따라 연결하고, RoPE를 사용하여 각 변수의 역할을 구분합니다. 변경 이유는 다음과 같습니다.\n\nBetter color consistency: VACE pre-trained weights introduced color artifacts\n색상 일관성 개선 : VACE 사전 학습 가중치는 색상 왜곡 현상을 유발했습니다.\nBetter structural edit support: ControlNet-style conditioning is too rigid for edits with large structural changes\n구조 편집 지원 개선 : ControlNet 방식의 조건부 편집은 구조적 변경이 큰 편집에는 너무 경직되어 있습니다.\nSimpler single-keyframe support: the new design naturally degrades to standard image-to-video when only one keyframe is provided\n더욱 간소화된 단일 키프레임 지원 : 새로운 디자인은 키프레임이 하나만 제공될 경우 표준 이미지-비디오 변환 방식으로 자연스럽게 전환됩니다.\nOptional coarse mask: a rough rectangular mask of the edit region can be supplied to improve editing accuracy (not required, and does not need to be precise)\n선택적 거친 마스크 : 편집 정확도를 높이기 위해 편집 영역의 대략적인 직사각형 마스크를 제공할 수 있습니다(필수 사항은 아니며, 정밀할 필요도 없습니다).\nDespite the arch simplification, our pair-free training via degradation simulation with sparse keyframe control and dense source video synthesis remains unchanged from the paper.\n구조적 단순화에도 불구하고, 희소 키프레임 제어와 밀집 소스 비디오 합성을 통한 열화 시뮬레이션 기반의 페어 프리 학습 방식은 논문의 내용과 동일하게 유지됩니다.",
+      "cat": "Inpaint",
+      "subcat": "Video",
+      "date": "2026-03-06",
+      "link": "https://github.com/WeChatCV/NovaEdit?tab=readme-ov-file",
+      "thumb": "https://private-user-images.githubusercontent.com/23131613/538573061-dbde0eb4-58bc-4491-9b31-5a981e15ae16.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzI3NzMwNzUsIm5iZiI6MTc3Mjc3Mjc3NSwicGF0aCI6Ii8yMzEzMTYxMy81Mzg1NzMwNjEtZGJkZTBlYjQtNThiYy00NDkxLTliMzEtNWE5ODFlMTVhZTE2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAzMDYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMzA2VDA0NTI1NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTc4YjIzYTJmMDU0OGQ1OGUwOGViMDUxZDI4ZDZkZGYzYjg2ZWFlNTJiNWIyMzVkMzRlYWMwOTdlNTVjNGZjNTcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0._X3uiPa7jSzPN_Do9TKH3U8O1sUyxN2UxwydP2Uz5Tk",
+      "id": 1772772833701,
+      "liked": false
+    },
+    {
       "title": "Wan 2.2 is still incredible - huge thanks to IAMCCS-Nodes for SVI Pro v2",
       "desc": "WAN 2.2는 여전히 놀랍습니다. SVI Pro v2를 개발해 주신 IAMCCS-Nodes에 진심으로 감사드립니다.",
       "cat": "Custom Nodes",
