@@ -1,6 +1,17 @@
 {
   "news": [
     {
+      "title": "ComfyUI의 LTX-2.3 Day-0 지원: 오디오/비디오 생성 품질 향상",
+      "desc": "안녕하세요 여러분! Lightricks의 오픈 소스 오디오-비디오 생성 모델의 최신 버전인 LTX-2.3 이 ComfyUI에서 기본적으로 지원된다는 소식을 알려드리게 되어 기쁩니다! LTX-2를 기반으로 개발된 이번 릴리스는 세부 묘사, 세로형 비디오, 오디오, 이미지-비디오 변환, 프롬프트 이해 및 텍스트 렌더링 등 여러 측면에서 주요 품질 개선 사항을 제공합니다.\n\nModel Highlights  모델 주요 특징\nLTX-2.3 brings a comprehensive set of quality upgrades to the LTX family.\nLTX-2.3은 LTX 제품군에 포괄적인 품질 향상 기능을 제공합니다.\n\nFiner Details: New latent space & updated VAE for sharper textures, cleaner edges, and more precise visuals.\n더욱 세밀한 표현 : 새로운 잠재 공간 및 업데이트된 VAE를 통해 더욱 선명한 텍스처, 깔끔한 가장자리, 그리고 더욱 정밀한 시각적 효과를 구현했습니다.\n\n9:16 Portrait Support: Greatly improved quality for vertical portrait videos, perfect for social media & mobile.\n9:16 세로형 지원 : 세로형 동영상 화질이 크게 향상되어 소셜 미디어 및 모바일에 적합합니다.\n\nBetter Audio: Cleaner sound with reduced noise, enhanced dialogue, music, and ambient audio.\n향상된 오디오 : 노이즈 감소, 대화, 음악 및 주변 소리 향상으로 더욱 깨끗한 사운드를 제공합니다.\n\nImproved Image-to-Video: More consistent motion and fewer glitches, such as frozen frames, for smoother, more natural animations.\n향상된 이미지-비디오 변환 : 더욱 일관된 움직임과 화면 멈춤과 같은 오류 감소로 더욱 부드럽고 자연스러운 애니메이션을 구현합니다.\n\nSmarter Prompt Understanding: Improved text encoder for more accurate interpretation of complex prompts.\n프롬프트 이해도 향상 : 복잡한 프롬프트를 더욱 정확하게 해석할 수 있도록 텍스트 인코더가 개선되었습니다.\n\nClearer Text Rendering: More accurate text and letter rendering in videos.\n더욱 선명한 텍스트 표시 : 동영상에서 텍스트와 글자가 더욱 정확하게 표시됩니다.",
+      "cat": "모델",
+      "subcat": "Video",
+      "date": "2026-03-06",
+      "link": "https://www.reddit.com/r/comfyui/comments/1rlnt1j/ltx23_day0_support_in_comfyui_enhanced_quality/",
+      "thumb": "https://huggingface.co/Lightricks/LTX-2.3/resolve/main/ltx2.3-open.png",
+      "id": 1772773304323,
+      "liked": false
+    },
+    {
       "title": "NOVA: Sparse Control, Dense Synthesis for Pair-Free Video Editing",
       "desc": "본 논문은 전용 희소 VACE 분기, 복사된 밀집 DiT 분기, 그리고 이들을 연결하는 학습 가능한 교차 주의(CA) 모듈을 갖춘 WAN VACE 1.3B 기반 설계를 설명합니다. 현재 코드베이스는 이를 단일 WAN 1.3B Fun InP 모델로 단순화하여 소스, 단서(키프레임), 목표 잠재 변수를 시간 축을 따라 연결하고, RoPE를 사용하여 각 변수의 역할을 구분합니다. 변경 이유는 다음과 같습니다.\n\nBetter color consistency: VACE pre-trained weights introduced color artifacts\n색상 일관성 개선 : VACE 사전 학습 가중치는 색상 왜곡 현상을 유발했습니다.\nBetter structural edit support: ControlNet-style conditioning is too rigid for edits with large structural changes\n구조 편집 지원 개선 : ControlNet 방식의 조건부 편집은 구조적 변경이 큰 편집에는 너무 경직되어 있습니다.\nSimpler single-keyframe support: the new design naturally degrades to standard image-to-video when only one keyframe is provided\n더욱 간소화된 단일 키프레임 지원 : 새로운 디자인은 키프레임이 하나만 제공될 경우 표준 이미지-비디오 변환 방식으로 자연스럽게 전환됩니다.\nOptional coarse mask: a rough rectangular mask of the edit region can be supplied to improve editing accuracy (not required, and does not need to be precise)\n선택적 거친 마스크 : 편집 정확도를 높이기 위해 편집 영역의 대략적인 직사각형 마스크를 제공할 수 있습니다(필수 사항은 아니며, 정밀할 필요도 없습니다).\nDespite the arch simplification, our pair-free training via degradation simulation with sparse keyframe control and dense source video synthesis remains unchanged from the paper.\n구조적 단순화에도 불구하고, 희소 키프레임 제어와 밀집 소스 비디오 합성을 통한 열화 시뮬레이션 기반의 페어 프리 학습 방식은 논문의 내용과 동일하게 유지됩니다.",
       "cat": "Inpaint",
