@@ -3,8 +3,7 @@
     {
       "title": "WOFTSAM - 새로운 SOTA 평면 추적",
       "desc": "🔥🔥새로운 SOTA 평면 추적🔥🔥\n\n👉Visual Recognition Group(CTU)의 WOFTSAM은 SAM2에 의한 견고한 장기 분할과 8 자유도 동향 자세 추정을 결합한 새로운 평면 추적기입니다. BY-NC-SA 4.0💙 하의 리포\n\n주요 내용:\n✅SAM-H: 장기 상동 추적\n✅WOFTSAM, 새로운 SOTA 평면 추적기\n✅SAM-H를 통한 강력한 표적 재탐지\n✅초기 플래너트랙 GT의 정밀 재주석\n\n해시태그#AI 해시태그#deeplearning 해시태그#computervision 해시태그#AIwithPapers \n\n👉토론 https://lnkd.in/dMgakzWm\n👉종이 https://lnkd.in/dZfc_DhQ\n👉리포 https://lnkd.in/dAcneJGn",
-      "cat": "모델",
-      "subcat": "Image",
+      "cat": "Tracking",
       "date": "2026-03-09",
       "link": "https://github.com/serycjon/WOFTSAM",
       "thumb": "https://github.com/serycjon/WOFTSAM/raw/main/compilation_grid.gif",
