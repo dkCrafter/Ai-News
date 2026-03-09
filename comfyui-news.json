@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "TAPFormer",
+      "desc": "👉TAPFormer는 프레임과 이벤트의 비동기 시간 일관성 융합을 수행하여 강인하고 고주파수 포인트 트래킹을 수행하는 새로운 SOTA 트랜스포머 기반 프레임워크입니다. MIT💙 하의 저장소 및 데이터셋\n\n주요 내용:\n✅저자: 후난국립국방대학교\n✅통합 프레임워크 RGB 프레임 + 이벤트 스트림\n✅최초의 실제 TAP 벤치마크 제안\n✅신규 SOTA는 큰 차이(최대 +28%)\n\n해시태그#AI 해시태그#deeplearning 해시태그#AIwithPapers 해시태그#metaverse \n\n👉토론 https://lnkd.in/dMgakzWm\n👉종이 https://lnkd.in/drw4pBzX\n👉프로젝트 https://lnkd.in/dbD9NqWw\n👉리포 https://lnkd.in/dJ6JmsZJ",
+      "cat": "Tracking",
+      "date": "2026-03-09",
+      "link": "https://github.com/ljx1002/TAPFormer",
+      "thumb": "https://github.com/ljx1002/TAPFormer/raw/main/assets/indoor_fruit_410_510.gif",
+      "id": 1773040881624,
+      "liked": false
+    },
+    {
       "title": "ComfyUI의 LTX-2.3 Day-0 지원: 오디오/비디오 생성 품질 향상",
       "desc": "안녕하세요 여러분! Lightricks의 오픈 소스 오디오-비디오 생성 모델의 최신 버전인 LTX-2.3 이 ComfyUI에서 기본적으로 지원된다는 소식을 알려드리게 되어 기쁩니다! LTX-2를 기반으로 개발된 이번 릴리스는 세부 묘사, 세로형 비디오, 오디오, 이미지-비디오 변환, 프롬프트 이해 및 텍스트 렌더링 등 여러 측면에서 주요 품질 개선 사항을 제공합니다.\n\nModel Highlights  모델 주요 특징\nLTX-2.3 brings a comprehensive set of quality upgrades to the LTX family.\nLTX-2.3은 LTX 제품군에 포괄적인 품질 향상 기능을 제공합니다.\n\nFiner Details: New latent space & updated VAE for sharper textures, cleaner edges, and more precise visuals.\n더욱 세밀한 표현 : 새로운 잠재 공간 및 업데이트된 VAE를 통해 더욱 선명한 텍스처, 깔끔한 가장자리, 그리고 더욱 정밀한 시각적 효과를 구현했습니다.\n\n9:16 Portrait Support: Greatly improved quality for vertical portrait videos, perfect for social media & mobile.\n9:16 세로형 지원 : 세로형 동영상 화질이 크게 향상되어 소셜 미디어 및 모바일에 적합합니다.\n\nBetter Audio: Cleaner sound with reduced noise, enhanced dialogue, music, and ambient audio.\n향상된 오디오 : 노이즈 감소, 대화, 음악 및 주변 소리 향상으로 더욱 깨끗한 사운드를 제공합니다.\n\nImproved Image-to-Video: More consistent motion and fewer glitches, such as frozen frames, for smoother, more natural animations.\n향상된 이미지-비디오 변환 : 더욱 일관된 움직임과 화면 멈춤과 같은 오류 감소로 더욱 부드럽고 자연스러운 애니메이션을 구현합니다.\n\nSmarter Prompt Understanding: Improved text encoder for more accurate interpretation of complex prompts.\n프롬프트 이해도 향상 : 복잡한 프롬프트를 더욱 정확하게 해석할 수 있도록 텍스트 인코더가 개선되었습니다.\n\nClearer Text Rendering: More accurate text and letter rendering in videos.\n더욱 선명한 텍스트 표시 : 동영상에서 텍스트와 글자가 더욱 정확하게 표시됩니다.",
       "cat": "모델",
