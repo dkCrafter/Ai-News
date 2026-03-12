@@ -8,7 +8,7 @@
       "link": "https://pq-yang.github.io/projects/MatAnyone2/",
       "thumb": "https://pq-yang.github.io/projects/MatAnyone2/assets/videos_mat/mixkit-man-breakdancing-452-full-hd_78_fgr_sm.mp4",
       "id": 1773291670600,
-      "liked": false
+      "liked": true
     },
     {
       "title": "ComfyUI용 감지 및 분할 모델을 직접 학습시켰습니다.",
