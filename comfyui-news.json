@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "Node replacement",
+      "desc": "",
+      "cat": "Custom Nodes",
+      "date": "2026-03-12",
+      "link": "https://docs.comfy.org/custom-nodes/backend/node-replacement",
+      "thumb": "",
+      "id": 1773293691539,
+      "liked": false
+    },
+    {
       "title": "trackers",
       "desc": "",
       "cat": "Tracking",
