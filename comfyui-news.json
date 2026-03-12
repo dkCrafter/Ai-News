@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "SAM에서 SAM 3까지",
+      "desc": "",
+      "cat": "논문",
+      "date": "2026-03-12",
+      "link": "https://mlhonk.substack.com/p/from-sam-to-sam-3",
+      "thumb": "https://substackcdn.com/image/fetch/$s_!nGj_!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Facab810b-b6fe-48e3-a135-a620b3479850_1096x424.png",
+      "id": 1773293772172,
+      "liked": false
+    },
+    {
       "title": "Node replacement",
       "desc": "",
       "cat": "Custom Nodes",
