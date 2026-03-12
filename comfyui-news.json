@@ -888,15 +888,6 @@
       "liked": false
     },
     {
-      "id": 51,
-      "title": "SAM 3 Lite — 영상 세그먼트 차세대 업그레이드",
-      "desc": "SAM2 대비 모호한 경계·투명 객체·오클루전 처리 대폭 개선. 영상에서 프레임 간 마스크 일관성 향상. ComfyUI Manager에서 바로 설치. 스틸 이미지는 SAM2로도 충분하나, 영상 로토는 SAM3 권장.",
-      "cat": "Roto",
-      "link": "https://apatero.com/blog/comfyui-sam3-open-source-alternative-guide-2025",
-      "date": "2025-09-01",
-      "liked": false
-    },
-    {
       "id": 52,
       "title": "Wan 2.2 AI CharacterSwap — 자동 로토+트래킹 VFX 워크플로",
       "desc": "Wan 2.2 Animate 기반 얼굴·캐릭터 교체 프로덕션 워크플로. SAM3 자동 로토 + 포즈 트래킹 + 페이스 락킹 → Wan 2.2로 합성. 디에이징·의상 교체에도 활용 가능. 실제 VFX 파이프라인용 오픈소스.",
