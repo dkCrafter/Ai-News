@@ -1,6 +1,16 @@
 {
   "news": [
     {
+      "title": "[pixaroma] ep08. Image Tricks",
+      "desc": "",
+      "cat": "Tutorials",
+      "date": "2026-03-12",
+      "link": "youtube.com/watch?v=CloE39WpHg8&fbclid=IwY2xjawQfMbxleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEe8PUeP0pM0tsukyQXPhqBoAZhqUwanmmZUM9DkxGYvlnCb_FKsbzUAAD6qT0_aem_A8Ty65D5jNPAehvyo_gvfA",
+      "thumb": "",
+      "id": 1773294258465,
+      "liked": false
+    },
+    {
       "title": "SAM에서 SAM 3까지",
       "desc": "",
       "cat": "논문",
